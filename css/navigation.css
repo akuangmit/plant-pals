@@ -1,0 +1,39 @@
+@import url("global.css") element;
+
+nav {
+	background-color: var(--green, green);
+	padding: 15px 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#information {
+	display: flex;
+	align-items: center;
+}
+
+#information img {
+	width: 30px;
+	margin-right: 10px;
+	/*filter: brightness(0) invert(1);*/
+}
+
+#information a#logo {
+	color: var(--white, white);
+	font-size: 20px;
+	padding: 0;
+}
+
+#information input {
+	width: 500px;
+	margin: 0 40px;
+	padding: 5px;
+	border: none;
+	border-radius: 3px;
+}
+
+#links a {
+	color: var(--white, white);
+	padding: 0 10px;
+}
