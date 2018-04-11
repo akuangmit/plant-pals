@@ -28,9 +28,18 @@ nav {
 #information input {
 	width: 500px;
 	margin: 0 40px;
-	padding: 5px;
+	padding: 5px 10px;
 	border: none;
 	border-radius: 3px;
+}
+
+#links {
+	display: flex;
+	align-items: center;
+}
+
+#links img {
+	width: 30px;
 }
 
 #links a {
