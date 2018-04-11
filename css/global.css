@@ -1,6 +1,8 @@
 :root {
 	--green: #43b02f;
 	--white: #ffffff;
+	--background-grey: #f7f7f7;
+	--border-grey: #cccccc;
 }
 
 * {
@@ -11,6 +13,7 @@
 body {
 	margin: 0;
 	padding: 0;
+	background-color: var(--background-grey, grey);
 }
 
 a {
