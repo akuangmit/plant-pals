@@ -10,6 +10,7 @@
 	background-color: var(--white, white);
 	padding: 30px;
 	font-size: 15px;
+	margin-top: 30px;
 }
 
 #feed .top-container {
@@ -61,15 +62,15 @@
 
 #feed .bottom-container {
 	border-top: 1px solid var(--border-grey, grey);
-	padding-top: 20px;
-}
+	margin-top: 10px;
+} 
 
 #feed .bottom-container .comment-container {
 	width: 100%;
 }
 
 #feed .bottom-container .comment {
-	margin: 0;
+	
 }
 
 #feed .bottom-container .commenter {
@@ -90,5 +91,4 @@
 	padding: 5px 10px;
 	border: 1px solid var(--border-grey, grey);
 	border-radius: 3px;
-	margin-top: 20px;
 }
