@@ -60,6 +60,10 @@
 	font-size: 18px;
 }
 
+#feed .content-container .image {
+	padding-right: 20px;
+}
+
 #feed .bottom-container {
 	border-top: 1px solid var(--border-grey, grey);
 	margin-top: 10px;
