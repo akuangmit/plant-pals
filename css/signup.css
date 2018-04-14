@@ -1,44 +1,44 @@
 @import url("global.css") element;
 
-#loginPage {
+#signupPage {
 	margin-left:20%;
 	margin-right:20%;
 	margin-top:5%;
 	height:600px;
 	display:flex;
 }
-#loginPage .photoContainer{
+#signupPage .photoContainer{
 	height:520px;
 	width:45%;
 	margin-right:5%;
 }
-#loginPage .photoContainer img{
+#signupPage .photoContainer img{
 	width: 100%;
 	height: 100%;
 }
-#loginPage .loginSignup{
+#signupPage .loginSignup{
 	height:640px;
 	width:45%;
 }
-#loginPage .loginSignup .information{
+#signupPage .loginSignup .information{
 	display:flex;
 	align-items:center;
 	margin-top:25%;
 }
 
-#loginPage .loginSignup .information #sproutlogo{
+#signupPage .loginSignup .information #sproutlogo{
 	width:50px;
 	margin-left:60px;
 }
 
-#loginPage .loginSignup .information #heading{
+#signupPage .loginSignup .information #heading{
 	color: var(--green, green);
 	font-size:40px;
 	padding-bottom:10px;
 	margin-top:10px;
 }
 
-#loginPage .loginSignup .loginContainer{
+#signupPage .loginSignup .signupContainer{
 	height: 70%;
 	width:100%;
 	display:flex;
@@ -46,12 +46,12 @@
 	border: 1px solid var(--border-grey, grey);
 }
 
-#loginPage .loginSignup .loginContainer #loginForm{
+#signupPage .loginSignup .signupContainer #signupForm{
 	display:flex;
 	flex-direction:column;
 	margin-top:5px;
 }
-#loginPage .loginSignup .loginContainer #loginForm #usernameInput{
+#signupPage .loginSignup .signupContainer #signupForm #usernameInput{
 	width:70%;
 	margin:auto;
 	height:30px;
@@ -60,7 +60,7 @@
 	background-color: var(--background-grey, grey)
 }
 
-#loginPage .loginSignup .loginContainer #loginForm #passwordInput{
+#signupPage .loginSignup .signupContainer #signupForm #passwordInput{
 	width: 70%;
 	margin:auto;
 	height:30px;
@@ -69,7 +69,27 @@
 	background-color: var(--background-grey, grey)
 }
 
-#loginPage .loginSignup .loginContainer #loginButton{
+#signupPage .loginSignup .signupContainer #signupForm #repeatPassword{
+	width: 70%;
+	margin:auto;
+	margin-top:15px;
+	height:30px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+	background-color: var(--background-grey, grey)
+}
+
+#signupPage .loginSignup .signupContainer #signupForm #email{
+	width: 70%;
+	margin:auto;
+	margin-top:15px;
+	height:30px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+	background-color: var(--background-grey, grey)
+}
+
+#signupPage .loginSignup .signupContainer #signupButton{
 	width: 72%;
 	margin-top: 20px;
 	margin-left:auto;
@@ -80,23 +100,17 @@
 	border: 1px solid var(--border-grey, grey);
 	border-radius:3px;
 }
-#loginPage .loginSignup .loginContainer #forgotLink{
-	margin-top:15px;
-	margin-left:auto;
-	margin-right:auto;
-	color: var(--link-blue, blue);
-}
 
-#loginPage .loginSignup .signupContainer{
+#signupPage .loginSignup .loginBottomContainer{
 	margin-top:15px;
 	height: 50px;
 	display:flex;
 	border: 1px solid var(--border-grey, grey);
 }
-#loginPage .loginSignup .signupContainer .signupText{
+#signupPage .loginSignup .loginBottomContainer .signupText{
 	margin:auto;
 }
 
-#loginPage .loginSignup .signupContainer #signupLink{
+#signupPage .loginSignup .loginBottomContainer #signupLink{
 	color: var(--link-blue, blue);
 }
