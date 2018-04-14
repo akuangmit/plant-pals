@@ -1,0 +1,102 @@
+@import url("global.css") element;
+
+#loginPage {
+	margin-left:20%;
+	margin-right:20%;
+	margin-top:5%;
+	height:600px;
+	display:flex;
+}
+#loginPage .photoContainer{
+	height:520px;
+	width:45%;
+	margin-right:5%;
+}
+#loginPage .photoContainer img{
+	width: 100%;
+	height: 100%;
+}
+#loginPage .loginSignup{
+	height:640px;
+	width:45%;
+}
+#loginPage .loginSignup .information{
+	display:flex;
+	align-items:center;
+	margin-top:30%;
+}
+
+#loginPage .loginSignup .information #sproutlogo{
+	width:50px;
+	margin-left:60px;
+}
+
+#loginPage .loginSignup .information #heading{
+	color: var(--green, green);
+	font-size:40px;
+	padding-bottom:10px;
+	margin-top:10px;
+}
+
+#loginPage .loginSignup .loginContainer{
+	height: 70%;
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	border: 1px solid var(--border-grey, grey);
+}
+
+#loginPage .loginSignup .loginContainer #loginForm{
+	display:flex;
+	flex-direction:column;
+	margin-top:5px;
+}
+#loginPage .loginSignup .loginContainer #loginForm #usernameInput{
+	width:70%;
+	margin:auto;
+	height:30px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+	background-color: var(--background-grey, grey)
+}
+
+#loginPage .loginSignup .loginContainer #loginForm #passwordInput{
+	width: 70%;
+	margin:auto;
+	height:30px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+	background-color: var(--background-grey, grey)
+}
+
+#loginPage .loginSignup .loginContainer #loginButton{
+	width: 72%;
+	margin-top: 20px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color: var(--green, green);
+	color: var(--white, white);
+	padding: 5px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+}
+#loginPage .loginSignup .loginContainer #forgotLink{
+	margin-top:15px;
+	margin-left:auto;
+	margin-right:auto;
+	color: var(--link-blue, blue);
+}
+
+#loginPage .loginSignup .signupContainer{
+	margin-top:15px;
+	height: 50px;
+	display:flex;
+	border: 1px solid var(--border-grey, grey);
+}
+#loginPage .loginSignup .signupContainer .signupText{
+	margin:auto;
+}
+
+#loginPage .loginSignup .signupContainer #signupLink{
+	color: var(--link-blue, blue);
+}

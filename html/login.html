@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:200,300,400,500,600" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/login.css">
+
+        <title>Log In</title>
+    </head>
+    <body>
+        <div id="loginPage">
+            <div class="photoContainer">
+                <img src="../img/landingTree.jpg">
+            </div>
+
+            <div class="loginSignup">
+                <div class="loginContainer">
+                    <div class="information">
+                        <img src="../img/sprout-white.svg" id="sproutlogo">
+                        <div id="heading"> Plant Pals </div> 
+                    </div>
+                    <form action="index.html" method="get" id="loginForm">
+                      <input type="text" name="username" placeholder="Username" id="usernameInput"><br>
+                      <input type="password" name="lastname" placeholder="Password" id="passwordInput">
+                    </form>
+                    <button type="submit" form="loginForm" value="loginSubmit" id="loginButton">Log In</button>
+                    <a href="forgotpassword.html" id="forgotLink">Forgot password?</a>
+                </div>
+
+                <div class="signupContainer">
+                    <p class="signupText">Don't have an account? <a href="signup.html" id="signupLink">Sign up</a></p>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
