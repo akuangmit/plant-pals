@@ -48,6 +48,7 @@
 	color: var(--white, white);
 	border-radius:3px;
   border: none;
+  cursor: pointer;
 }
 #plant-list {
 	margin: 25px 130px;
@@ -180,7 +181,6 @@
   padding-top: 25px;
 }
 
-/* The Modal (background) */
 .modal {
     display: none;
     position: fixed;
@@ -192,18 +192,47 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-/* Modal Content */
 .modal-content {
     background-color: var(--white, white);
-    margin: 20% auto;
-    padding: 50px;
-    width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    width: 800px;
     border-radius: 5px;
 }
 
-/* The Close Button */
+.modal-content button {
+  background-color: var(--green, green);
+  border: none;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-right: 30px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.modal-content input {
+  border: none;
+  border-bottom: 1px solid var(--border-grey, grey);
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-left: 10px;
+}
+
+.modal-content #plant-date-acquired-div {
+  margin: 20px 0;
+}
+
+.modal-content #plant-date-acquired-div input {
+  border: none;
+}
+
+.modal-content #plant-picture-div input {
+  border: none;
+}
+
 .close {
-    color: #aaaaaa;
+    color: var(--border-grey, grey);
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -211,32 +240,9 @@
 
 .close:hover,
 .close:focus {
-    color: #000;
+    color: var(--black, black);
     text-decoration: none;
     cursor: pointer;
-}
-
-#myModal #heading {
-  	color: var(--green, green);
-  	font-size:40px;
-}
-
-#myModal #plant-type {
-  display: flex;
-  justify-content: flex-start
-  flex-direction: row;
-}
-
-#myModal .label {
-  flex-basis: 30%;
-}
-
-#myModal .input {
-  flex-basis: 70%;
-}
-
-#myModal #file-upload {
-  margin-left: 65px;
 }
 
 .modal-content #submit-post {
