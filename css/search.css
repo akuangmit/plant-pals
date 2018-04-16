@@ -3,10 +3,11 @@
 	background-color: var(--white, white);
 	padding: 10px 30px;
 	font-size: 15px;
-	margin: 25px 50px;
+	margin: 25px 130px;
 }
 
 #search-query .query {
 	background-color: var(--yellow, yellow);
 	padding: 0 5px;
+	font-weight: 500;
 }
