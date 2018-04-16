@@ -5,3 +5,10 @@ function save(name, object) {
 function load(name) {
 	return JSON.parse(localStorage.getItem(name));
 }
+
+$("#searchbox").keypress(function(e) {
+	if (e.which == 13) {
+		window.location.replace("search.html");
+		return false;
+	};
+});

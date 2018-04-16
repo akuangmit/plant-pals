@@ -204,7 +204,7 @@
 #feed .bottom-container {
 	border-top: 1px solid var(--border-grey, grey);
 	margin-top: 10px;
-} 
+}
 
 #feed .bottom-container .comment-container {
 	width: 100%;
@@ -212,7 +212,7 @@
 }
 
 #feed .bottom-container .comment {
-	
+
 }
 
 #feed .bottom-container .commenter {

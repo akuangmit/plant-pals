@@ -99,13 +99,6 @@ $("#submit-post").click(function(e) {
 	add_post(feed.length, post);
 });
 
-$("#searchbox").keypress(function(e) {
-	if (e.which == 13) {
-		window.location.replace("search.html");
-		return false;
-	};
-});
-
 $("#add-post")
 .mouseover(function() {
 	$("#add-post-descriptor").fadeIn(100);
