@@ -23,7 +23,7 @@
 #loginPage .loginSignup .information{
 	display:flex;
 	align-items:center;
-	margin-top:25%;
+	margin-top:15%;
 }
 
 #loginPage .loginSignup .information #sproutlogo{
@@ -44,6 +44,8 @@
 	display:flex;
 	flex-direction:column;
 	border: 1px solid var(--border-grey, grey);
+	background-color: white;
+	border-radius:5px;
 }
 
 #loginPage .loginSignup .loginContainer #loginForm{
@@ -57,16 +59,19 @@
 	height:30px;
 	border: 1px solid var(--border-grey, grey);
 	border-radius:3px;
-	background-color: var(--background-grey, grey)
+	background-color: var(--background-grey, grey);
+	padding: 5px 10px;
 }
 
 #loginPage .loginSignup .loginContainer #loginForm #passwordInput{
 	width: 70%;
 	margin:auto;
+	margin-top:18px;
 	height:30px;
 	border: 1px solid var(--border-grey, grey);
 	border-radius:3px;
-	background-color: var(--background-grey, grey)
+	background-color: var(--background-grey, grey);
+	padding: 5px 10px;
 }
 
 #loginPage .loginSignup .loginContainer #loginButton{
@@ -76,9 +81,9 @@
 	margin-right:auto;
 	background-color: var(--green, green);
 	color: var(--white, white);
-	padding: 5px;
-	border: 1px solid var(--border-grey, grey);
+	border: 0px;
 	border-radius:3px;
+	padding: 5px 10px;
 }
 #loginPage .loginSignup .loginContainer #forgotLink{
 	margin-top:15px;
@@ -92,6 +97,8 @@
 	height: 50px;
 	display:flex;
 	border: 1px solid var(--border-grey, grey);
+	background-color:white;
+	border-radius:5px;
 }
 #loginPage .loginSignup .signupContainer .signupText{
 	margin:auto;
