@@ -68,7 +68,6 @@ function load_posts() {
 
 function likePost(id, like, currentLikes) {
 	var name_to_liked_posts = load('name_to_liked_posts');
-	console.log(name_to_liked_posts)
 	if (!(id in name_to_liked_posts["Jane Doe"])) {
 		$("#" + id + " .like-container").html("<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (currentLikes + 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes + 1) + " likes</p>");
 		name_to_liked_posts["Jane Doe"][id] = true;
