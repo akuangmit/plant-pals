@@ -18,6 +18,19 @@
 	cursor: pointer;
 }
 
+#add-post-descriptor {
+	display: none;
+	color: white;
+	background-color: var(--dark-grey, grey);
+	text-align: center;
+	padding: 5px 10px;
+	position: fixed;
+	bottom: 45px;
+	right: 100px;
+	border-radius: 3px;
+	font-size: 12px;
+}
+
 .modal {
     display: none;
     position: fixed;

@@ -32,6 +32,14 @@ $("#searchbox").keypress(function(e) {
 	};
 });
 
+$("#add-post")
+.mouseover(function() {
+	$("#add-post-descriptor").fadeIn(100);
+})
+.mouseout(function() {
+	$("#add-post-descriptor").fadeOut(100);
+});
+
 $(".add-comment").keypress(function(e) {
 	var postID = $(this).attr("id").split("-")[1];
 	if (e.which == 13) {
