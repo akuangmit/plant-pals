@@ -18,13 +18,27 @@ function add_post(id, post) {
 	var images = post.images;
 	var pfpfilename = load('name_to_profile')[author];
 
+	// make "See More" if the post is too long
+	if (content.length > 200) {
+		var shortened = content.substring(0,200);
+		var rest = content.substring(200,content.length);
+		content = shortened + '... <div onclick="expandPost('+id+', true)">See More</div>';
+	}
+
+	var image_div = ''
 	// modify content based on images
 	for(var i = 0; i < images.length; i++) {
-		content = '<img src="../img/'+images[i]+'" align="left" class="image">'+ content;
+		image_div = '<img src="../img/'+images[i]+'" align="left" class="image">';
+	}
+
+	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
+	// check to see if I already like this post
+	if (id in load('name_to_liked_posts')[username]) {
+		like_img_div = "<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (likes + 1) + ")'><p>Like</p><p class='number-likes'>" + (likes + 1) + " likes</p>";
 	}
 
 	// change the interface
-	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container"><img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p></div></div><div class="content-container"><h1>' + title + '</h1><p>' + content + '</p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
+	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
@@ -38,7 +52,7 @@ function add_post(id, post) {
 
 			if (content != "") {
 				comment = {
-					author: "Jane Doe",
+					author: username,
 					content: content,
 					time: "Just now"
 				}
@@ -60,12 +74,27 @@ function load_posts() {
 	}
 }
 
+function expandPost(id, expand) {
+	var post = load('feed')[id];
+	var content = post.content;
+	var shortened = content.substring(0,200);
+	if(expand) {
+		$("#" + id + " .content-text").html(content + '<div onclick="expandPost('+id+', false)">See Less</div>');
+	} else {
+		$("#" + id + " .content-text").html(shortened + '... <div onclick="expandPost('+id+', true)">See More</div>');
+	}
+}
+
 function likePost(id, like, currentLikes) {
-	if (like) {
+	var name_to_liked_posts = load('name_to_liked_posts');
+	if (!(id in name_to_liked_posts[username])) {
 		$("#" + id + " .like-container").html("<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (currentLikes + 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes + 1) + " likes</p>");
+		name_to_liked_posts[username][id] = true;
 	} else {
 		$("#" + id + " .like-container").html("<img src='../img/heart-white.svg' onclick='likePost(" + id + ", true, " + (currentLikes - 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes - 1) + " likes</p>");
+		delete name_to_liked_posts[username][id];
 	};
+	save('name_to_liked_posts', name_to_liked_posts);
 };
 
 var modal = $("#create-post");
@@ -86,7 +115,7 @@ $("#submit-post").click(function(e) {
 	var content = $("#post-content").val();
 
 	post = {
-		author: "Jane Doe",
+		author: load('users')[localStorage.getItem('email')],
 		likes: 0,
 		title: title,
 		content: content,
@@ -172,17 +201,17 @@ var feed_base = [
 	}
 ];
 
-var name_to_profile = {
-	"Jane Doe": "jane-doe.png",
-	"John Doe": "john-doe.png"
+var name_to_liked_posts = {
+	"Jane Doe": {},
+	"John Doe": {}
 }
 
 $( document ).ready(function() {
 	if(!localStorage.getItem('feed')) {
 	  save('feed', feed_base);
 	}
-	if(!localStorage.getItem('name_to_profile')) {
-	  save('name_to_profile', name_to_profile);
+	if(!localStorage.getItem('name_to_liked_posts')) {
+	  save('name_to_liked_posts', name_to_liked_posts);
 	}
-    load_posts();
+	load_posts();
 });

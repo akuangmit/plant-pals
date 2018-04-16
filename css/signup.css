@@ -24,11 +24,11 @@
 	display:flex;
 	align-items:center;
 	margin-top:5%;
+	justify-content:center;
 }
 
 #signupPage .loginSignup .information #sproutlogo{
 	width:50px;
-	margin-left:60px;
 }
 
 #signupPage .loginSignup .information #heading{

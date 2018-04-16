@@ -5,6 +5,8 @@
 
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:200,300,400,500,600" rel="stylesheet">
 
+        <script src="../js/utils.js" type="text/javascript"></script>
+
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/signup.css">
 
@@ -22,10 +24,10 @@
                         <img src="../img/sprout.svg" id="sproutlogo">
                         <div id="heading"> Plant Pals </div>
                     </div>
-                    <form action="profile.html" method="get" id="signupForm">
+                    <form id="signupForm" method="POST" onsubmit="sign_up()">
                       <input type="text" name="firstname" placeholder="First Name" id="firstNameInput" required>
                       <input type="text" name="lastname" placeholder="Last Name" id="lastNameInput" required>
-                      <input type="text" name="email" placeholder="Email Address" id="email" required>
+                      <input type="email" name="email" placeholder="Email Address" id="email" required>
                       <input type="password" name="password" placeholder="Password" id="passwordInput" required>
                       <input type="password" name="repeatPassword" placeholder="Repeat Password" id="repeatPassword" required>
                     </form>
@@ -38,7 +40,7 @@
             </div>
 
         </div>
-    <script src="../js/utils.js" type="text/javascript"></script>
+    <script src="../js/global.js" type="text/javascript"></script>
     <script src="../js/index.js" type="text/javascript"></script>
     <script src="../js/signup.js" type="text/javascript"></script>
     </body>

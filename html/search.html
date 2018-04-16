@@ -5,6 +5,9 @@
 
     	<link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:200,300,400,500,600" rel="stylesheet">
 
+        <script src="../js/utils.js" type="text/javascript"></script>
+        <script src="../js/check_login.js" type="text/javascript"></script>
+
     	<link rel="stylesheet" type="text/css" href="../css/global.css">
     	<link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <link rel="stylesheet" type="text/css" href="../css/feed.css">
@@ -36,22 +39,31 @@
                     <div class="info-container">
                         <div class="profile-container">
                             <img src="../img/profile-pictures/john-doe.png">
-                            <p>John Doe</p>
+                            <p>Sally Jones</p>
                         </div>
                         <div class="like-container">
                             <img src="../img/heart-white.svg" onclick="likePost(1, true, 15)">
                             <p>Like</p>
-                            <p class="number-likes">15 likes</p>
+                            <p class="number-likes">3215 likes</p>
                         </div>
                     </div>
                     <div class="content-container">
-                        <h1>Neque porro quisquam est qui dolorem</h1>
-                        <p><img src="../img/sample-image.jpeg" align="left" class="image">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante dictum, bibendum dolor eget, ullamcorper eros. Sed quis justo eu purus varius suscipit. Curabitur vel blandit orci, a eleifend orci. Sed orci ex, egestas quis lectus ac, tempus luctus eros. Fusce nec posuere ligula. Nam finibus venenatis arcu, ac egestas felis tristique nec. Aliquam erat volutpat. Sed auctor nisl non urna dignissim congue. Etiam eget tellus ac ligula posuere venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam eget felis diam. Integer sagittis dui elit, eget luctus dui tincidunt id. Etiam lobortis magna tortor, et imperdiet dui blandit non. Aliquam vitae arcu et lacus euismod blandit. Vestibulum posuere velit id leo molestie laoreet.<br><br>Phasellus aliquet efficitur lorem, consequat efficitur elit aliquet non. Maecenas aliquam viverra magna, a venenatis leo suscipit eu. Duis vulputate ipsum in risus sollicitudin rutrum. Proin auctor porttitor efficitur. Nam elit nisi, varius at ante non, tincidunt congue turpis. Vestibulum dictum, nunc ut bibendum semper, dolor augue dictum massa, quis maximus elit nisl in metus. In hac habitasse platea dictumst. Integer a condimentum justo. Fusce sapien libero, semper quis justo sit amet, venenatis sagittis lectus. Curabitur ullamcorper nibh massa, eu placerat nisi suscipit sit amet.</p>
+                        <h1>An Expert Guide on How to Take Care of Your Spider Plant</h1>
+                        <p>My name is Sally Jones and I'm an award winning gardener and spider plant enthusiast. Spider plants are one of my favorite plants to take care of because of their low maintenance
+                          needs, but high utility. You can use them as a great way to green up a place in any room, outside in a garden to complement flowers, or even hung from a sky pot.
+                          <br> <br>
+                          Here are some of my favorite tips for how to take care of your spider plant:
+                          <br>
+                          - Give it just enough water. About two times per week is just about perfect. Any more, and you could overwater this native desert plant. Any less, and it won't be as green as it could be.
+                          <br>
+                          <br>
+                          - On the other hand, spider plants love sunlight, so be sure to give your plant plenty of sunshine. If you're growing your plant indoors, try to rotate the pot outside at least once a week so it can get it's weekly fix of sunshine.
+                        </p>
                     </div>
                 </div>
                 <div class="bottom-container">
                     <div class="comment-container">
-                        <p class="comment"><span class="commenter">George</span> Sed metus lacus, iaculis id eros a, aliquet posuere est.<span class="time-ago">1 day ago</span></p>
+                        <p class="comment"><span class="commenter">George</span> Thanks for these helpful tips Sally! Love seeing pictures of your spider plants <span class="time-ago">1 day ago</span></p>
                     </div>
                     <input type="text" placeholder="Add a comment...">
                 </div>
@@ -61,29 +73,28 @@
                     <div class="info-container">
                         <div class="profile-container">
                             <img src="../img/profile-pictures/jane-doe.png">
-                            <p>Jane Doe</p>
+                            <p>Casey Lee</p>
                         </div>
                         <div class="like-container">
                             <img src="../img/heart-white.svg" onclick="likePost(2, true, 201)">
                             <p>Like</p>
-                            <p class="number-likes">201 likes</p>
+                            <p class="number-likes">601 likes</p>
                         </div>
                     </div>
                     <div class="content-container">
-                        <h1>Maecenas eu consequat justo</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante dictum, bibendum dolor eget, ullamcorper eros. Sed quis justo eu purus varius suscipit. Curabitur vel blandit orci, a eleifend orci. Sed orci ex, egestas quis lectus ac, tempus luctus eros. Fusce nec posuere ligula. Nam finibus venenatis arcu, ac egestas felis tristique nec. Aliquam erat volutpat. Sed auctor nisl non urna dignissim congue. Etiam eget tellus ac ligula posuere venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam eget felis diam. Integer sagittis dui elit, eget luctus dui tincidunt id. Etiam lobortis magna tortor, et imperdiet dui blandit non. Aliquam vitae arcu et lacus euismod blandit. Vestibulum posuere velit id leo molestie laoreet.</p>
+                        <h1>My New Spider Plant! </h1>
+                        <p><img src="../img/sample-image.jpeg" align="left" class="image"> Hi everyone! I'm super excited to show everyone my new spider plant! She's a real beauty, and I can't wait to watch her grow</p>
                     </div>
                 </div>
                 <div class="bottom-container">
                     <div class="comment-container">
-                        <p class="comment"><span class="commenter">Angela</span> Vestibulum eget dolor quis nisi sollicitudin iaculis et aliquam ex. Quisque ornare turpis ac nulla convallis.<span class="time-ago">1 minute ago</span></p>
-                        <p class="comment"><span class="commenter">Bobby</span> Praesent quis malesuada libero. Cras varius nibh risus, eu sagittis augue maximus eu.<span class="time-ago">2 hours ago</span></p>
+                        <p class="comment"><span class="commenter">Angela</span> Looks beautiful! <span class="time-ago">1 minute ago</span></p>
+                        <p class="comment"><span class="commenter">Bobby</span> Keep us updated on your new plant's growing progress! <span class="time-ago">2 hours ago</span></p>
                     </div>
                     <input type="text" placeholder="Add a comment...">
                 </div>
             </div>
         </div>
-        <script src="../js/utils.js" type="text/javascript"></script>
-        <script src="../js/index.js" type="text/javascript"></script>
+        <script src="../js/global.js" type="text/javascript"></script>
     </body>
 </html>
