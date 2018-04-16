@@ -185,14 +185,25 @@
           <p id="heading">Add a New Plant</p>
           <form>
             <div id="form-div">
-              <p> Plant Type: <input type="text" placeholder="Search..."> </p>
-              <p> Upload Image: <input type="file" name="pic" accept="image/*"> </p>
-              <p> Owner since: <input type="date"></p>
-              <input type="submit">
-            <div>
+              <div id="plant-type">
+                <p class="label"> Plant Type: </p>
+                <p class="input"> <input type="text" placeholder="Search..."> </p>
+              </div>
+
+              <div id="plant-type">
+                <p class="label"> Picture: </p>
+                <p class="input" id="file-upload"> <input type="file" name="pic" accept="image/*"> </p>
+              </div>
+
+              <div id="plant-type">
+                <p class="label"> Date: </p>
+                <p class="input"> <input type="date"></p>
+              </div>
+
+              <button id="submit-post"> Add Plant </button>
+            </div>
           </form>
         </div>
-
       </div>
 
     <script src="../js/add-plant.js" type="text/javascript"></script>
