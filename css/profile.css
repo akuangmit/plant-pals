@@ -52,6 +52,11 @@
 	margin: 25px 130px;
 }
 
+#plant-list #plant-name {
+  display: flex;
+  align-items: center;
+}
+
 #plant-list .plant-div {
 	/*border: 1px solid var(--border-grey, grey);*/
 	border-radius: 5px;
