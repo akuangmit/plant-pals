@@ -28,3 +28,13 @@ $("#searchbox").keypress(function(e) {
 		return false;
 	};
 });
+
+$(".add-comment").keypress(function(e) {
+	var postID = $(this).attr("id").split("-")[1];
+	if (e.which == 13) {
+		var container = $("#" + postID + " .bottom-container .comment-container");
+		var content = $("#" + postID + " .add-comment").val();
+		container.prepend("<p class='comment'><span class='commenter'>Lucy</span>" + content + "<span class='time-ago'>Just now</span></p>");
+		$(".add-comment").val("");
+	};
+});
