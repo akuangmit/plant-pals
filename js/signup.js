@@ -7,11 +7,11 @@ function sign_up(){
     var form = document.getElementById("signupForm");
     if (password.value!=repeatPassword.value){
     	form.action = "signup.html";
-    	alert("Passwords do not match. Try again.");
+    	alert("Passwords do not match. Try signing up again.");
     }
     else if (localStorage.getItem(email.value)!=null){
     	form.action = "signup.html";
-    	alert("Email account already exists.");
+    	alert("Email account already exists. Try logging in.");
     }
     else{
     	localStorage.setItem(email.value, firstname.value+" "+lastname.value); 
