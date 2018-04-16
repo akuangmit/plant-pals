@@ -20,6 +20,9 @@ $(".close").click(function(e) {
 
 $("#submit-post").click(function(e) {
 	modal.css("display", "none");
+	var title = $("#post-title").val();
+	var content = $("#post-content").val();
+	$("#feed").prepend('<div class="post" id="3"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/jane-doe.png"><p>Su Yang</p></div><div class="like-container"><img src="../img/heart-white.svg" onclick="likePost(3, true, 0)"><p>Like</p><p class="number-likes">0 likes</p></div></div><div class="content-container"><h1>' + title + '</h1><p>' + content + '</p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-3"></div></div>');
 });
 
 $("#searchbox").keypress(function(e) {
