@@ -2,6 +2,8 @@
 
 <html>
     <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     	<link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:200,300,400,500,600" rel="stylesheet">
 
     	<link rel="stylesheet" type="text/css" href="../css/global.css">
@@ -174,6 +176,32 @@
             </div>
           </div>
         </div>
+
+        <div class="plant-div">
+          <div class="left-container">
+              <div class="plant-profile-container">
+                <img src="../img/sample-image.jpeg">
+                <div id="profile-top">
+                  <div id="plant-name">
+                    <span class="plant-title"> Spider Plant </span>
+                    <button id="edit-button"> ‎✎ </button>
+                  </div>
+                  <div id="owned-by-date"> Owned since 4/10/18 </div>
+                </div>
+              </div>
+              <div class="posts-container empty">
+                No posts about this plant yet!
+              </div>
+          </div>
+          <div class="content-container">
+            <div id="info">
+              <p><img src="../img/watering-can.png" align="left" class="image"> <span style="font-weight:bold"> Water: </span> 2x / week </p>
+              <p><img src="../img/sun.png" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> Medium </p>
+              <p><img src="../img/sprout.png" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> February </p>
+              <p><img src="../img/flower.png" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> April - June </p>
+            </div>
+          </div>
+        </div>
       </div>
 
         <!-- The Modal -->
@@ -187,7 +215,7 @@
             <div id="form-div">
               <div id="plant-type">
                 <p class="label"> Plant Type: </p>
-                <p class="input"> <input type="text" placeholder="Search..."> </p>
+                <p class="input"> <input type="text" id="plant-type" placeholder="Search..."> </p>
               </div>
 
               <div id="plant-type">
@@ -197,10 +225,10 @@
 
               <div id="plant-type">
                 <p class="label"> Date: </p>
-                <p class="input"> <input type="date"></p>
+                <p class="input"> <input id="date-acquired" type="date"></p>
               </div>
 
-              <button id="submit-post"> Add Plant </button>
+              <button id="add-plant-submit"> Add Plant </button>
             </div>
           </form>
         </div>
