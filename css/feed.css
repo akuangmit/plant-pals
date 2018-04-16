@@ -70,7 +70,7 @@
 
 .modal-content {
     background-color: var(--white, white);
-    margin: 20% auto;
+    margin: 100px auto;
     padding: 20px;
     width: 800px;
     border-radius: 5px;
