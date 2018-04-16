@@ -6,6 +6,18 @@ function likePost(id, like, currentLikes) {
 	};
 };
 
+var modal = $("#create-post");
+var btn = document.getElementById("add-post");
+var span = document.getElementsByClassName("close")[0];
+
+$("#add-post").click(function(e) {
+	modal.css("display", "block");
+});
+
+$(".close").click(function(e) {
+	modal.css("display", "none");
+});
+
 $("#searchbox").keypress(function(e) {
 	if (e.which == 13) {
 		window.location.replace("search.html");
