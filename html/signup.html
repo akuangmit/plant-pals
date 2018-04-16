@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
         <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:200,300,400,500,600" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="../css/global.css">
@@ -21,10 +23,11 @@
                         <div id="heading"> Plant Pals </div> 
                     </div>
                     <form action="profile.html" method="get" id="signupForm">
-                      <input type="text" name="username" placeholder="Username" id="usernameInput" required><br>
+                      <input type="text" name="firstname" placeholder="First Name" id="firstNameInput" required>
+                      <input type="text" name="lastname" placeholder="Last Name" id="lastNameInput" required>
+                      <input type="text" name="email" placeholder="Email Address" id="email" required>
                       <input type="password" name="password" placeholder="Password" id="passwordInput" required>
                       <input type="password" name="repeatPassword" placeholder="Repeat Password" id="repeatPassword" required>
-                      <input type="text" name="email" placeholder="Email Address" id="email" required>
                     </form>
                     <button type="submit" form="signupForm" value="signupSubmit" id="signupButton">Sign Up</button>
                 </div>
@@ -35,5 +38,7 @@
             </div>
 
         </div>
+    <script src="../js/index.js" type="text/javascript"></script>
     </body>
+    <script src="../js/signup.js" type="text/javascript"></script>
 </html>
