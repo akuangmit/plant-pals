@@ -44,9 +44,11 @@ $("#searchbox").keypress(function(e) {
 $("#add-post")
 .mouseover(function() {
 	$("#add-post-descriptor").fadeIn(100);
+	$(".dot").css("box-shadow", "0px 8px 10px var(--border-grey, grey)");
 })
 .mouseout(function() {
 	$("#add-post-descriptor").fadeOut(100);
+	$(".dot").css("box-shadow", "0px 5px 5px var(--border-grey, grey)");
 });
 
 $(".add-comment").keypress(function(e) {

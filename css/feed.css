@@ -8,7 +8,7 @@
 	border-radius: 50%;
 	bottom: 30px;
 	right: 30px;
-	box-shadow: 3px 3px 5px var(--border-grey, grey);
+	box-shadow: 0px 5px 5px var(--border-grey, grey);
 	display: flex;
 	align-items: center;
 	justify-content: center;
