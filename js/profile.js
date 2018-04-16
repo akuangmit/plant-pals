@@ -1,3 +1,3 @@
 function postClicked(postID) {
-  window.location.replace("index.html");
+  window.location.href = "index.html";
 }
