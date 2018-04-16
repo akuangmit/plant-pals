@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
     	<link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:200,300,400,500,600" rel="stylesheet">
 
     	<link rel="stylesheet" type="text/css" href="../css/global.css">
@@ -25,7 +27,7 @@
     		</div>
     	</nav>
         <div id="feed">
-            <div class="post">
+            <div class="post" id="1">
                 <div class="top-container">
                     <div class="info-container">
                         <div class="profile-container">
@@ -33,7 +35,7 @@
                             <p>John Doe</p>
                         </div>
                         <div class="like-container">
-                            <img src="../img/heart-red.svg">
+                            <img src="../img/heart-white.svg" onclick="likePost(1, true, 15)">
                             <p>Like</p>
                             <p class="number-likes">15 likes</p>
                         </div>
@@ -50,7 +52,7 @@
                     <input type="text" placeholder="Add a comment...">
                 </div>
             </div>
-            <div class="post">
+            <div class="post" id="2">
                 <div class="top-container">
                     <div class="info-container">
                         <div class="profile-container">
@@ -58,7 +60,7 @@
                             <p>Jane Doe</p>
                         </div>
                         <div class="like-container">
-                            <img src="../img/heart-red.svg">
+                            <img src="../img/heart-white.svg" onclick="likePost(2, true, 201)">
                             <p>Like</p>
                             <p class="number-likes">201 likes</p>
                         </div>
@@ -77,5 +79,6 @@
                 </div>
             </div>
         </div>
+    <script src="../js/index.js" type="text/javascript"></script>
     </body>
 </html>
