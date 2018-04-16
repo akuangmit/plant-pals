@@ -36,6 +36,7 @@
   justify-content: center;
   margin-left: auto;
   margin-right: 30px;
+  border: none;
 }
 
 #add-button{
@@ -45,8 +46,8 @@
   padding-right: 15px;
 	background-color: var(--green, green);
 	color: var(--white, white);
-	border: 1px solid var(--border-grey, grey);
 	border-radius:3px;
+  border: none;
 }
 #plant-list {
 	margin: 25px 130px;
@@ -89,8 +90,8 @@
   padding-right: 5px;
 	background-color: var(--green, green);
 	color: var(--white, white);
-	border: 1px solid var(--border-grey, grey);
 	border-radius: 50%;
+  border: none;
 }
 
 #plant-list .plant-profile-container #owned-by-date {
