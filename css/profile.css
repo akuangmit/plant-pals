@@ -162,12 +162,16 @@
   width: 30px;
 }
 
-.content-container #info {
+#plant-list .content-container #info {
   margin-top: 100px;
 }
 
-.content-container #info p {
+#plant-list .content-container #info p {
   padding-bottom: 10px;
+}
+
+#plant-list .empty {
+  padding-top: 25px;
 }
 
 /* The Modal (background) */
