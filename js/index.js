@@ -33,7 +33,7 @@ function add_post(id, post) {
 
 	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
 	// check to see if I already like this post
-	if (id in load('name_to_liked_posts')["Jane Doe"]) {
+	if (id in load('name_to_liked_posts')[username]) {
 		like_img_div = "<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (likes + 1) + ")'><p>Like</p><p class='number-likes'>" + (likes + 1) + " likes</p>";
 	}
 
@@ -52,7 +52,7 @@ function add_post(id, post) {
 
 			if (content != "") {
 				comment = {
-					author: "Jane Doe",
+					author: username,
 					content: content,
 					time: "Just now"
 				}
@@ -87,12 +87,12 @@ function expandPost(id, expand) {
 
 function likePost(id, like, currentLikes) {
 	var name_to_liked_posts = load('name_to_liked_posts');
-	if (!(id in name_to_liked_posts["Jane Doe"])) {
+	if (!(id in name_to_liked_posts[username])) {
 		$("#" + id + " .like-container").html("<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (currentLikes + 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes + 1) + " likes</p>");
-		name_to_liked_posts["Jane Doe"][id] = true;
+		name_to_liked_posts[username][id] = true;
 	} else {
 		$("#" + id + " .like-container").html("<img src='../img/heart-white.svg' onclick='likePost(" + id + ", true, " + (currentLikes - 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes - 1) + " likes</p>");
-		delete name_to_liked_posts["Jane Doe"][id];
+		delete name_to_liked_posts[username][id];
 	};
 	save('name_to_liked_posts', name_to_liked_posts);
 };
@@ -115,7 +115,7 @@ $("#submit-post").click(function(e) {
 	var content = $("#post-content").val();
 
 	post = {
-		author: "Jane Doe",
+		author: load('users')[localStorage.getItem('email')],
 		likes: 0,
 		title: title,
 		content: content,
@@ -201,11 +201,6 @@ var feed_base = [
 	}
 ];
 
-var name_to_profile = {
-	"Jane Doe": "jane-doe.png",
-	"John Doe": "john-doe.png"
-}
-
 var name_to_liked_posts = {
 	"Jane Doe": {},
 	"John Doe": {}
@@ -215,11 +210,8 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('feed')) {
 	  save('feed', feed_base);
 	}
-	if(!localStorage.getItem('name_to_profile')) {
-	  save('name_to_profile', name_to_profile);
-	}
 	if(!localStorage.getItem('name_to_liked_posts')) {
 	  save('name_to_liked_posts', name_to_liked_posts);
 	}
-    load_posts();
+	load_posts();
 });
