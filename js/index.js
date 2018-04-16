@@ -191,15 +191,6 @@ var name_to_profile = {
 	"John Doe": "john-doe.png"
 }
 
-
-// functions for saving into or loading from localStorage.
-function save(name, object) {
-	localStorage.setItem(name, JSON.stringify(object));
-}
-function load(name) {
-	return JSON.parse(localStorage.getItem(name));
-}
-
 $( document ).ready(function() {
 	if(!localStorage.getItem('feed')) {
 	  save('feed', feed_base);
