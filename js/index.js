@@ -35,17 +35,20 @@ function add_post(id, post) {
 	$(".add-comment").keypress(function(e) {
 		if (e.which == 13) {
 			var content = $("#" + id + " .add-comment").val();
-			comment = {
-				author: "Jane Doe",
-				content: content,
-				time: "Just now"
-			}
-			// save into local storage
-			var feed = load('feed');
-			feed[id].comments.push(comment);
-			save('feed',feed);
 
-			add_comment(id, comment);
+			if (content != "") {
+				comment = {
+					author: "Jane Doe",
+					content: content,
+					time: "Just now"
+				}
+				// save into local storage
+				var feed = load('feed');
+				feed[id].comments.push(comment);
+				save('feed',feed);
+
+				add_comment(id, comment);
+			}
 		};
 	});
 }
