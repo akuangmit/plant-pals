@@ -14,18 +14,42 @@
     <body>
     	<nav>
     		<div id="information">
-    			<img src="../img/sprout-white.svg">
+    			<a href="index.html"><img src="../img/sprout-white.svg"></a>
     			<a id="logo" href="index.html">Plant Pals</a>
     			<input type="text" placeholder="Search..." id="searchbox">
     		</div>
     		<div id="links">
 	    		<img src="../img/profile.svg" id="profile">
-                <a href="profile.html">Profile</a>
+                <a href="profile.html" id="profile-link">Profile</a>
 	    		<a href="index.html">Home</a>
 	    		<a href="#">Notifications</a>
 	    		<a href="login.html">Log Out</a>
     		</div>
     	</nav>
+
+        <div class="tutorial">
+            <div class="tutorial-content">
+                <img src="../img/arrow.svg">
+                Click here to view your profile and add a plant
+            </div>
+        </div>
+
+        <div class="dot" id="add-post"">+</div>
+        <div id="add-post-descriptor"">Create post</div>
+
+        <div class="modal" id="create-post">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <input type="text" placeholder="Title" id="post-title">
+                <textarea placeholder="Start typing here!" id="post-content"></textarea>
+                <div>
+                    <button id="submit-post">Create Post</button>
+                    <img src="../img/upload.svg">
+                    <p>Upload image...</p>
+                </div>
+            </div>
+        </div>
+
         <div id="feed">
             <div class="post" id="1">
                 <div class="top-container">
@@ -49,7 +73,7 @@
                     <div class="comment-container">
                         <p class="comment"><span class="commenter">George</span> Sed metus lacus, iaculis id eros a, aliquet posuere est.<span class="time-ago">1 day ago</span></p>
                     </div>
-                    <input type="text" placeholder="Add a comment...">
+                    <input class="add-comment" type="text" placeholder="Add a comment..." id="post-1">
                 </div>
             </div>
             <div class="post" id="2">
@@ -75,7 +99,7 @@
                         <p class="comment"><span class="commenter">Angela</span> Vestibulum eget dolor quis nisi sollicitudin iaculis et aliquam ex. Quisque ornare turpis ac nulla convallis.<span class="time-ago">1 minute ago</span></p>
                         <p class="comment"><span class="commenter">Bobby</span> Praesent quis malesuada libero. Cras varius nibh risus, eu sagittis augue maximus eu.<span class="time-ago">2 hours ago</span></p>
                     </div>
-                    <input type="text" placeholder="Add a comment...">
+                    <input class="add-comment" type="text" placeholder="Add a comment..." id="post-2">
                 </div>
             </div>
         </div>
