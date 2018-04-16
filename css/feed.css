@@ -44,6 +44,7 @@
 #feed .like-container img {
 	width: 18px;
 	margin-right: 10px;
+	cursor: pointer;
 }
 
 #feed .like-container .number-likes {
