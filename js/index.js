@@ -18,9 +18,17 @@ function add_post(id, post) {
 	var images = post.images;
 	var pfpfilename = load('name_to_profile')[author];
 
+	// make "See More" if the post is too long
+	if (content.length > 200) {
+		var shortened = content.substring(0,200);
+		var rest = content.substring(200,content.length);
+		content = shortened + '... <div onclick="expandPost('+id+', true)">See More</div>';
+	}
+
+	var image_div = ''
 	// modify content based on images
 	for(var i = 0; i < images.length; i++) {
-		content = '<img src="../img/'+images[i]+'" align="left" class="image">'+ content;
+		image_div = '<img src="../img/'+images[i]+'" align="left" class="image">';
 	}
 
 	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
@@ -30,7 +38,7 @@ function add_post(id, post) {
 	}
 
 	// change the interface
-	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + content + '</p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
+	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
@@ -63,6 +71,17 @@ function load_posts() {
 	var feed = load('feed');
 	for(var i=0; i<feed.length; i++) {
 		add_post(i, feed[i]);
+	}
+}
+
+function expandPost(id, expand) {
+	var post = load('feed')[id];
+	var content = post.content;
+	var shortened = content.substring(0,200);
+	if(expand) {
+		$("#" + id + " .content-text").html(content + '<div onclick="expandPost('+id+', false)">See Less</div>');
+	} else {
+		$("#" + id + " .content-text").html(shortened + '... <div onclick="expandPost('+id+', true)">See More</div>');
 	}
 }
 
