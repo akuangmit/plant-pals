@@ -61,3 +61,25 @@ $(".add-comment").keypress(function(e) {
 		$(".add-comment").val("");
 	};
 });
+
+$("#signupButton").click(function() {
+	$(".tutorial").css("display", "block");
+	$('html, body').css({
+	    overflow: 'hidden',
+	    height: '100%'
+	});
+});
+
+/*
+if (tutorialState == 0) {
+	$(".tutorial").css("display", "block");
+	$('html, body').css({
+	    overflow: 'hidden',
+	    height: '100%'
+	});
+} else {
+	$('html, body').css({
+	    overflow: 'auto',
+	    height: 'auto'
+	});
+}*/
