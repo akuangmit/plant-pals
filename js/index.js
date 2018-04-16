@@ -111,20 +111,10 @@ $("#add-post")
 	$("#add-post-descriptor").fadeIn(100);
 	$(".dot").css("box-shadow", "0px 8px 10px var(--border-grey, grey)");
 })
+
 .mouseout(function() {
 	$("#add-post-descriptor").fadeOut(100);
 	$(".dot").css("box-shadow", "0px 5px 5px var(--border-grey, grey)");
-});
-
-$(".add-comment").keypress(function(e) {
-	console.log('here');
-	var postID = $(this).attr("id").split("-")[1];
-	if (e.which == 13) {
-		var container = $("#" + postID + " .bottom-container .comment-container");
-		var content = $("#" + postID + " .add-comment").val();
-		container.prepend("<p class='comment'><span class='commenter'>Lucy</span>" + content + "<span class='time-ago'>Just now</span></p>");
-		$(".add-comment").val("");
-	};
 });
 
 $("#signupButton").click(function() {
