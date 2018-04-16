@@ -23,8 +23,14 @@ function add_post(id, post) {
 		content = '<img src="../img/'+images[i]+'" align="left" class="image">'+ content;
 	}
 
+	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
+	// check to see if I already like this post
+	if (id in load('name_to_liked_posts')["Jane Doe"]) {
+		like_img_div = "<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (likes + 1) + ")'><p>Like</p><p class='number-likes'>" + (likes + 1) + " likes</p>";
+	}
+
 	// change the interface
-	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container"><img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p></div></div><div class="content-container"><h1>' + title + '</h1><p>' + content + '</p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
+	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + content + '</p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
@@ -61,11 +67,15 @@ function load_posts() {
 }
 
 function likePost(id, like, currentLikes) {
-	if (like) {
+	var name_to_liked_posts = load('name_to_liked_posts');
+	if (!(id in name_to_liked_posts["Jane Doe"])) {
 		$("#" + id + " .like-container").html("<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (currentLikes + 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes + 1) + " likes</p>");
+		name_to_liked_posts["Jane Doe"][id] = true;
 	} else {
 		$("#" + id + " .like-container").html("<img src='../img/heart-white.svg' onclick='likePost(" + id + ", true, " + (currentLikes - 1) + ")'><p>Like</p><p class='number-likes'>" + (currentLikes - 1) + " likes</p>");
+		delete name_to_liked_posts["Jane Doe"][id];
 	};
+	save('name_to_liked_posts', name_to_liked_posts);
 };
 
 var modal = $("#create-post");
@@ -177,12 +187,20 @@ var name_to_profile = {
 	"John Doe": "john-doe.png"
 }
 
+var name_to_liked_posts = {
+	"Jane Doe": {},
+	"John Doe": {}
+}
+
 $( document ).ready(function() {
 	if(!localStorage.getItem('feed')) {
 	  save('feed', feed_base);
 	}
 	if(!localStorage.getItem('name_to_profile')) {
 	  save('name_to_profile', name_to_profile);
+	}
+	if(!localStorage.getItem('name_to_liked_posts')) {
+	  save('name_to_liked_posts', name_to_liked_posts);
 	}
     load_posts();
 });
