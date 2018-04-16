@@ -23,7 +23,7 @@
 #signupPage .loginSignup .information{
 	display:flex;
 	align-items:center;
-	margin-top:15%;
+	margin-top:5%;
 }
 
 #signupPage .loginSignup .information #sproutlogo{
@@ -53,7 +53,7 @@
 	flex-direction:column;
 	margin-top:5px;
 }
-#signupPage .loginSignup .signupContainer #signupForm #usernameInput{
+#signupPage .loginSignup .signupContainer #signupForm #firstNameInput{
 	width:70%;
 	margin:auto;
 	height:30px;
@@ -63,6 +63,27 @@
 	padding: 5px 10px;
 }
 
+#signupPage .loginSignup .signupContainer #signupForm #lastNameInput{
+	width:70%;
+	margin:auto;
+	height:30px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+	background-color: var(--background-grey, grey);
+	padding: 5px 10px;
+	margin-top: 15px;
+}
+
+#signupPage .loginSignup .signupContainer #signupForm #email{
+	width: 70%;
+	margin:auto;
+	margin-top:15px;
+	height:30px;
+	border: 1px solid var(--border-grey, grey);
+	border-radius:3px;
+	background-color: var(--background-grey, grey);
+	padding: 5px 10px;
+}
 #signupPage .loginSignup .signupContainer #signupForm #passwordInput{
 	width: 70%;
 	margin:auto;
@@ -71,6 +92,7 @@
 	border-radius:3px;
 	background-color: var(--background-grey, grey);
 	padding: 5px 10px;
+	margin-top: 15px;
 }
 
 #signupPage .loginSignup .signupContainer #signupForm #repeatPassword{
@@ -84,16 +106,6 @@
 	padding: 5px 10px;
 }
 
-#signupPage .loginSignup .signupContainer #signupForm #email{
-	width: 70%;
-	margin:auto;
-	margin-top:15px;
-	height:30px;
-	border: 1px solid var(--border-grey, grey);
-	border-radius:3px;
-	background-color: var(--background-grey, grey);
-	padding: 5px 10px;
-}
 
 #signupPage .loginSignup .signupContainer #signupButton{
 	width: 72%;
