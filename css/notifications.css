@@ -1,0 +1,28 @@
+#notification-container {
+	display: none;
+	position: fixed;
+	width: 250px;
+	top: 55px;
+	right: 115px;
+	text-align: center;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid var(--white, white);
+  float: right;
+  margin-right: 20px;
+}
+
+#notifications {
+	margin-top: 10px;
+	background-color: white;
+	height: 150px;
+	border: 1px solid var(--border-grey, grey);
+	border-top: none;
+	box-shadow: 0px 0px 10px var(--border-grey, grey);
+	padding: 20px;
+}

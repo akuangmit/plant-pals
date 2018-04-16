@@ -7,7 +7,7 @@ function load(name) {
 }
 
 $("#searchbox").keypress(function(e) {
-	if (e.which == 13) {
+	if (e.which == 13 && $("#searchbox").val() != "") {
 		window.location.replace("search.html");
 		return false;
 	};

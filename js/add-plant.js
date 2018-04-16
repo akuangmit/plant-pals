@@ -104,10 +104,10 @@ function add_plant(id, plant) {
 
       '<div class="content-container">' +
         '<div id="info">' +
-          '<p><img src="../img/watering-can.png" align="left" class="image"> <span style="font-weight:bold"> Water: </span> ' + plant_info.water + ' </p>' +
-          '<p><img src="../img/sun.png" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> ' + plant_info.sunlight + ' </p>' +
-          '<p><img src="../img/sprout.png" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> ' + plant_info.plant_during + ' </p>' +
-          '<p><img src="../img/flower.png" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> ' + plant_info.blooming_season + ' </p>' +
+          '<p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> ' + plant_info.water + ' </p>' +
+          '<p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> ' + plant_info.sunlight + ' </p>' +
+          '<p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> ' + plant_info.plant_during + ' </p>' +
+          '<p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> ' + plant_info.blooming_season + ' </p>' +
         '</div>' +
       '</div>' +
     '</div>';
