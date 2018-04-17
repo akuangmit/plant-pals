@@ -16,12 +16,19 @@ var name_to_profile = {
 	"Jane Doe": "jane-doe.png",
 	"John Doe": "john-doe.png"
 }
+var member_since = {
+	"Jane Doe": "11/18/2016",
+	"John Doe": "02/14/2018"
+}
 
 if(!localStorage.getItem('users')) {
   save('users', users);
 }
 if(!localStorage.getItem('name_to_profile')) {
   save('name_to_profile', name_to_profile);
+}
+if(!localStorage.getItem('member_since')) {
+  save('member_since', member_since);
 }
 
 var email = localStorage.getItem('email');

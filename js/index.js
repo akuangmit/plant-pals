@@ -33,7 +33,13 @@ function add_post(id, post) {
 
 	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+id+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
 	// check to see if I already like this post
-	if (id in load('name_to_liked_posts')[username]) {
+	var name_to_liked_posts = load('name_to_liked_posts');
+	// initialize for new users
+	if (!(username in name_to_liked_posts)) {
+		name_to_liked_posts[username] = {};
+		save('name_to_liked_posts',name_to_liked_posts);
+	}
+	if (id in name_to_liked_posts[username]) {
 		like_img_div = "<img src='../img/heart-red.svg' onclick='likePost(" + id + ", false, " + (likes + 1) + ")'><p>Like</p><p class='number-likes'>" + (likes + 1) + " likes</p>";
 	}
 

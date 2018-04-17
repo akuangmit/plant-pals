@@ -133,7 +133,7 @@ $("#add-plant-submit").click(function(e) {
 	};
 	// save into local storage
 	var user_plant_data = load('user_plant_data');
-	user_plant_data["John Doe"].push(plant_data);
+	user_plant_data[username].push(plant_data);
 	console.log('type: ' + plantType);
 	save('user_plant_data', user_plant_data);
 
@@ -142,7 +142,15 @@ $("#add-plant-submit").click(function(e) {
 });
 
 function load_plants() {
-	var plants = load('user_plant_data')["John Doe"];
+	// initialize for new members
+	var user_plant_data = load('user_plant_data');
+	if (!(username in user_plant_data)){
+		user_plant_data[username] = []
+		save('user_plant_data',user_plant_data);
+	}
+
+	// TODO if the user doesn't have plants, say "you don't have plants" or something
+	var plants = user_plant_data[username];
 	for(var i=0; i<plants.length; i++) {
 		add_plant(i, plants[i]);
 	}
@@ -196,5 +204,5 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('user_plant_data')) {
 	  save('user_plant_data', user_plant_data);
 	}
-    load_plants();
+	load_plants();
 });
