@@ -138,7 +138,7 @@ $("#add-plant-submit").click(function(e) {
 	save('user_plant_data', user_plant_data);
 
 	// change interface
-	add_plant(user_plant_data["John Doe"].length, plant_data);
+	add_plant(user_plant_data[username].length, plant_data);
 });
 
 function load_plants() {
