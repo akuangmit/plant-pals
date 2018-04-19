@@ -68,6 +68,10 @@
     background-color: rgba(0,0,0,0.5);
 }
 
+.post img {
+  max-width: 300px;
+}
+
 .modal-content {
     background-color: var(--white, white);
     margin: 100px auto;
@@ -233,4 +237,13 @@
 	padding: 5px 10px;
 	border: 1px solid var(--border-grey, grey);
 	border-radius: 3px;
+}
+
+#create-post-bottom {
+  display: flex;
+  align-items: center;
+}
+
+#pic-upload-button:hover {
+  cursor: pointer;
 }

@@ -119,15 +119,32 @@ $("#submit-post").click(function(e) {
 	modal.css("display", "none");
 	var title = $("#post-title").val();
 	var content = $("#post-content").val();
+	var image = $("file-upload").val();
 
-	post = {
-		author: load('users')[localStorage.getItem('email')],
-		likes: 0,
-		title: title,
-		content: content,
-		images: [],
-		comments:[]
-	};
+	if (image !== 'undefined') {
+		// User uploaded some sort of image
+
+		post = {
+			author: load('users')[localStorage.getItem('email')],
+			likes: 0,
+			title: title,
+			content: content,
+			images: ["spider-plant.jpg"],
+			comments:[]
+		};
+	}
+
+	else {
+		post = {
+			author: load('users')[localStorage.getItem('email')],
+			likes: 0,
+			title: title,
+			content: content,
+			images: [],
+			comments:[]
+		};
+	}
+
 	// save into local storage
 	var feed = load('feed');
 	feed.push(post);
@@ -221,3 +238,16 @@ $( document ).ready(function() {
 	}
 	load_posts();
 });
+
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+
+    var dataURL = canvas.toDataURL("image/png");
+
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
