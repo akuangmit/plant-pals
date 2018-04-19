@@ -25,6 +25,8 @@ function add_post(id, post) {
 		content = shortened + '... <div onclick="expandPost('+id+', true)">See More</div>';
 	}
 
+	//console.log(images);
+
 	var image_div = ''
 	// modify content based on images
 	for(var i = 0; i < images.length; i++) {
@@ -119,9 +121,9 @@ $("#submit-post").click(function(e) {
 	modal.css("display", "none");
 	var title = $("#post-title").val();
 	var content = $("#post-content").val();
-	var image = $("file-upload").val();
+	var imageName = $("#file-upload").val();
 
-	if (image !== 'undefined') {
+	if (imageName !== "") {
 		// User uploaded some sort of image
 
 		post = {
@@ -238,6 +240,9 @@ $( document ).ready(function() {
 	}
 	load_posts();
 });
+
+var local_storage_name_to_img = {
+}
 
 function getBase64Image(img) {
     var canvas = document.createElement("canvas");
