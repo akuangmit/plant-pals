@@ -121,6 +121,9 @@ $("#add-plant-submit").click(function(e) {
 });
 
 function load_plants() {
+	$("#plant-list").empty();
+    $("#feed").empty();
+
 	// initialize for new members
 	var user_plant_data = load('user_plant_data');
 	if (!(username in user_plant_data)){
@@ -133,9 +136,6 @@ function load_plants() {
 		add_plant(i, plants[i]);
 	}
 
-	$("#plant-list").empty();
-    $("#feed").empty();
-    
 	if(plants.length === 0) {
 		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
 	}
