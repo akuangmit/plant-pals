@@ -131,7 +131,7 @@ $("#submit-post").click(function(e) {
 			likes: 0,
 			title: title,
 			content: content,
-			images: ["spider-plant.jpg"],
+			images: ["fertilizer.jpg"],
 			comments:[]
 		};
 	}
@@ -270,4 +270,26 @@ function getBase64Image(img) {
     var dataURL = canvas.toDataURL("image/png");
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+function saveImage(input) {
+	var file = document.querySelector('input[type=file]').files[0];
+
+	var imgCanvas = document.createElement("canvas"),
+        imgContext = imgCanvas.getContext("2d");
+
+	imgCanvas.width = file.width;
+	imgCanvas.height = file.height;
+
+	var reader = new FileReader();
+	/*reader.onload = function (e) {
+		$('#file-upload')
+        .attr('src', e.target.result)
+        .width(150)
+        .height(200);
+	};
+	reader.readAsDataURL(input.files[0]);
+	*/
+
+	console.log(file);
 }
