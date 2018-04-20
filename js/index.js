@@ -53,7 +53,7 @@ $("#submit-post").click(function(e) {
 	save('feed',feed);
 
 	// change interface
-	add_post(feed.length-1, post);
+	add_post(feed.length-1, post, $("#feed"));
 });
 
 $("#add-post")
