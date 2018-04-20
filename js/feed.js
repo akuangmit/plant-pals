@@ -31,11 +31,12 @@ function add_post(id, post, container) {
 	// make "See More" if the post is too long
 	if (content.length > max_post_length) {
 		var shortened = content.substring(0,max_post_length);
+		var remaining = content.substring(max_post_length, content.length);
 		var rest = content.substring(max_post_length,content.length);
-		content = shortened + '... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
+		//EDITED
+		//content = shortened + '... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
+		content = shortened + '<span class="remaining-text">' + remaining + '</span>... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
 	}
-
-	//console.log(images);
 
 	var image_div = ''
 	// modify content based on images
@@ -95,11 +96,16 @@ function load_posts() {
 function expandPost(id, expand) {
 	var post = load('feed')[id];
 	var content = post.content;
-	var shortened = content.substring(0,200);
+	var shortened = content.substring(0,max_post_length);
+	var remaining = content.substring(max_post_length, content.length);
+	var container = $("#" + id + " .content-text");
 	if(expand) {
-		$("#" + id + " .content-text").html(content + '<div onclick="expandPost('+id+', false)">See Less</div>');
+		$('.remaining-text').fadeIn('slow', function() {
+			$("#" + id + " .content-text").html(shortened + '<span class="remaining-text-inline">' + remaining + '</span>' + '<div onclick="expandPost('+id+', false)" class="see-more"> See Less</div>');
+		});
+		//$("#" + id + " .content-text").html(content + '<div onclick="expandPost('+id+', false)" class="see-more">See Less</div>');
 	} else {
-		$("#" + id + " .content-text").html(shortened + '... <div onclick="expandPost('+id+', true)">See More</div>');
+		$("#" + id + " .content-text").html(shortened + '<span class="remaining-text">' + remaining + '</span>' + '... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>');
 	}
 }
 
