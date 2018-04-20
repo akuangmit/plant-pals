@@ -9,6 +9,9 @@ function add_comment(postid, comment) {
 	$(".add-comment").val("");
 }
 
+// how long a post can be before there's a "See More" button.
+var max_post_length = 750;
+
 function add_post(id, post) {
 	var author = post.author;
 	var content = post.content;
@@ -19,9 +22,9 @@ function add_post(id, post) {
 	var pfpfilename = load('name_to_profile')[author];
 
 	// make "See More" if the post is too long
-	if (content.length > 200) {
-		var shortened = content.substring(0,200);
-		var rest = content.substring(200,content.length);
+	if (content.length > max_post_length) {
+		var shortened = content.substring(0,max_post_length);
+		var rest = content.substring(max_post_length,content.length);
 		content = shortened + '... <div onclick="expandPost('+id+', true)">See More</div>';
 	}
 
