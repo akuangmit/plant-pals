@@ -29,7 +29,7 @@ function add_plant(id, plant) {
           '<div id="profile-top">' +
             '<div id="plant-name">' +
               '<span class="plant-title">' + name +' </span>' +
-              '<button id="edit-button"> ✎ </button>' +
+              '<button id="edit-button"> &#9998; </button>' +
             '</div>' +
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
