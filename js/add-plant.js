@@ -36,7 +36,7 @@ function add_plant(id, plant) {
 	if(name in plant_info_all) {
 		plant_info = plant_info_all[name];
 	} else {
-		plant_info = plant_info_all["Default"];
+		plant_info = plant_info_all["default"];
 	}
 
 	// set up default
