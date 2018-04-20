@@ -59,6 +59,10 @@ function add_plant(id, plant) {
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
         '</div>' +
+        '<div class="posts-container empty">' +
+                'No posts about this plant yet!' +
+              '</div>' +
+/*
         '<div class="posts-container">' + 
           '<div class="post" id="first-post" onclick="postClicked(1)">' + 
             '<div class="top">' +
@@ -99,7 +103,7 @@ function add_plant(id, plant) {
               '2/13/18' +
             '</div>' +
           '</div>' +
-        '</div>' +
+        '</div>' +*/
       '</div>' +
 
       '<div class="content-container">' +
@@ -112,6 +116,7 @@ function add_plant(id, plant) {
       '</div>' +
     '</div>';
 
+    $("#plant-list").empty();
 	$("#plant-list").prepend(plant_div);
 }
 
