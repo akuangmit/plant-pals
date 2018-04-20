@@ -1,6 +1,5 @@
 @import url("global.css") element;
 
-<<<<<<< HEAD
 .remaining-text {
 	display: none;
 }
@@ -149,8 +148,6 @@
     cursor: pointer;
 }
 
-=======
->>>>>>> ad6a52f38e8887a82fee6ac67616c7ad8745620c
 #feed {
 	margin: 25px 130px;
 }
