@@ -29,7 +29,7 @@ function add_plant(id, plant) {
           '<div id="profile-top">' +
             '<div id="plant-name">' +
               '<span class="plant-title">' + name +' </span>' +
-              '<button id="edit-button"> ✎ </button>' +
+              '<button id="edit-button"> &#9998; </button>' +
             '</div>' +
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
@@ -104,12 +104,25 @@ $("#add-plant-submit").click(function(e) {
 	var picture = $("#pic").val();
 	var dateAcquired = $("#date-acquired").val();
 
+	var date = new Date(dateAcquired);
+    var dd = date.getDate()+1;
+    var mm = date.getMonth()+1; //January is 0!
+    var yyyy = date.getFullYear();
+    if(dd<10) {
+        dd = '0'+dd
+    }
+    if(mm<10) {
+        mm = '0'+mm
+    }
+    date = mm + '/' + dd + '/' + yyyy;
+
 	plant_data = {
 		name: plantType,
 		image: picture,
-		owner_since: dateAcquired,
+		owned_since: date,
 		related_posts: []
 	};
+	
 	// save into local storage
 	var user_plant_data = load('user_plant_data');
 	user_plant_data[username].push(plant_data);
