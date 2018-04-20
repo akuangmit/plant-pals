@@ -22,6 +22,8 @@ function add_plant(id, plant) {
 	// change to unknown if undefined
 	if (owned_since === undefined) { owned_since = "unknown"; }
 
+	console.log(name);
+
 	var plant_div = '<div class="plant-div">' +
 	  '<div class="left-container">' +
 	    '<div class="plant-profile-container">' +
@@ -134,11 +136,16 @@ function load_plants() {
 	for(var i=0; i<plants.length; i++) {
 		add_plant(i, plants[i]);
 	}
+
+	if(plants.length === 0) {
+		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
+	}
+
 }
 
 // this is the database that maps from user -> plants owned
 var user_plant_data = {
-	"John Doe" : [
+	"Sally Planter" : [
 		{
 			name: "Spider Plant",
 			image: "sample-image.jpeg",
