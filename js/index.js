@@ -198,7 +198,7 @@ var feed_base = [
 		author: "Jane Doe",
 		likes: 0,
 		title: "Anyone Interested In a Community Day Meetup?",
-		content: "I am a novice plant owner and am wondering if there are others who are interested in a casual meetup, with lunch at Golden Gate Park in San Francisco. Please comment if you are interested!",
+		content: "I am a novice plant owner and am wondering if there are others who are interested in a casual meetup this Saturday April 21st at 11am, with lunch at Golden Gate Park's Strawberry Hill location in San Francisco. Please comment if you are interested!",
 		images: [],
 		comments: [
 			{
@@ -212,7 +212,7 @@ var feed_base = [
 		author: "Sally Planter",
 		likes: 101,
 		title: "How to water plants",
-		content: "Watering your plants can be hard, but you can do it! Try holding the watering can like in this picture, and you should be all set.",
+		content: "Watering your plants can be hard, but you can do it! Try holding the watering can like in this picture, and you should be all set. Specifically, tilt the watering can to about a 45 degree angle, and make sure that you stand up straight. Since you will likely be watering other plants in addition to this one, maintaining good posture is important to prevent back injuries and other problems that may arise due to bad posture. You do not want the process of plant-care to hinder your everyday activities!",
 		images: ["watering_can.jpeg"],
 		comments: [
 			{
@@ -226,7 +226,7 @@ var feed_base = [
 		author: "John Doe",
 		likes: 15,
 		title: "Take a look at my new awesome spider plant!",
-		content: "Today is a nice sunny day and I thought it was a good time to take a picture of my spider plant! It has been with me for 6 months and I'm proud of it :D The main challenge that I had in taking care of this spider plant was that in San Francisco, there was not that much sunlight in the past few months.",
+		content: "Today is a nice sunny day and I thought it was a good time to take a picture of my spider plant! It has been with me for 6 months and I'm proud of it :D The main challenge that I had in taking care of this spider plant was that in San Francisco, there was not that much sunlight in the past few months.\n In the future, I am planning to expand my collection of plants and try to grow other plants that are edible and can be used in cooking. These include various vegetables such as carrots and cabbage, and basic fruits such as apples, oranges, and lemons. Hopefully I am successful in this journey and can show more posts in the future :D If any experienced plant owners have any advice to offer in taking care of these plants, please feel free to share in the comments below! I am open to hearing your experiences in taking care of these plants, especially if there are common pitfalls to be aware of.",
 		images: ["sample-image.jpeg"],
 		comments: [
 			{
