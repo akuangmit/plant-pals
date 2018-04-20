@@ -40,7 +40,7 @@ function add_plant(id, plant) {
 	}
 
 	// set up default
-	var img_div = '<img src="../img/sprout.png">';
+	var img_div = '<img src="../img/sprout.svg">';
 	// change to what user uploaded if it is valid
 	if (image !== undefined) { img_div = '<img src="../img/'+ image + '">'};
 
@@ -54,7 +54,7 @@ function add_plant(id, plant) {
           '<div id="profile-top">' +
             '<div id="plant-name">' +
               '<span class="plant-title">' + name +' </span>' +
-              '<button id="edit-button"> ‎Pencil </button>' +
+              '<button id="edit-button"> ✎ </button>' +
             '</div>' +
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
@@ -154,7 +154,6 @@ function load_plants() {
 		save('user_plant_data',user_plant_data);
 	}
 
-	// TODO if the user doesn't have plants, say "you don't have plants" or something
 	var plants = user_plant_data[username];
 	for(var i=0; i<plants.length; i++) {
 		add_plant(i, plants[i]);
