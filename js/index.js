@@ -1,18 +1,26 @@
-function add_comment(postid, comment) {
+function add_comment(postid, comment, animate) {
 	var author = comment.author;
 	var content = comment.content;
 	var time = comment.time;
 
 	// change the interface
-	var container = $("#" + postid + " .bottom-container .comment-container");
-	container.append("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>");
 	$(".add-comment").val("");
+	var container = $("#" + postid + " .bottom-container .comment-container");
+	if (animate) {
+		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>").hide();
+		container.append(newComment);
+		newComment.show('slow');
+	} else {
+		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>");
+		container.append(newComment);
+	}
+	
 }
 
 // how long a post can be before there's a "See More" button.
 var max_post_length = 750;
 
-function add_post(id, post) {
+function add_post(id, post, container) {
 	var author = post.author;
 	var content = post.content;
 	var title = post.title;
@@ -49,11 +57,11 @@ function add_post(id, post) {
 	}
 
 	// change the interface
-	$("#feed").prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
+	container.prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
-		add_comment(id, comments[i]);
+		add_comment(id, comments[i], false);
 	}
 
 	// add listener for adding new comments
@@ -72,7 +80,7 @@ function add_post(id, post) {
 				feed[id].comments.push(comment);
 				save('feed',feed);
 
-				add_comment(id, comment);
+				add_comment(id, comment, true);
 			}
 		};
 	});
@@ -81,7 +89,7 @@ function add_post(id, post) {
 function load_posts() {
 	var feed = load('feed');
 	for(var i=0; i<feed.length; i++) {
-		add_post(i, feed[i]);
+		add_post(i, feed[i], $("#feed"));
 	}
 }
 
