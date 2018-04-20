@@ -1,12 +1,20 @@
-function add_comment(postid, comment) {
+function add_comment(postid, comment, animate) {
 	var author = comment.author;
 	var content = comment.content;
 	var time = comment.time;
 
 	// change the interface
-	var container = $("#" + postid + " .bottom-container .comment-container");
-	container.append("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>");
 	$(".add-comment").val("");
+	var container = $("#" + postid + " .bottom-container .comment-container");
+	if (animate) {
+		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>").hide();
+		container.append(newComment);
+		newComment.show('slow');
+	} else {
+		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>");
+		container.append(newComment);
+	}
+	
 }
 
 // how long a post can be before there's a "See More" button.
@@ -53,7 +61,7 @@ function add_post(id, post) {
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
-		add_comment(id, comments[i]);
+		add_comment(id, comments[i], false);
 	}
 
 	// add listener for adding new comments
@@ -72,7 +80,7 @@ function add_post(id, post) {
 				feed[id].comments.push(comment);
 				save('feed',feed);
 
-				add_comment(id, comment);
+				add_comment(id, comment, true);
 			}
 		};
 	});
