@@ -1,7 +1,8 @@
 :root {
 	--green: #43b02f;
 	--yellow: #e0eda1;
-	--red: #d75a4a;
+	--red: rgba(215,90,74,1);
+	--red-hover: rgba(215,90,74,0.7);
 	--white: #ffffff;
 	--black: #000000;
 	--background-grey: #f7f7f7;
