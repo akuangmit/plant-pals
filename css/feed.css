@@ -147,13 +147,13 @@
     cursor: pointer;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1250px) {
 	#feed {
 		margin: 25px 10%;
 	}
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1250px) {
 	#feed {
 		margin: 25px calc(calc(100% - var(--max-width)) / 2);
 	}
