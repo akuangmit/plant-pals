@@ -163,18 +163,18 @@ function load_plants() {
 // this is the database that maps from user -> plants owned
 var user_plant_data = {
 	"John Doe" : [
-		{
-			name: "Spider Plant",
-			image: "sample-image.jpeg",
-			owned_since: "4/10/18",
-			related_posts: []
-		},
-		{
-			name: "Rose Bush",
-			image: "sample-image.jpeg",
-			owned_since: "3/12/17",
-			related_posts: []
-		},
+	// 	{
+	// 		name: "Spider Plant",
+	// 		image: "sample-image.jpeg",
+	// 		owned_since: "4/10/18",
+	// 		related_posts: []
+	// 	},
+		// {
+		// 	name: "Rose Bush",
+		// 	image: "sample-image.jpeg",
+		// 	owned_since: "3/12/17",
+		// 	related_posts: []
+		// },
 	],
 	"Jane Doe" : []
 }
