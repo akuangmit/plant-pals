@@ -131,7 +131,7 @@ $("#submit-post").click(function(e) {
 			likes: 0,
 			title: title,
 			content: content,
-			images: ["spider-plant.jpg"],
+			images: ["fertilizer.jpg"],
 			comments:[]
 		};
 	}
@@ -211,6 +211,20 @@ var feed_base = [
 		]
 	},
 	{
+		author: "Sally Planter",
+		likes: 101,
+		title: "How to water plants",
+		content: "Watering your plants can be hard, but you can do it! Try holding the watering can like in this picture, and you should be all set.",
+		images: ["watering_can.jpeg"],
+		comments: [
+			{
+				author: "Jake",
+				content: "Thanks so much Sally! That really helped me with taking care of my flowers.",
+				time: "2 hours ago"
+			}
+		]
+	},
+	{
 		author: "John Doe",
 		likes: 15,
 		title: "Neque porro quisquam est qui dolorem",
@@ -228,7 +242,8 @@ var feed_base = [
 
 var name_to_liked_posts = {
 	"Jane Doe": {},
-	"John Doe": {}
+	"John Doe": {},
+	"Sally Planter": {}
 }
 
 $( document ).ready(function() {
@@ -255,4 +270,26 @@ function getBase64Image(img) {
     var dataURL = canvas.toDataURL("image/png");
 
     return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+function saveImage(input) {
+	var file = document.querySelector('input[type=file]').files[0];
+
+	var imgCanvas = document.createElement("canvas"),
+        imgContext = imgCanvas.getContext("2d");
+
+	imgCanvas.width = file.width;
+	imgCanvas.height = file.height;
+
+	var reader = new FileReader();
+	/*reader.onload = function (e) {
+		$('#file-upload')
+        .attr('src', e.target.result)
+        .width(150)
+        .height(200);
+	};
+	reader.readAsDataURL(input.files[0]);
+	*/
+
+	console.log(file);
 }
