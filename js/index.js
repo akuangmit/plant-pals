@@ -211,6 +211,20 @@ var feed_base = [
 		]
 	},
 	{
+		author: "Sally Planter",
+		likes: 101,
+		title: "How to water plants",
+		content: "Watering your plants can be hard, but you can do it! Try holding the watering can like in this picture, and you should be all set.",
+		images: ["watering_can.jpeg"],
+		comments: [
+			{
+				author: "Jake",
+				content: "Thanks so much Sally! That really helped me with taking care of my flowers.",
+				time: "2 hours ago"
+			}
+		]
+	},
+	{
 		author: "John Doe",
 		likes: 15,
 		title: "Neque porro quisquam est qui dolorem",
