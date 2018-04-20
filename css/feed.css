@@ -156,7 +156,7 @@
 
 @media (min-width: 1000px) {
 	#feed {
-		margin: 25px calc(calc(100% - 800px) / 2);
+		margin: 25px calc(calc(100% - var(--max-width)) / 2);
 	}
 }
 

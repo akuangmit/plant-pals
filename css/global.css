@@ -9,6 +9,8 @@
 	--border-grey: #cccccc;
 	--dark-grey: #6d6d6d;
 	--link-blue: #3897f0;
+
+	--max-width: 800px;
 }
 
 html {

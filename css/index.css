@@ -68,10 +68,6 @@
     background-color: rgba(0,0,0,0.5);
 }
 
-.post img {
-  max-width: 150px;
-}
-
 .modal-content {
     background-color: var(--white, white);
     margin: 100px auto;
