@@ -1,28 +1,3 @@
-// JS File for adding plant modal
-
-// Get the modal
-var modal = $("#add-plant");
-
-// Define the button that opens the modal
-$("#add-button").click(function(e) {
-	modal.css("display", "block");
-});
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.css("display", "none");
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.css("display", "none");
-    }
-}
-
 // Adds a plant onto our profile page.
 // This function only deals with the interface and does not modify the database.
 function add_plant(id, plant) {
@@ -36,7 +11,7 @@ function add_plant(id, plant) {
 	if(name in plant_info_all) {
 		plant_info = plant_info_all[name];
 	} else {
-		plant_info = plant_info_all["Default"];
+		plant_info = plant_info_all["default"];
 	}
 
 	// set up default
@@ -116,7 +91,6 @@ function add_plant(id, plant) {
       '</div>' +
     '</div>';
 
-    $("#plant-list").empty();
 	$("#plant-list").prepend(plant_div);
 }
 
@@ -147,6 +121,9 @@ $("#add-plant-submit").click(function(e) {
 });
 
 function load_plants() {
+	$("#plant-list").empty();
+    $("#feed").empty();
+
 	// initialize for new members
 	var user_plant_data = load('user_plant_data');
 	if (!(username in user_plant_data)){
@@ -158,23 +135,34 @@ function load_plants() {
 	for(var i=0; i<plants.length; i++) {
 		add_plant(i, plants[i]);
 	}
+
+	if(plants.length === 0) {
+		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
+	}
+
+	var postTab = document.getElementById("post-tab");
+	postTab.className = "tablinks";
+
+	var plantTab = document.getElementById("plant-tab");
+	plantTab.className = "tabLinks active";
+
 }
 
 // this is the database that maps from user -> plants owned
 var user_plant_data = {
-	"John Doe" : [
-	// 	{
-	// 		name: "Spider Plant",
-	// 		image: "sample-image.jpeg",
-	// 		owned_since: "4/10/18",
-	// 		related_posts: []
-	// 	},
-		// {
-		// 	name: "Rose Bush",
-		// 	image: "sample-image.jpeg",
-		// 	owned_since: "3/12/17",
-		// 	related_posts: []
-		// },
+	"Sally Planter" : [
+		{
+			name: "Spider Plant",
+			image: "sample-image.jpeg",
+			owned_since: "4/10/18",
+			related_posts: []
+		},
+		{
+			name: "Rose Bush",
+			image: "sample-image.jpeg",
+			owned_since: "3/12/17",
+			related_posts: []
+		},
 	],
 	"Jane Doe" : []
 }
