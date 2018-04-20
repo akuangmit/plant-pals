@@ -192,15 +192,15 @@ if (tutorialState == 0) {
 // data for populating feed.
 var feed_base = [
 	{
-		author: "Arnold",
+		author: "Jane Doe",
 		likes: 0,
-		title: "Please help! What kind of pesticide should I use for this bug on my spider plant?",
-		content: "Out of nowhere, this bug showed up on my spider plant and I don't know what kind of pesticide to use to save my spider plant!! Please help! :(",
+		title: "Anyone Interested In a Community Day Meetup?",
+		content: "I am a novice plant owner and am wondering if there are others who are interested in a casual meetup, with lunch at Golden Gate Park in San Francisco. Please comment if you are interested!",
 		images: [],
 		comments: [
 			{
 				author: "Angela",
-				content: "That is a good question. I am also interested in the answer in case I encounter this in the future",
+				content: "Yes, I'm interested! I can also help organize the meetup :)",
 				time: "1 minute ago"
 			}
 		]
@@ -223,7 +223,7 @@ var feed_base = [
 		author: "John Doe",
 		likes: 15,
 		title: "Take a look at my new awesome spider plant!",
-		content: "Today is a nice sunny day and I thought it was a good time to take a picture of my spider plant! It has been with me for 6 months and I'm proud of it :D",
+		content: "Today is a nice sunny day and I thought it was a good time to take a picture of my spider plant! It has been with me for 6 months and I'm proud of it :D The main challenge that I had in taking care of this spider plant was that in San Francisco, there was not that much sunlight in the past few months.",
 		images: ["sample-image.jpeg"],
 		comments: [
 			{
