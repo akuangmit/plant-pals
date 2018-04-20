@@ -1,5 +1,13 @@
 @import url("global.css") element;
 
+.remaining-text {
+	display: none;
+}
+
+.remaining-text-inline {
+	display: inline;
+}
+
 .tutorial {
     position: fixed;
     width: 100%;
