@@ -22,8 +22,6 @@ function add_plant(id, plant) {
 	// change to unknown if undefined
 	if (owned_since === undefined) { owned_since = "unknown"; }
 
-	console.log(name);
-
 	var plant_div = '<div class="plant-div">' +
 	  '<div class="left-container">' +
 	    '<div class="plant-profile-container">' +
