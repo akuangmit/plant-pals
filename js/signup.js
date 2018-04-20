@@ -45,6 +45,9 @@ function sign_up(){
         member_since[name] = today;
         save('member_since',member_since);
 
+        // say that the user hasn't seen the homepage yet
+        localStorage.setItem('loadTutorial', true);
+
         // redirect to home page
     	form.action = "index.html";
     }

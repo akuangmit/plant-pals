@@ -2,6 +2,13 @@ var modal = $("#create-post");
 var btn = document.getElementById("add-post");
 var span = document.getElementsByClassName("close")[0];
 
+if (localStorage.getItem('loadTutorial') === "true") {
+	$(".tutorial").css("display", "block");
+	localStorage.setItem('loadTutorial', false);
+} else {
+	$(".tutorial").css("display", "none");
+}
+
 $("#add-post").click(function(e) {
 	modal.css("display", "block");
 });
