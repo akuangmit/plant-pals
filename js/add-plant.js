@@ -48,14 +48,14 @@ function add_plant(id, plant) {
 	if (owned_since === undefined) { owned_since = "unknown"; }
 
 	var plant_div = '<div class="plant-div">' +
-	  '<div class="left-container">' + 
+	  '<div class="left-container">' +
 	    '<div class="plant-profile-container">' +
-          img_div + 
+          img_div +
           '<div id="profile-top">' +
-            '<div id="plant-name">' + 
+            '<div id="plant-name">' +
               '<span class="plant-title">' + name +' </span>' +
-              '<button id="edit-button">&#9998;</button>' +
-            '</div>' + 
+              '<button id="edit-button"> ‎Pencil </button>' +
+            '</div>' +
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
         '</div>' +
@@ -63,40 +63,40 @@ function add_plant(id, plant) {
                 'No posts about this plant yet!' +
               '</div>' +
 /*
-        '<div class="posts-container">' + 
-          '<div class="post" id="first-post" onclick="postClicked(1)">' + 
+        '<div class="posts-container">' +
+          '<div class="post" id="first-post" onclick="postClicked(1)">' +
             '<div class="top">' +
               '<p class="title"> FIRST POST TITLE </p>' +
               '<div class="body">' +
                 '<p>' +
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' +
-                '</p>' + 
+                '</p>' +
               '</div>' +
             '</div>' +
             '<div class="date">' +
               '4/3/18' +
             '</div>' +
           '</div>' +
-          '<div class="post" id="second-post" onclick="postClicked(2)">' + 
+          '<div class="post" id="second-post" onclick="postClicked(2)">' +
             '<div class="top">' +
               '<p class="title"> SECOND POST TITLE </p>' +
               '<div class="body">' +
                 '<p>' +
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' +
-                '</p>' + 
+                '</p>' +
               '</div>' +
             '</div>' +
             '<div class="date">' +
               '3/18/18' +
-            '</div>' + 
+            '</div>' +
           '</div>' +
-          '<div class="post" id="third-post" onclick="postClicked(3)">' + 
+          '<div class="post" id="third-post" onclick="postClicked(3)">' +
             '<div class="top">' +
               '<p class="title"> THIRD POST TITLE </p>' +
               '<div class="body">' +
                 '<p>' +
                   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' +
-                '</p>' + 
+                '</p>' +
               '</div>' +
             '</div>' +
             '<div class="date">' +
