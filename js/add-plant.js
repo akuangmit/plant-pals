@@ -1,28 +1,3 @@
-// JS File for adding plant modal
-
-// Get the modal
-var modal = $("#add-plant");
-
-// Define the button that opens the modal
-$("#add-button").click(function(e) {
-	modal.css("display", "block");
-});
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.css("display", "none");
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.css("display", "none");
-    }
-}
-
 // Adds a plant onto our profile page.
 // This function only deals with the interface and does not modify the database.
 function add_plant(id, plant) {
@@ -36,11 +11,11 @@ function add_plant(id, plant) {
 	if(name in plant_info_all) {
 		plant_info = plant_info_all[name];
 	} else {
-		plant_info = plant_info_all["Default"];
+		plant_info = plant_info_all["default"];
 	}
 
 	// set up default
-	var img_div = '<img src="../img/sprout.png">';
+	var img_div = '<img src="../img/sprout.svg">';
 	// change to what user uploaded if it is valid
 	if (image !== undefined) { img_div = '<img src="../img/'+ image + '">'};
 
@@ -54,7 +29,7 @@ function add_plant(id, plant) {
           '<div id="profile-top">' +
             '<div id="plant-name">' +
               '<span class="plant-title">' + name +' </span>' +
-              '<button id="edit-button"> ‎Pencil </button>' +
+              '<button id="edit-button"> ✎ </button>' +
             '</div>' +
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
@@ -116,7 +91,6 @@ function add_plant(id, plant) {
       '</div>' +
     '</div>';
 
-    $("#plant-list").empty();
 	$("#plant-list").prepend(plant_div);
 }
 
@@ -154,16 +128,23 @@ function load_plants() {
 		save('user_plant_data',user_plant_data);
 	}
 
-	// TODO if the user doesn't have plants, say "you don't have plants" or something
 	var plants = user_plant_data[username];
 	for(var i=0; i<plants.length; i++) {
 		add_plant(i, plants[i]);
 	}
+
+	$("#plant-list").empty();
+    $("#feed").empty();
+    
+	if(plants.length === 0) {
+		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
+	}
+
 }
 
 // this is the database that maps from user -> plants owned
 var user_plant_data = {
-	"John Doe" : [
+	"Sally Planter" : [
 		{
 			name: "Spider Plant",
 			image: "sample-image.jpeg",

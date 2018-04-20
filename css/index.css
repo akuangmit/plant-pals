@@ -1,14 +1,5 @@
 @import url("global.css") element;
 
-<<<<<<< HEAD
-.remaining-text {
-	display: none;
-}
-
-.remaining-text-inline {
-	display: inline;
-}
-
 .tutorial {
     position: fixed;
     width: 100%;
@@ -149,114 +140,11 @@
     cursor: pointer;
 }
 
-=======
->>>>>>> ad6a52f38e8887a82fee6ac67616c7ad8745620c
-#feed {
-	margin: 25px 130px;
+#create-post-bottom {
+  display: flex;
+  align-items: center;
 }
 
-#feed .post {
-	/*border: 1px solid var(--border-grey, grey);*/
-	border-radius: 5px;
-	background-color: var(--white, white);
-	padding: 30px;
-	font-size: 15px;
-	margin-top: 30px;
-}
-
-#feed .top-container {
-	display: flex;
-}
-
-#feed .info-container {
-	width: 25%;
-	padding: 0 10px;
-}
-
-#feed .profile-container {
-	display: flex;
-	align-items: center;
-}
-
-#feed .profile-container p {
-	font-size: 20px;
-}
-
-#feed .profile-container img {
-	width: 75px;
-	margin-right: 20px;
-}
-
-#feed .like-container {
-	display: flex;
-	align-items: center;
-}
-
-#feed .like-container img {
-	width: 18px;
-	margin-right: 10px;
-	cursor: pointer;
-}
-
-#feed .like-container .number-likes {
-	padding-left: 40px;
-	color: var(--border-grey, grey);
-}
-
-#feed .content-container {
-	width: 75%;
-	padding: 0 10px;
-}
-
-#feed .content-container h1 {
-	font-size: 18px;
-}
-
-#feed .content-container .image {
-	padding-right: 20px;
-}
-
-#feed .bottom-container {
-	border-top: 1px solid var(--border-grey, grey);
-	margin-top: 10px;
-}
-
-#feed .bottom-container .comment-container {
-	width: 100%;
-	margin-top: 20px;
-}
-
-#feed .bottom-container .comment {
-
-}
-
-#feed .bottom-container .commenter {
-	font-weight: 600;
-	padding-right: 10px;
-}
-
-#feed .bottom-container .time-ago {
-	font-weight: 300;
-	color: var(--border-grey, grey);
-	font-size: 12px;
-	float: right;
-}
-
-#feed .bottom-container input {
-	width: 100%;
-	box-sizing: border-box;
-	padding: 5px 10px;
-	border: 1px solid var(--border-grey, grey);
-	border-radius: 3px;
-}
-
-.see-more {
-	display: inline;
-	font-weight: 500;
-	cursor: pointer;
-	color: var(--red, red);
-}
-
-.see-more:hover {
-	color: var(--red-hover, red);
+#pic-upload-button:hover {
+  cursor: pointer;
 }
