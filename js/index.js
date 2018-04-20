@@ -25,7 +25,7 @@ function add_post(id, post) {
 	if (content.length > max_post_length) {
 		var shortened = content.substring(0,max_post_length);
 		var rest = content.substring(max_post_length,content.length);
-		content = shortened + '... <div onclick="expandPost('+id+', true)">See More</div>';
+		content = shortened + '... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
 	}
 
 	//console.log(images);
