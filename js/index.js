@@ -116,6 +116,11 @@ var feed_base = [
 				author: "Jake",
 				content: "Thanks so much Sally! That really helped me with taking care of my flowers.",
 				time: "2 hours ago"
+			},
+			{
+				author: "John",
+				content: "Oh man Sally, I shoulda read your post earlier, I strained my back watering my plants :(",
+				time: "1 hour ago"
 			}
 		]
 	},
