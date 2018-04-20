@@ -108,7 +108,6 @@
 }
 
 .modal-content div {
-	display: flex;
 	justify-content: left;
 	align-items: center;
 }
