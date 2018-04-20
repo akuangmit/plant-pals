@@ -242,7 +242,8 @@ var feed_base = [
 
 var name_to_liked_posts = {
 	"Jane Doe": {},
-	"John Doe": {}
+	"John Doe": {},
+	"Sally Planter": {}
 }
 
 $( document ).ready(function() {

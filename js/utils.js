@@ -10,15 +10,18 @@ function load(name) {
 
 var users = {
 	"jane@gmail.com": "Jane Doe",
-	"john@gmail.com": "John Doe"
+	"john@gmail.com": "John Doe",
+	"sally@gmail.com": "Sally Planter"
 };
 var name_to_profile = {
 	"Jane Doe": "jane-doe.png",
-	"John Doe": "john-doe.png"
+	"John Doe": "john-doe.png",
+	"Sally Planter": "sally-planter"
 }
 var member_since = {
 	"Jane Doe": "11/18/2016",
-	"John Doe": "02/14/2018"
+	"John Doe": "02/14/2018",
+	"Sally Planter": "03/28/2015"
 }
 
 if(!localStorage.getItem('users')) {
