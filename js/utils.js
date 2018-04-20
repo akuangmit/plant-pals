@@ -16,7 +16,7 @@ var users = {
 var name_to_profile = {
 	"Jane Doe": "jane-doe.png",
 	"John Doe": "john-doe.png",
-	"Sally Planter": "sally-planter"
+	"Sally Planter": "sally-planter.jpg"
 }
 var member_since = {
 	"Jane Doe": "11/18/2016",
