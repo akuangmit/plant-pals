@@ -26,7 +26,7 @@ window.onclick = function(event) {
 // Adds a plant onto our profile page.
 // This function only deals with the interface and does not modify the database.
 function add_plant(id, plant) {
-	var name = plant.name;
+	var name = plant.name.toLowerCase();
 	var image = plant.image;
 	var owned_since = plant.owned_since;
 	var related_posts = plant.related_posts;
@@ -54,7 +54,7 @@ function add_plant(id, plant) {
           '<div id="profile-top">' +
             '<div id="plant-name">' + 
               '<span class="plant-title">' + name +' </span>' +
-              '<button id="edit-button"> ‎✎ </button>' +
+              '<button id="edit-button">&#9998;</button>' +
             '</div>' + 
             '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>' +
           '</div>' +
@@ -182,19 +182,19 @@ var user_plant_data = {
 
 // this is our internal database of information for plants
 var plant_info_all = {
-	"Spider Plant" : {
+	"spider plant" : {
 		water: "2x / week",
 		sunlight: "Medium",
 		plant_during: "February",
 		blooming_season: "April - June"
 	},
-	"Rose Bush" : {
+	"rose bush" : {
 		water: "4x / week",
 		sunlight: "Low",
 		plant_during: "June",
 		blooming_season: "May - August"
 	},
-	"Default" : {
+	"default" : {
 		water: "unknown",
 		sunlight: "unknown",
 		plant_during: "unknown",
