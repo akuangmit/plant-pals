@@ -1,9 +1,12 @@
 $("#searchbox").keypress(function(e) {
-	if (e.which == 13) {
+	if (e.which === 13) {
 		var term = $("#searchbox").val();
-		localStorage.setItem('searchTerm', term);
-		window.location.replace("search.html");
-		return false;
+
+		if (term !== "") {
+			localStorage.setItem('searchTerm', term);
+			window.location.replace("search.html");
+			return false;
+		}
 	};
 });
 
