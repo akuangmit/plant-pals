@@ -1,22 +1,3 @@
-function add_comment(postid, comment, animate) {
-	var author = comment.author;
-	var content = comment.content;
-	var time = comment.time;
-
-	// change the interface
-	$(".add-comment").val("");
-	var container = $("#" + postid + " .bottom-container .comment-container");
-	if (animate) {
-		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>").hide();
-		container.append(newComment);
-		newComment.show('slow');
-	} else {
-		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "<span class='time-ago'>"+time+"</span></p>");
-		container.append(newComment);
-	}
-	
-}
-
 var modal = $("#create-post");
 var btn = document.getElementById("add-post");
 var span = document.getElementsByClassName("close")[0];
