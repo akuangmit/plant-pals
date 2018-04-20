@@ -185,6 +185,4 @@ function saveImage(input) {
 	};
 	reader.readAsDataURL(input.files[0]);
 	*/
-
-	console.log(file);
 }

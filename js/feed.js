@@ -38,8 +38,6 @@ function add_post(id, post, container) {
 		content = shortened + '<span class="remaining-text">' + remaining + '</span>... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
 	}
 
-	//console.log(images);
-
 	var image_div = ''
 	// modify content based on images
 	for(var i = 0; i < images.length; i++) {
