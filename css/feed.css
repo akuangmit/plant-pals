@@ -247,3 +247,14 @@
 #pic-upload-button:hover {
   cursor: pointer;
 }
+
+.see-more {
+	display: inline;
+	font-weight: 500;
+	cursor: pointer;
+	color: var(--red, red);
+}
+
+.see-more:hover {
+	color: var(--red-hover, red);
+}
