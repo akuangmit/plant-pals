@@ -49,4 +49,10 @@ function load_my_posts() {
 			count += 1;
 		}
 	}
+
+  var postTab = document.getElementById("post-tab");
+  postTab.className = "tablinks active";
+
+  var plantTab = document.getElementById("plant-tab");
+  plantTab.className = "tabLinks";
 }

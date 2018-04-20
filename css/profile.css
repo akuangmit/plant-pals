@@ -286,5 +286,5 @@
 }
 
 .tab button.active {
-    background-color: blue;
+    background-color: var(--white, white);
 }
