@@ -8,6 +8,10 @@ function load(name) {
 	return JSON.parse(localStorage.getItem(name));
 }
 
+function logout() {
+	localStorage.removeItem("email");
+}
+
 var users = {
 	"jane@gmail.com": "Jane Doe",
 	"john@gmail.com": "John Doe",
