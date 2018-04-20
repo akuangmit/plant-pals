@@ -195,20 +195,15 @@ if (tutorialState == 0) {
 // data for populating feed.
 var feed_base = [
 	{
-		author: "Jane Doe",
-		likes: 201,
-		title: "Maecenas eu consequat justo",
-		content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante dictum, bibendum dolor eget, ullamcorper eros. Sed quis justo eu purus varius suscipit. Curabitur vel blandit orci, a eleifend orci. Sed orci ex, egestas quis lectus ac, tempus luctus eros. Fusce nec posuere ligula. Nam finibus venenatis arcu, ac egestas felis tristique nec. Aliquam erat volutpat. Sed auctor nisl non urna dignissim congue. Etiam eget tellus ac ligula posuere venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam eget felis diam. Integer sagittis dui elit, eget luctus dui tincidunt id. Etiam lobortis magna tortor, et imperdiet dui blandit non. Aliquam vitae arcu et lacus euismod blandit. Vestibulum posuere velit id leo molestie laoreet.",
+		author: "Arnold",
+		likes: 0,
+		title: "Please help! What kind of pesticide should I use for this bug on my spider plant?",
+		content: "Out of nowhere, this bug showed up on my spider plant and I don't know what kind of pesticide to use to save my spider plant!! Please help! :(",
 		images: [],
 		comments: [
 			{
-				author: "Bobby",
-				content: "Praesent quis malesuada libero. Cras varius nibh risus, eu sagittis augue maximus eu.",
-				time: "2 hours ago"
-			},
-			{
 				author: "Angela",
-				content: "Vestibulum eget dolor quis nisi sollicitudin iaculis et aliquam ex. Quisque ornare turpis ac nulla convallis.",
+				content: "That is a good question. I am also interested in the answer in case I encounter this in the future",
 				time: "1 minute ago"
 			}
 		]
@@ -230,13 +225,13 @@ var feed_base = [
 	{
 		author: "John Doe",
 		likes: 15,
-		title: "Neque porro quisquam est qui dolorem",
-		content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras at ante dictum, bibendum dolor eget, ullamcorper eros. Sed quis justo eu purus varius suscipit. Curabitur vel blandit orci, a eleifend orci. Sed orci ex, egestas quis lectus ac, tempus luctus eros. Fusce nec posuere ligula. Nam finibus venenatis arcu, ac egestas felis tristique nec. Aliquam erat volutpat. Sed auctor nisl non urna dignissim congue. Etiam eget tellus ac ligula posuere venenatis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nam eget felis diam. Integer sagittis dui elit, eget luctus dui tincidunt id. Etiam lobortis magna tortor, et imperdiet dui blandit non. Aliquam vitae arcu et lacus euismod blandit. Vestibulum posuere velit id leo molestie laoreet.\n\nPhasellus aliquet efficitur lorem, consequat efficitur elit aliquet non. Maecenas aliquam viverra magna, a venenatis leo suscipit eu. Duis vulputate ipsum in risus sollicitudin rutrum. Proin auctor porttitor efficitur. Nam elit nisi, varius at ante non, tincidunt congue turpis. Vestibulum dictum, nunc ut bibendum semper, dolor augue dictum massa, quis maximus elit nisl in metus. In hac habitasse platea dictumst. Integer a condimentum justo. Fusce sapien libero, semper quis justo sit amet, venenatis sagittis lectus. Curabitur ullamcorper nibh massa, eu placerat nisi suscipit sit amet.",
+		title: "Take a look at my new awesome spider plant!",
+		content: "Today is a nice sunny day and I thought it was a good time to take a picture of my spider plant! It has been with me for 6 months and I'm proud of it :D",
 		images: ["sample-image.jpeg"],
 		comments: [
 			{
-				author: "George",
-				content: "Sed metus lacus, iaculis id eros a, aliquet posuere est.",
+				author: "Jenny",
+				content: "OMG that looks so nice <3 Hopefully my plant can look like that someday!",
 				time: "1 day ago"
 			}
 		]
