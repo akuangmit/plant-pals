@@ -91,8 +91,6 @@ function add_plant(id, plant) {
       '</div>' +
     '</div>';
 
-    $("#plant-list").empty();
-    $("#feed").empty();
 	$("#plant-list").prepend(plant_div);
 }
 
@@ -135,6 +133,9 @@ function load_plants() {
 		add_plant(i, plants[i]);
 	}
 
+	$("#plant-list").empty();
+    $("#feed").empty();
+    
 	if(plants.length === 0) {
 		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
 	}
