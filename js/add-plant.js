@@ -140,6 +140,12 @@ function load_plants() {
 		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
 	}
 
+	var postTab = document.getElementById("post-tab");
+	postTab.className = "tablinks";
+
+	var plantTab = document.getElementById("plant-tab");
+	plantTab.className = "tabLinks active";
+
 }
 
 // this is the database that maps from user -> plants owned
