@@ -40,11 +40,11 @@
                         <img src="../img/sprout.svg" id="sproutlogo">
                         <div id="heading"> Plant Pals </div>
                     </div>
-                    <form id="loginForm" method ="POST" onsubmit="log_in()">
+                    <div id="loginForm">
                       <input type="email" name="email" placeholder="Email Address" id="email" required>
                       <input type="password" name="password" placeholder="Password" id="passwordInput" required>
-                    </form>
-                    <button type="submit" form="loginForm" value="loginSubmit" id="loginButton">Log In</button>
+                    </div>
+                    <button type="submit" onclick="log_in()" id="loginButton">Log In</button>
                     <a href="forgotpassword.html" id="forgotLink">Forgot password?</a>
                 </div>
 

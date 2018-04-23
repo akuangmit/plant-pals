@@ -4,15 +4,14 @@ function sign_up(){
     var email = document.getElementById("email");
     var password = document.getElementById("passwordInput");
     var repeatPassword = document.getElementById("repeatPassword");
-    var form = document.getElementById("signupForm");
     var users = load('users');
     if (password.value!=repeatPassword.value){
-    	form.action = "signup.html";
     	alert("Passwords do not match. Try signing up again.");
+        window.location.href="signup.html";
     }
     else if (email.value in users){
-    	form.action = "signup.html";
     	alert("Email account already exists. Try logging in.");
+        window.location.href="signup.html";
     }
     else{
         var name = firstname.value+" "+lastname.value;
@@ -49,7 +48,7 @@ function sign_up(){
         localStorage.setItem('loadTutorial', true);
 
         // redirect to home page
-    	form.action = "index.html";
+    	window.location.href="index.html";
     }
 };
     

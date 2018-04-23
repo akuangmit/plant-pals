@@ -32,14 +32,14 @@
                         <img src="../img/sprout.svg" id="sproutlogo">
                         <div id="heading"> Plant Pals </div>
                     </div>
-                    <form id="signupForm" method="POST" onsubmit="sign_up()">
+                    <div id="signupForm">
                       <input type="text" name="firstname" placeholder="First Name" id="firstNameInput" required>
                       <input type="text" name="lastname" placeholder="Last Name" id="lastNameInput" required>
                       <input type="email" name="email" placeholder="Email Address" id="email" required>
                       <input type="password" name="password" placeholder="Password" id="passwordInput" required>
                       <input type="password" name="repeatPassword" placeholder="Repeat Password" id="repeatPassword" required>
-                    </form>
-                    <button type="submit" form="signupForm" value="signupSubmit" id="signupButton">Sign Up</button>
+                    </div>
+                    <button type="submit" onclick="sign_up()" id="signupButton">Sign Up</button>
                 </div>
 
                 <div class="loginBottomContainer">
