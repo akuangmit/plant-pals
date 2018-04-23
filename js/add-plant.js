@@ -20,7 +20,7 @@ function add_plant(id, plant) {
 	if (image !== undefined) { img_div = '<img src="../img/'+ image + '">'};
 
 	// change to unknown if undefined
-	if (owned_since === undefined) { owned_since = "unknown"; }
+	if (owned_since === "") { owned_since = "unknown"; }
 
 	var plant_div = '<div class="plant-div">' +
 	  '<div class="left-container">' +
@@ -104,25 +104,29 @@ $("#add-plant-submit").click(function(e) {
 	var picture = $("#pic").val();
 	var dateAcquired = $("#date-acquired").val();
 
-	var date = new Date(dateAcquired);
-    var dd = date.getDate()+1;
-    var mm = date.getMonth()+1; //January is 0!
-    var yyyy = date.getFullYear();
-    if(dd<10) {
-        dd = '0'+dd
-    }
-    if(mm<10) {
-        mm = '0'+mm
-    }
-    date = mm + '/' + dd + '/' + yyyy;
+	var dateString = "";
+
+	if (dateAcquired != "") {
+		var date = new Date(dateAcquired);
+	    var dd = date.getDate()+1;
+	    var mm = date.getMonth()+1; //January is 0!
+	    var yyyy = date.getFullYear();
+	    if(dd<10) {
+	        dd = '0'+dd
+	    }
+	    if(mm<10) {
+	        mm = '0'+mm
+	    }
+	    dateString = mm + '/' + dd + '/' + yyyy;
+	}
 
 	plant_data = {
 		name: plantType,
 		image: picture,
-		owned_since: date,
+		owned_since: dateString,
 		related_posts: []
 	};
-	
+
 	// save into local storage
 	var user_plant_data = load('user_plant_data');
 	user_plant_data[username].push(plant_data);
