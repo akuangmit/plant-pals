@@ -55,7 +55,7 @@ function add_post(id, post, container) {
 	}
 
 	// change the interface
-	container.prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" onclick="set_profile(' + id + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
+	container.prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + id + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
@@ -120,6 +120,6 @@ function likePost(id, like, currentLikes) {
 };
 
 function set_profile(id) {
-	var post = load('feed')[id];
-	set_profile_to_load(post.author);
+	var author = $("#" + id + " .author").html();
+	set_profile_to_load(author);
 }

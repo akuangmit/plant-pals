@@ -15,7 +15,6 @@ $(document).ready(function() {
 });
 
 function set_profile_to_load(name) {
-	console.log(name)
 	if (name === undefined) {
 		localStorage.setItem('profileToLoad',username);
 	} else {
