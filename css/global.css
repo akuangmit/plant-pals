@@ -1,5 +1,6 @@
 :root {
-	--green: #43b02f;
+	--green: rgba(67,176,47,1);
+	--green-hover: rgba(67,176,47,0.7);
 	--yellow: #e0eda1;
 	--red: rgba(215,90,74,1);
 	--red-hover: rgba(215,90,74,0.7);
