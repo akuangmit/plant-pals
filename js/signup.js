@@ -51,4 +51,10 @@ function sign_up(){
     	window.location.href="index.html";
     }
 };
+
+$("#repeatPassword").keypress(function(e) {
+    if (e.which === 13) {
+        sign_up();
+    };
+});
     
