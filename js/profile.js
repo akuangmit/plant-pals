@@ -14,7 +14,6 @@ $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
 $("#joined-since").html("Member since " + load('member_since')[username])
 
 // adding plant modal
-
 // Get the modal
 var modal = $("#add-plant");
 
@@ -49,6 +48,11 @@ function load_my_posts() {
 			count += 1;
 		}
 	}
+
+  if (count === 0) {
+    console.log("HI");
+    $("#feed").html("<div class='no-posts'> You haven't written any posts yet. </div>");
+  }
 
   var postTab = document.getElementById("post-tab");
   postTab.className = "tablinks active";
