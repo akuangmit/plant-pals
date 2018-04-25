@@ -21,9 +21,3 @@ function set_profile_to_load(name) {
 		localStorage.setItem('profileToLoad',name);
 	}
 }
-
-$(".linkContainer").hover(function(){
-    $(this).css("background-color", "#669900");
-    }, function(){
-    $(this).css("background-color", "#43b02f");
-});

@@ -32,20 +32,14 @@
           <input type="text" placeholder="Search..." id="searchbox">
     		</div>
     		<div id="links">
-                <div class="linkContainer">
-	    		     <img src="../img/profile.svg" id="profile">
-                     <a href="profile.html" id="profile-link" onclick="set_profile_to_load()">Profile</a>
-                </div>
-                <div class="linkContainer">
-	    		     <a href="index.html">Home</a>
-                </div>
-                <div class="linkContainer">
-	    		     <a href="#">Notifications</a>
-                </div>
-                <div class="linkContainer">
-	    		     <a href="login.html" onclick="logout()">Log Out</a>
-                </div>
-    		</div>
+                <a class="linkContainer" href="profile.html" onclick="set_profile_to_load()">
+                    <img src="../img/profile.svg" id="profile">
+                    Profile
+                </a>
+                <a href="index.html" class="linkContainer">Home</a>
+                <a href="#" class="linkContainer"> Notifications </a>
+                <a href="login.html" class="linkContainer" onclick="logout()">Log Out</a>
+            </div>
     	</nav>
 
       <div id="notification-container">
