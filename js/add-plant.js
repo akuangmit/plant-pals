@@ -99,42 +99,47 @@ var modal = $('#add-plant');
 
 // Add plant to database
 $("#add-plant-submit").click(function(e) {
-	modal.css("display", "none");
 	var plantType = $("#plant-type").val();
 	var picture = $("#pic").val();
 	var dateAcquired = $("#date-acquired").val();
 
-	var dateString = "";
+	if (plantType !== "") {
+		modal.css("display", "none");
+		var dateString = "";
 
-	if (dateAcquired != "") {
-		var date = new Date(dateAcquired);
-	    var dd = date.getDate()+1;
-	    var mm = date.getMonth()+1; //January is 0!
-	    var yyyy = date.getFullYear();
-	    if(dd<10) {
-	        dd = '0'+dd
-	    }
-	    if(mm<10) {
-	        mm = '0'+mm
-	    }
-	    dateString = mm + '/' + dd + '/' + yyyy;
+		if (dateAcquired != "") {
+			var date = new Date(dateAcquired);
+		    var dd = date.getDate()+1;
+		    var mm = date.getMonth()+1; //January is 0!
+		    var yyyy = date.getFullYear();
+		    if(dd<10) {
+		        dd = '0'+dd
+		    }
+		    if(mm<10) {
+		        mm = '0'+mm
+		    }
+		    dateString = mm + '/' + dd + '/' + yyyy;
+		}
+
+		plant_data = {
+			name: plantType,
+			image: picture,
+			owned_since: dateString,
+			related_posts: []
+		};
+
+		// save into local storage
+		var user_plant_data = load('user_plant_data');
+		user_plant_data[username].push(plant_data);
+		//console.log('type: ' + plantType);
+		save('user_plant_data', user_plant_data);
+
+		// change interface
+		add_plant(user_plant_data[username].length, plant_data);
 	}
-
-	plant_data = {
-		name: plantType,
-		image: picture,
-		owned_since: dateString,
-		related_posts: []
-	};
-
-	// save into local storage
-	var user_plant_data = load('user_plant_data');
-	user_plant_data[username].push(plant_data);
-	console.log('type: ' + plantType);
-	save('user_plant_data', user_plant_data);
-
-	// change interface
-	add_plant(user_plant_data[username].length, plant_data);
+	else {
+		alert("To add a plant, you must specify the plant's species name.");
+	}
 });
 
 function load_plants() {
@@ -162,7 +167,6 @@ function load_plants() {
 
 	var plantTab = document.getElementById("plant-tab");
 	plantTab.className = "tabLinks active";
-
 }
 
 // this is the database that maps from user -> plants owned
