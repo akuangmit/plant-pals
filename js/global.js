@@ -14,7 +14,7 @@ $(document).ready(function() {
     $(".query").text(localStorage.getItem('searchTerm'));
 });
 
-$("#links a").hover(function(){
+$(".linkContainer").hover(function(){
     $(this).css("background-color", "#669900");
     }, function(){
     $(this).css("background-color", "#43b02f");
