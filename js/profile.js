@@ -28,7 +28,6 @@ $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
 $("#joined-since").html("Member since " + load('member_since')[profileToLoad])
 
 // adding plant modal
-
 // Get the modal
 var modal = $("#add-plant");
 
@@ -45,12 +44,13 @@ span.onclick = function() {
     modal.css("display", "none");
 }
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.css("display", "none");
-    }
-}
+// // When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.css("display", "none");
+//     }
+//     console.log("ok")
+// }
 
 function load_my_posts() {
 	$("#plant-list").empty();
@@ -63,6 +63,11 @@ function load_my_posts() {
 			count += 1;
 		}
 	}
+
+  if (count === 0) {
+    console.log("HI");
+    $("#feed").html("<div class='no-posts'> You haven't written any posts yet. </div>");
+  }
 
   var postTab = document.getElementById("post-tab");
   postTab.className = "tablinks active";

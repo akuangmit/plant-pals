@@ -18,42 +18,49 @@ $(".close").click(function(e) {
 });
 
 $("#submit-post").click(function(e) {
-	modal.css("display", "none");
 	var title = $("#post-title").val();
 	var content = $("#post-content").val();
 	var imageName = $("#file-upload").val();
 
-	if (imageName !== "") {
-		// User uploaded some sort of image
+	if (title != "" && content != "") {
 
-		post = {
-			author: load('users')[localStorage.getItem('email')],
-			likes: 0,
-			title: title,
-			content: content,
-			images: ["fertilizer.jpg"],
-			comments:[]
-		};
+		modal.css("display", "none");
+
+		if (imageName !== "") {
+			// User uploaded some sort of image
+
+			post = {
+				author: load('users')[localStorage.getItem('email')],
+				likes: 0,
+				title: title,
+				content: content,
+				images: ["fertilizer.jpg"],
+				comments:[]
+			};
+		}
+
+		else {
+			post = {
+				author: load('users')[localStorage.getItem('email')],
+				likes: 0,
+				title: title,
+				content: content,
+				images: [],
+				comments:[]
+			};
+		}
+
+		// save into local storage
+		var feed = load('feed');
+		feed.push(post);
+		save('feed',feed);
+
+		// change interface
+		add_post(feed.length-1, post, $("#feed"));
 	}
-
 	else {
-		post = {
-			author: load('users')[localStorage.getItem('email')],
-			likes: 0,
-			title: title,
-			content: content,
-			images: [],
-			comments:[]
-		};
+		alert("Your post must contain a title and body text.");
 	}
-
-	// save into local storage
-	var feed = load('feed');
-	feed.push(post);
-	save('feed',feed);
-
-	// change interface
-	add_post(feed.length-1, post, $("#feed"));
 });
 
 $("#add-post")

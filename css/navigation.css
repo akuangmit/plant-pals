@@ -32,6 +32,11 @@ nav {
 	border-radius: 3px;
 }
 
+.linkContainer{
+	display:flex;
+	align-items:center;
+	height:30px;
+}
 #links {
 	display: flex;
 	align-items: center;
