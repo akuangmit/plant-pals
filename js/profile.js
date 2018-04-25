@@ -66,7 +66,7 @@ function load_my_posts() {
 
   if (count === 0) {
     console.log("HI");
-    $("#feed").html("<div class='no-posts'> You haven't written any posts yet. </div>");
+    $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
   }
 
   var postTab = document.getElementById("post-tab");
