@@ -3,11 +3,18 @@ function postClicked(postID) {
 }
 
 // set name to be loaded
-profileToLoad = localStorage.getItem('profileToLoad');
+var profileToLoad = localStorage.getItem('profileToLoad');
+
+var hasnotString = "You haven't";
 
 // if profileToLoad is not me, remove the add plant button
+// also say "their plants" and "their posts" instead of "my"
 if(profileToLoad != username) {
-	$("$add-button-div").css("display", "none");
+	var firstname = profileToLoad.split(" ")[0];
+	$("#add-button-div").css("display", "none");
+	$("#plant-tab").html(firstname +"'s plants");
+	$("#post-tab").html(firstname + "'s posts");
+	hasnotString = firstname + " hasn't";
 }
 
 $("#name").html(profileToLoad);
@@ -62,4 +69,32 @@ function load_my_posts() {
 
   var plantTab = document.getElementById("plant-tab");
   plantTab.className = "tabLinks";
+}
+
+function load_plants() {
+	$("#plant-list").empty();
+    $("#feed").empty();
+
+	// initialize for new members
+	var user_plant_data = load('user_plant_data');
+	if (!(profileToLoad in user_plant_data)){
+		user_plant_data[profileToLoad] = []
+		save('user_plant_data',user_plant_data);
+	}
+
+	var plants = user_plant_data[profileToLoad];
+	for(var i=0; i<plants.length; i++) {
+		add_plant(i, plants[i]);
+	}
+
+	if(plants.length === 0) {
+		$("#plant-list").html("<div class='no-plants'> " + hasnotString + " added any plants yet. </div>");
+	}
+
+	var postTab = document.getElementById("post-tab");
+	postTab.className = "tablinks";
+
+	var plantTab = document.getElementById("plant-tab");
+	plantTab.className = "tabLinks active";
+
 }

@@ -14,6 +14,11 @@ $(document).ready(function() {
     $(".query").text(localStorage.getItem('searchTerm'));
 });
 
-function set_profile_to_load() {
-	localStorage.setItem('profileToLoad',username);
+function set_profile_to_load(name) {
+	console.log(name)
+	if (name === undefined) {
+		localStorage.setItem('profileToLoad',username);
+	} else {
+		localStorage.setItem('profileToLoad',name);
+	}
 }

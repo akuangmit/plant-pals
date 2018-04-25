@@ -33,8 +33,6 @@ function add_post(id, post, container) {
 		var shortened = content.substring(0,max_post_length);
 		var remaining = content.substring(max_post_length, content.length);
 		var rest = content.substring(max_post_length,content.length);
-		//EDITED
-		//content = shortened + '... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
 		content = shortened + '<span class="remaining-text">' + remaining + '</span>... <div onclick="expandPost('+id+', true)" class="see-more">See More</div>';
 	}
 
@@ -57,7 +55,7 @@ function add_post(id, post, container) {
 	}
 
 	// change the interface
-	container.prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><p>' + author + '</p></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
+	container.prepend('<div class="post" id="'+id+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" onclick="set_profile(' + id + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+id+'"></div></div>');
 
 	// load existing comments
 	for(var i = 0; i < comments.length; i++) {
@@ -120,3 +118,8 @@ function likePost(id, like, currentLikes) {
 	};
 	save('name_to_liked_posts', name_to_liked_posts);
 };
+
+function set_profile(id) {
+	var post = load('feed')[id];
+	set_profile_to_load(post.author);
+}
