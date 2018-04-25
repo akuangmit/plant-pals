@@ -11,3 +11,8 @@ function log_in(){
     }
 };
     
+$("#loginForm #passwordInput").keypress(function(e) {
+    if (e.which === 13) {
+        log_in();
+    };
+});

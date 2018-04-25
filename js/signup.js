@@ -1,27 +1,28 @@
 function sign_up(){
-    var firstname = document.getElementById("firstNameInput");
-    var lastname = document.getElementById("lastNameInput");
-    var email = document.getElementById("email");
-    var password = document.getElementById("passwordInput");
-    var repeatPassword = document.getElementById("repeatPassword");
+    var firstname = $("#firstNameInput");
+    var lastname = $("#lastNameInput");
+    var email = $("#email");
+    var password = $("#passwordInput");
+    var repeatPassword = $("#repeatPassword");
     var users = load('users');
-    if (password.value!=repeatPassword.value){
+    if (password.val()!=repeatPassword.val()){
     	alert("Passwords do not match. Try signing up again.");
-        window.location.href="signup.html";
+        password.val("")
+        repeatPassword.val("")
     }
-    else if (email.value in users){
+    else if (email.val() in users){
     	alert("Email account already exists. Try logging in.");
         window.location.href="signup.html";
     }
     else{
-        var name = firstname.value+" "+lastname.value;
+        var name = firstname.val() +" "+lastname.val() ;
 
         // add user to database
-        users[email.value] = name;
+        users[email.val() ] = name;
         save('users',users);
 
         // add set user as logged in
-        localStorage.setItem('email',email.value);
+        localStorage.setItem('email',email.val());
 
         // add default pfp
         var name_to_profile = load('name_to_profile');
@@ -51,4 +52,10 @@ function sign_up(){
     	window.location.href="index.html";
     }
 };
+
+$("#repeatPassword").keypress(function(e) {
+    if (e.which === 13) {
+        sign_up();
+    };
+});
     

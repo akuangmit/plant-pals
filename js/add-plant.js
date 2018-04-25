@@ -99,71 +99,48 @@ var modal = $('#add-plant');
 
 // Add plant to database
 $("#add-plant-submit").click(function(e) {
-	modal.css("display", "none");
 	var plantType = $("#plant-type").val();
 	var picture = $("#pic").val();
 	var dateAcquired = $("#date-acquired").val();
 
-	var dateString = "";
+	if (plantType !== "") {
+		modal.css("display", "none");
+		var dateString = "";
 
-	if (dateAcquired != "") {
-		var date = new Date(dateAcquired);
-	    var dd = date.getDate()+1;
-	    var mm = date.getMonth()+1; //January is 0!
-	    var yyyy = date.getFullYear();
-	    if(dd<10) {
-	        dd = '0'+dd
-	    }
-	    if(mm<10) {
-	        mm = '0'+mm
-	    }
-	    dateString = mm + '/' + dd + '/' + yyyy;
+		if (dateAcquired != "") {
+			var date = new Date(dateAcquired);
+		    var dd = date.getDate()+1;
+		    var mm = date.getMonth()+1; //January is 0!
+		    var yyyy = date.getFullYear();
+		    if(dd<10) {
+		        dd = '0'+dd
+		    }
+		    if(mm<10) {
+		        mm = '0'+mm
+		    }
+		    dateString = mm + '/' + dd + '/' + yyyy;
+		}
+
+		plant_data = {
+			name: plantType,
+			image: picture,
+			owned_since: dateString,
+			related_posts: []
+		};
+
+		// save into local storage
+		var user_plant_data = load('user_plant_data');
+		user_plant_data[username].push(plant_data);
+		//console.log('type: ' + plantType);
+		save('user_plant_data', user_plant_data);
+
+		// change interface
+		add_plant(user_plant_data[username].length, plant_data);
 	}
-
-	plant_data = {
-		name: plantType,
-		image: picture,
-		owned_since: dateString,
-		related_posts: []
-	};
-
-	// save into local storage
-	var user_plant_data = load('user_plant_data');
-	user_plant_data[username].push(plant_data);
-	console.log('type: ' + plantType);
-	save('user_plant_data', user_plant_data);
-
-	// change interface
-	add_plant(user_plant_data[username].length, plant_data);
+	else {
+		alert("To add a plant, you must specify the plant's species name.");
+	}
 });
-
-function load_plants() {
-	$("#plant-list").empty();
-    $("#feed").empty();
-
-	// initialize for new members
-	var user_plant_data = load('user_plant_data');
-	if (!(username in user_plant_data)){
-		user_plant_data[username] = []
-		save('user_plant_data',user_plant_data);
-	}
-
-	var plants = user_plant_data[username];
-	for(var i=0; i<plants.length; i++) {
-		add_plant(i, plants[i]);
-	}
-
-	if(plants.length === 0) {
-		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
-	}
-
-	var postTab = document.getElementById("post-tab");
-	postTab.className = "tablinks";
-
-	var plantTab = document.getElementById("plant-tab");
-	plantTab.className = "tabLinks active";
-
-}
 
 // this is the database that maps from user -> plants owned
 var user_plant_data = {

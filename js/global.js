@@ -13,3 +13,18 @@ $("#searchbox").keypress(function(e) {
 $(document).ready(function() {
     $(".query").text(localStorage.getItem('searchTerm'));
 });
+
+function set_profile_to_load(name) {
+	console.log(name)
+	if (name === undefined) {
+		localStorage.setItem('profileToLoad',username);
+	} else {
+		localStorage.setItem('profileToLoad',name);
+	}
+}
+
+$(".linkContainer").hover(function(){
+    $(this).css("background-color", "#669900");
+    }, function(){
+    $(this).css("background-color", "#43b02f");
+});
