@@ -84,10 +84,15 @@ function add_post(divID, globalID, post, container) {
 	});
 }
 
-function load_posts() {
+function load_posts(option) {
 	var feed = load('feed');
+	
+	count = 0;
 	for(var i=0; i<feed.length; i++) {
-		add_post(i, i, feed[i], $("#feed"));
+		if (option == 'search' && feed[i].search_only == true || option != 'search' && feed[i].search_only != true) {
+			add_post(count, i, feed[i], $("#feed"));
+			count += 1;
+		}
 	}
 }
 
