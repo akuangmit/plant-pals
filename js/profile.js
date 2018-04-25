@@ -2,16 +2,23 @@ function postClicked(postID) {
   window.location.href = "index.html";
 }
 
-// set name
-$("#name").html(username);
+// set name to be loaded
+profileToLoad = localStorage.getItem('profileToLoad');
+
+// if profileToLoad is not me, remove the add plant button
+if(profileToLoad != username) {
+	$("$add-button-div").css("display", "none");
+}
+
+$("#name").html(profileToLoad);
 
 // set profile picture
 $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
-	load('name_to_profile')[username]
+	load('name_to_profile')[profileToLoad]
 	+'" align="center" class="image"></p>');
 
 // set date joined
-$("#joined-since").html("Member since " + load('member_since')[username])
+$("#joined-since").html("Member since " + load('member_since')[profileToLoad])
 
 // adding plant modal
 
@@ -44,7 +51,7 @@ function load_my_posts() {
 	var feed = load('feed');
 	var count = 0;
 	for(var i=0; i<feed.length; i++) {
-		if (feed[i].author == username) {
+		if (feed[i].author == profileToLoad) {
 			add_post(count, feed[i], $("#feed"));
 			count += 1;
 		}

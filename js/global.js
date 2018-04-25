@@ -13,3 +13,7 @@ $("#searchbox").keypress(function(e) {
 $(document).ready(function() {
     $(".query").text(localStorage.getItem('searchTerm'));
 });
+
+function set_profile_to_load() {
+	localStorage.setItem('profileToLoad',username);
+}
