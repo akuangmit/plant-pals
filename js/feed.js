@@ -27,7 +27,7 @@ function add_post(id, post, container) {
 	var comments = post.comments;
 	var images = post.images;
 	var pfpfilename = load('name_to_profile')[author];
-
+	
 	// make "See More" if the post is too long
 	if (content.length > max_post_length) {
 		var shortened = content.substring(0,max_post_length);
