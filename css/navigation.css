@@ -2,7 +2,7 @@
 
 nav {
 	background-color: var(--green, green);
-	padding: 15px 40px;
+	padding: 0px 40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -32,16 +32,29 @@ nav {
 	border-radius: 3px;
 }
 
+
 #links {
+	height: 64px;
 	display: flex;
 	align-items: center;
 }
 
 #links img {
 	width: 30px;
+	padding-right: 10px;
 }
 
 #links a {
 	color: var(--white, white);
-	padding: 0 10px;
+}
+
+.linkContainer {
+	padding: 0 13px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+.linkContainer:hover {
+	background-color: #669900;
+	cursor: pointer;
 }

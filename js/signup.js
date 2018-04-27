@@ -5,16 +5,25 @@ function sign_up(){
     var password = $("#passwordInput");
     var repeatPassword = $("#repeatPassword");
     var users = load('users');
-    if (password.val()!=repeatPassword.val()){
+
+    if (email.val().indexOf('@') == -1 || email.val().indexOf('.') == -1) {
+        alert('Please type in a valid email address.')
+    } else if (firstname.val() == '') {
+        alert('Please fill out all fields.')
+    } else if (lastname.val() == '') {
+        alert('Please fill out all fields.')
+    } else if (password.val() == '') {
+        alert('Please fill out all fields.')
+    } else if (repeatPassword.val() == '') {
+        alert('Please fill out all fields.')
+    } else if (password.val()!=repeatPassword.val()){
     	alert("Passwords do not match. Try signing up again.");
         password.val("")
         repeatPassword.val("")
-    }
-    else if (email.val() in users){
+    } else if (email.val() in users){
     	alert("Email account already exists. Try logging in.");
         window.location.href="signup.html";
-    }
-    else{
+    } else{
         var name = firstname.val() +" "+lastname.val() ;
 
         // add user to database

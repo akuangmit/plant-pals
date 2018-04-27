@@ -14,8 +14,10 @@ $(document).ready(function() {
     $(".query").text(localStorage.getItem('searchTerm'));
 });
 
-$("#links a").hover(function(){
-    $(this).css("background-color", "#669900");
-    }, function(){
-    $(this).css("background-color", "#43b02f");
-});
+function set_profile_to_load(name) {
+	if (name === undefined) {
+		localStorage.setItem('profileToLoad',username);
+	} else {
+		localStorage.setItem('profileToLoad',name);
+	}
+}

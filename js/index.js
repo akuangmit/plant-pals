@@ -56,7 +56,7 @@ $("#submit-post").click(function(e) {
 		save('feed',feed);
 
 		// change interface
-		add_post(feed.length-1, post, $("#feed"));
+		add_post(feed.length-1, feed.length-1, post, $("#feed"));
 	}
 	else {
 		alert("Your post must contain a title and body text.");
@@ -110,7 +110,8 @@ var feed_base = [
 				content: "Yes, I'm interested! I can also help organize the meetup :)",
 				time: "1 minute ago"
 			}
-		]
+		],
+		search_only: false
 	},
 	{
 		author: "Sally Planter",
@@ -129,7 +130,8 @@ var feed_base = [
 				content: "Oh man Sally, I shoulda read your post earlier, I strained my back watering my plants :(",
 				time: "1 hour ago"
 			}
-		]
+		],
+		search_only: false
 	},
 	{
 		author: "John Doe",
@@ -143,7 +145,43 @@ var feed_base = [
 				content: "OMG that looks so nice <3 Hopefully my plant can look like that someday!",
 				time: "1 day ago"
 			}
-		]
+		],
+		search_only: false
+	},
+	{
+		author: "Jane Doe",
+		likes: 601,
+		title: "How to Care for Your Spider Plant",
+		content: "Hi everyone! I'm super excited to show everyone my new spider plant! She's a real beauty, and I can't wait to watch her grow",
+		images: ["sample-image.jpeg"],
+		comments: [
+			{
+				author: "Bobby",
+				content: "Keep us updated on your new plant's growing progress!",
+				time: "2 hours ago"
+			},
+			{
+				author: "Angela",
+				content: "Looks beautiful!",
+				time: "1 minute ago"
+			}
+		],
+		search_only: true
+	},
+	{
+		author: "Sally Planter",
+		likes: 3215,
+		title: "An Expert Guide on How to Take Care of Your Spider Plant",
+		content: "My name is Sally Planter and I'm an award winning gardener and spider plant enthusiast. Spider plants are one of my favorite plants to take care of because of their low maintenance needs, but high utility. You can use them as a great way to green up a place in any room, outside in a garden to complement flowers, or even hung from a sky pot.<br> <br>Here are some of my favorite tips for how to take care of your spider plant:<br>- Give it just enough water. About two times per week is just about perfect. Any more, and you could overwater this native desert plant. Any less, and it won't be as green as it could be.<br><br>- On the other hand, spider plants love sunlight, so be sure to give your plant plenty of sunshine. If you're growing your plant indoors, try to rotate the pot outside at least once a week so it can get it's weekly fix of sunshine.",
+		images: [],
+		comments: [
+			{
+				author: "Jordan",
+				content: "Thanks for these helpful tips Sally! Love seeing pictures of your spider plants",
+				time: "2 days ago"
+			}
+		],
+		search_only: true
 	}
 ];
 
@@ -160,7 +198,7 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('name_to_liked_posts')) {
 	  save('name_to_liked_posts', name_to_liked_posts);
 	}
-	load_posts();
+	load_posts('feed');
 });
 
 var local_storage_name_to_img = {

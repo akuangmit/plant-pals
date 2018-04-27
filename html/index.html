@@ -32,12 +32,14 @@
     			<input type="text" placeholder="Search..." id="searchbox">
     		</div>
     		<div id="links">
-	    		<img src="../img/profile.svg" id="profile">
-                <a href="profile.html" id="profile-link">Profile</a>
-	    		<a href="index.html">Home</a>
-	    		<a href="#" id="notifications-link">Notifications</a>
-	    		<a href="login.html" onclick="logout()">Log Out</a>
-    		</div>
+                <a class="linkContainer" href="profile.html" onclick="set_profile_to_load()">
+                    <img src="../img/profile.svg" id="profile">
+                    Profile
+                </a>
+                <a href="index.html" class="linkContainer">Home</a>
+                <a href="#" class="linkContainer"> Notifications </a>
+                <a href="login.html" class="linkContainer" onclick="logout()">Log Out</a>
+            </div>
     	</nav>
 
         <div class="tutorial">
@@ -52,12 +54,9 @@
             <div id="notifications">No new notifications!</div>
         </div>
 
-        <div class="dot" id="add-post"">+</div>
-        <div id="add-post-descriptor"">Create post</div>
-
-        <div class="modal" id="create-post">
-            <div class="modal-content">
-                <span class="close">&times;</span>
+        <div class="create-post">
+            <h3>Create a post</h3>
+            <div id="create-post-container">
                 <input type="text" placeholder="Title" id="post-title">
                 <textarea placeholder="Start typing here!" id="post-content"></textarea>
                 <div id="create-post-bottom">

@@ -142,33 +142,6 @@ $("#add-plant-submit").click(function(e) {
 	}
 });
 
-function load_plants() {
-	$("#plant-list").empty();
-    $("#feed").empty();
-
-	// initialize for new members
-	var user_plant_data = load('user_plant_data');
-	if (!(username in user_plant_data)){
-		user_plant_data[username] = []
-		save('user_plant_data',user_plant_data);
-	}
-
-	var plants = user_plant_data[username];
-	for(var i=0; i<plants.length; i++) {
-		add_plant(i, plants[i]);
-	}
-
-	if(plants.length === 0) {
-		$("#plant-list").html("<div class='no-plants'> You haven't added any plants yet. </div>");
-	}
-
-	var postTab = document.getElementById("post-tab");
-	postTab.className = "tablinks";
-
-	var plantTab = document.getElementById("plant-tab");
-	plantTab.className = "tabLinks active";
-}
-
 // this is the database that maps from user -> plants owned
 var user_plant_data = {
 	"Sally Planter" : [
