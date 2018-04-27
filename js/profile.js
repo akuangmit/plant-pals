@@ -59,14 +59,13 @@ function load_my_posts() {
 	var count = 0;
 	for(var i=0; i<feed.length; i++) {
 		if (feed[i].author == profileToLoad) {
-			add_post(count, feed[i], $("#feed"));
+			add_post(count, i, feed[i], $("#feed"));
 			count += 1;
 		}
 	}
 
   if (count === 0) {
-    console.log("HI");
-    $("#feed").html("<div class='no-posts'> You haven't written any posts yet. </div>");
+    $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
   }
 
   var postTab = document.getElementById("post-tab");
