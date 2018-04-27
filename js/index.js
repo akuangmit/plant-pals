@@ -56,7 +56,7 @@ $("#submit-post").click(function(e) {
 		save('feed',feed);
 
 		// change interface
-		add_post(feed.length-1, post, $("#feed"));
+		add_post(feed.length-1, feed.length-1, post, $("#feed"));
 	}
 	else {
 		alert("Your post must contain a title and body text.");
