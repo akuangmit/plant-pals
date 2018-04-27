@@ -6,12 +6,16 @@ function sign_up(){
     var repeatPassword = $("#repeatPassword");
     var users = load('users');
 
-    if (firstname.val() == '') {
-        alert('Invalid first name.')
+    if (email.val().indexOf('@') == -1 || email.val().indexOf('.') == -1) {
+        alert('Please type in a valid email address.')
+    } else if (firstname.val() == '') {
+        alert('Please fill out all fields.')
     } else if (lastname.val() == '') {
-        alert('Invalid last name.')
-    } else if (email.val().indexOf('@') == -1 || email.val().indexOf('.') == -1) {
-        alert('Invalid email.')
+        alert('Please fill out all fields.')
+    } else if (password.val() == '') {
+        alert('Please fill out all fields.')
+    } else if (repeatPassword.val() == '') {
+        alert('Please fill out all fields.')
     } else if (password.val()!=repeatPassword.val()){
     	alert("Passwords do not match. Try signing up again.");
         password.val("")
