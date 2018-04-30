@@ -83,7 +83,7 @@
 	color: var(--white, white);
 	border: 0px;
 	border-radius:3px;
-	padding: 5px 10px;
+	padding: 10px 10px;
 }
 #loginPage .loginSignup .loginContainer #forgotLink{
 	margin-top:15px;

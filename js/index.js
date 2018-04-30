@@ -106,7 +106,7 @@ var feed_base = [
 		images: [],
 		comments: [
 			{
-				author: "Angela",
+				author: "Angela Leung",
 				content: "Yes, I'm interested! I can also help organize the meetup :)",
 				time: "1 minute ago"
 			}
@@ -121,12 +121,12 @@ var feed_base = [
 		images: ["watering_can.jpeg"],
 		comments: [
 			{
-				author: "Jake",
+				author: "Jake Smith",
 				content: "Thanks so much Sally! That really helped me with taking care of my flowers.",
 				time: "2 hours ago"
 			},
 			{
-				author: "John",
+				author: "John Doe",
 				content: "Oh man Sally, I shoulda read your post earlier, I strained my back watering my plants :(",
 				time: "1 hour ago"
 			}
@@ -141,7 +141,7 @@ var feed_base = [
 		images: ["sample-image.jpeg"],
 		comments: [
 			{
-				author: "Jenny",
+				author: "Jenny Li",
 				content: "OMG that looks so nice <3 Hopefully my plant can look like that someday!",
 				time: "1 day ago"
 			}
@@ -156,12 +156,12 @@ var feed_base = [
 		images: ["sample-image.jpeg"],
 		comments: [
 			{
-				author: "Bobby",
+				author: "Bobby Patterson",
 				content: "Keep us updated on your new plant's growing progress!",
 				time: "2 hours ago"
 			},
 			{
-				author: "Angela",
+				author: "Angela Leung",
 				content: "Looks beautiful!",
 				time: "1 minute ago"
 			}
@@ -176,7 +176,7 @@ var feed_base = [
 		images: [],
 		comments: [
 			{
-				author: "Jordan",
+				author: "Jordan Wick",
 				content: "Thanks for these helpful tips Sally! Love seeing pictures of your spider plants",
 				time: "2 days ago"
 			}

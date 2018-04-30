@@ -55,6 +55,6 @@ nav {
 	align-items: center;
 }
 .linkContainer:hover {
-	background-color: #669900;
+	background-color: var(--hover-green, #006600);
 	cursor: pointer;
 }
