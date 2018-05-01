@@ -102,6 +102,9 @@
 	}
 }
 
+#feed .show-all-comments {
+	display: none;
+}
 
 #feed .post {
 	/*border: 1px solid var(--border-grey, grey);*/
@@ -211,4 +214,8 @@
 .author{
 	font-size:20px;
 	color:var(--green, green);
+}
+#show-comments{
+	color:#999;
+	cursor: pointer;
 }
