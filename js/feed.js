@@ -79,7 +79,8 @@ function add_post(divID, globalID, post, container) {
 
 	// load existing comments
 	for(var i = 0; i < Math.min(comments.length, max_comments); i++) {
-		add_comment(divID, comments[i], false);
+		var startIndex = comments.length-Math.min(comments.length, max_comments);
+		add_comment(divID, comments[startIndex+i], false);
 	}
 
 	// add listener for adding new comments
