@@ -61,7 +61,7 @@ function add_post(divID, globalID, post, container) {
 		showAllMessage = "View All "+comments.length + " Comments";
 	}
 	// var showAllMessage = "View All "+comments.length + " Comments";
-	container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="show-all-comments'+divID+'">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
+	container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
 
 	// if there are too many comments, make the show all comments button visible
 	if (comments.length > max_comments) {
