@@ -4,8 +4,7 @@ $("#searchbox").keypress(function(e) {
 
 		if (term !== "") {
 			localStorage.setItem('searchTerm', term);
-			window.location.replace("search.html");
-			return false;
+			window.location.href = "search.html";
 		}
 	};
 });
