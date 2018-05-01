@@ -87,6 +87,7 @@
 	margin-right: 30px;
 	cursor: pointer;
 	width: 150px;
+	margin-top:25px;
 }
 
 .create-post button:hover {
@@ -117,3 +118,10 @@
 #pic-upload-button:hover {
   cursor: pointer;
 }
+
+#photo-upload-container p{
+	color: var(--green, green);
+	height:5px;
+	margin-right:2px;
+}
+
