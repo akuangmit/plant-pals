@@ -237,3 +237,7 @@
 .see-more:hover {
 	color: var(--red-hover, red);
 }
+.author{
+	font-size:20px;
+	color:var(--green, green);
+}
