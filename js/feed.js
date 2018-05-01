@@ -1,5 +1,6 @@
 // how long a post can be before there's a "See More" button.
 var max_post_length = 750;
+var max_comments = 3;
 
 function add_comment(divID, comment, animate) {
 	var author = comment.author;
@@ -55,11 +56,24 @@ function add_post(divID, globalID, post, container) {
 	}
 
 	// change the interface
-	container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
+	container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="show-all-comments">Show All</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
+
+	// if there are too many comments, make the show all comments button visible
+	if (comments.length > max_comments) {
+		$(".show-all-comments").css("display", "block");
+
+		// add listener for showing all comments
+		$(".show-all-comments").click(function() {
+			$("#" + divID + " .bottom-container .comment-container").html("");
+			for(var i = 0; i < comments.length; i++) {
+				add_comment(divID, comments[i], false);
+			}
+		});
+	}
 
 	// load existing comments
-	for(var i = 0; i < comments.length; i++) {
-		add_comment(globalID, comments[i], false);
+	for(var i = 0; i < Math.min(comments.length, max_comments); i++) {
+		add_comment(divID, comments[i], false);
 	}
 
 	// add listener for adding new comments
