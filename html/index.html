@@ -20,6 +20,7 @@
     	<link rel="stylesheet" type="text/css" href="../css/navigation.css">
         <link rel="stylesheet" type="text/css" href="../css/feed.css">
         <link rel="stylesheet" type="text/css" href="../css/index.css">
+        <link rel="stylesheet" type="text/css" href="../css/tutorial.css">
         <link rel="stylesheet" type="text/css" href="../css/notifications.css">
 
     	<title>Plant Pals</title>
@@ -43,8 +44,29 @@
 
         <div class="tutorial">
             <div class="tutorial-content">
-                <img src="../img/arrow.svg">
-                Click here to view your profile and add a plant
+                <span class="close">&times;</span>
+                <i class="arrow left"></i>
+                <i class="arrow right"></i>
+                <div class="1 inactive active-page" id="page-1">
+                    <img src="../img/tutorial-1.png">
+                    <h1>Welcome to Plant Pals!</h1>
+                    <p>Some text here</p>
+                </div>
+                <div class="2 inactive" id="page-2">
+                    <p>Some text here 2</p>
+                </div>
+                <div class="3 inactive" id="page-3">
+                    <p>Some text here 3</p>
+                </div>
+                <div class="4 inactive" id="page-4">
+                    <p>Some text here 4</p>
+                </div>
+                <div class="dots">
+                    <span class="dot active-dot 1" id="dot-1"></span>
+                    <span class="dot 2" id="dot-2"></span>
+                    <span class="dot 3" id="dot-3"></span>
+                    <span class="dot 4" id="dot-4"></span>
+                </div>
             </div>
         </div>
 
@@ -71,5 +93,6 @@
     <script src="../js/feed.js" type="text/javascript"></script>
     <script src="../js/index.js" type="text/javascript"></script>
     <script src="../js/notifications.js" type="text/javascript"></script>
+    <script src="../js/tutorial.js" type="text/javascript"></script>
     </body>
 </html>
