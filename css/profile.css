@@ -297,7 +297,7 @@
 }
 
 .tab button {
-    background-color: lightgrey;
+    background-color: hsl(0, 0%, 93%);
     float: left;
     border: none;
     outline: none;
