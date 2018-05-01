@@ -188,7 +188,7 @@
 
 #feed .bottom-container .time-ago {
 	font-weight: 300;
-	color: var(--border-grey, grey);
+	color: #bfbfbf;
 	font-size: 12px;
 	float: right;
 }
