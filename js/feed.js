@@ -73,7 +73,7 @@ function add_post(divID, globalID, post, container) {
 		image_div = '<img src="../img/'+images[i]+'" align="left" class="image">';
 	}
 
-	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
+	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, '+likes+')"><p class="number-likes">' + likes + ' likes</p>';
 	// check to see if I already like this post
 	var name_to_liked_posts = load('name_to_liked_posts');
 	// initialize for new users
@@ -82,7 +82,7 @@ function add_post(divID, globalID, post, container) {
 		save('name_to_liked_posts',name_to_liked_posts);
 	}
 	if (globalID in name_to_liked_posts[username]) {
-		like_img_div = '<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (likes + 1) + ')"><p>Like</p><p class="number-likes">' + (likes + 1) + ' likes</p>';
+		like_img_div = '<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (likes + 1) + ')"><p class="number-likes">' + (likes + 1) + ' likes</p>';
 	}
 
 	// change the interface

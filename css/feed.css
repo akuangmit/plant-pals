@@ -153,17 +153,13 @@
 #feed .like-container {
 	display: flex;
 	align-items: center;
+	margin: -10px 0 0 0;
 }
 
 #feed .like-container img {
 	width: 18px;
 	margin-right: 10px;
 	cursor: pointer;
-}
-
-#feed .like-container .number-likes {
-	padding-left: 40px;
-	color: var(--border-grey, grey);
 }
 
 #feed .content-container {
@@ -225,4 +221,5 @@
 #show-comments{
 	color:#999;
 	cursor: pointer;
+	margin-bottom: -10px;
 }
