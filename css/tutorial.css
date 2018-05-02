@@ -104,6 +104,15 @@ i:hover {
     -webkit-transform: rotate(135deg);
 }
 
+.up {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+    transform: rotate(225deg);
+    -webkit-transform: rotate(225deg);
+}
+
 .right {
 	position: absolute;
 	right: 40px;

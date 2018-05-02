@@ -13,17 +13,19 @@
 }
 
 .create-post {
+	border: 1px solid var(--border-grey, grey);
 	border-radius: 5px;
 	background-color: var(--white, white);
-	padding: 30px;
+	padding: 20px;
 	font-size: 15px;
-	box-sizing: border-box;
+	margin-top: 30px;
+	position: relative;
 }
 
 .create-post h3 {
 	margin: 0 0 20px 0;
 	font-weight: 600;
-	font-size: 16px;
+	font-size: 18px;
 	color: var(--green, green);
 }
 
@@ -37,19 +39,20 @@
 	padding: 2px 5px;
 	width: 100%;
 	box-sizing: border-box;
-	font-size: 16px;
-	display: block;
+	font-size: 15px;
+	/*display: block;*/
+	display: none;
 }
 
 .create-post textarea {
 	border: 1px solid var(--border-grey, grey);
 	border-radius: 3px;
-	margin: 20px 0;
+	margin: 20px 0 0 0;
 	display: block;
 	width: 100%;
 	padding: 5px 10px;
 	box-sizing: border-box;
-	height: 150px;
+	height: 100px;
 }
 
 .create-post button {
@@ -62,6 +65,7 @@
 	cursor: pointer;
 	width: 150px;
 	margin-top:25px;
+	display: none;
 }
 
 .create-post button:hover {
@@ -71,6 +75,7 @@
 .create-post #file-upload {
 	border: none;
 	font-size: 14px;
+	display: none;
 }
 
 .create-post img {
@@ -82,6 +87,7 @@
 .create-post p {
 	font-size: 14px;
 	color: var(--border-grey, grey);
+	display: none;
 }
 
 #create-post-bottom {
