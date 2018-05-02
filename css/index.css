@@ -1,12 +1,12 @@
 @import url("global.css") element;
 
-@media (max-width: 1250px) {
+@media (max-width: 796px) {
 	.create-post {
 		margin: 25px 10%;
 	}
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 796px) {
 	.create-post {
 		margin: 25px calc(calc(100% - var(--max-width)) / 2);
 	}
