@@ -93,8 +93,15 @@
 }
 
 #plant-list .left-container {
-	width: 75%;
+	width: 70%;
 	padding: 0 10px;
+}
+
+#plant-list .right-container {
+  padding-left: 10px;
+  padding-top: 10px;
+  border: 1px solid lightgray;
+  width: 30%;
 }
 
 #plant-list .plant-profile-container {
@@ -173,7 +180,7 @@
 }
 
 #plant-list .content-container {
-	width: 25%;
+	width: 100%;
 	padding: 0 10px;
 }
 
@@ -214,6 +221,7 @@
     margin: 100px auto;
     padding: 20px;
     width: 800px;
+    height: 350px;
     border-radius: 5px;
 }
 
@@ -228,12 +236,30 @@
   margin-top: 20px;
 }
 
-.modal-content input {
+#form-div {
+  display:flex;
+}
+
+#left-form-div {
+  margin-top: 30px;
+}
+
+#add-plant .modal-content #left-form-div input {
   border: none;
   border-bottom: 1px solid var(--border-grey, grey);
   border-radius: 3px;
   padding: 5px 10px;
   margin-left: 10px;
+  width: 90%;
+}
+
+#add-plant .modal-content #right-form-div input {
+  border: none;
+  border-bottom: 1px solid var(--border-grey, grey);
+  border-radius: 3px;
+  padding: 5px 10px;
+  margin-left: 10px;
+  width: 90%;
 }
 
 .modal-content #plant-date-acquired-div {
@@ -308,4 +334,23 @@
 
 .tab button.active {
     background-color: var(--white, white);
+}
+
+#left-form-div {
+  width: 70%;
+  margin-top: 50px;
+}
+
+#right-form-div div {
+  margin-bottom: 15px;
+}
+
+.mini-plant {
+  display: flex;
+  font-size: 20px;
+  height: 30px;
+}
+
+.mini-plant img {
+  width: 30px;
 }

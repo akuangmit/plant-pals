@@ -98,83 +98,18 @@
                   </div>
 
                 </div>
-              <div class="right-container">
-                Bye
-              </div>
-            </div>
+                <div class="right-container">
 
-
-            <div class="plant-div">
-          	  <div class="left-container">
-          	    <div class="plant-profile-container">
+                  <div class="mini-plant">
                     <img src="../img/sprout.svg">
-                    <div id="profile-top">
-                      <div id="plant-name">
-                        <span class="plant-title"> Stella Plant </span>
-                        <button id="edit-button"> &#9998; </button>
-                      </div>
-                      <div id="owned-by-date"> Owned since sdfasdf </div>
-                    </div>
+                    <span>Spider Plant</span>
                   </div>
-                  <div class="posts-container empty">
-                          No posts about this plant yet!
-                        </div>
 
-                  <div class="posts-container">
-                    <div class="post" id="first-post" onclick="postClicked(1)">
-                      <div class="top">
-                        <p class="title"> FIRST POST TITLE </p>
-                        <div class="body">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="date">
-                        4/3/18
-                      </div>
-                    </div>
-                    <div class="post" id="second-post" onclick="postClicked(2)">
-                      <div class="top">
-                        <p class="title"> SECOND POST TITLE </p>
-                        <div class="body">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="date">
-                        3/18/18
-                      </div>
-                    </div>
-                    <div class="post" id="third-post" onclick="postClicked(3)">
-                      <div class="top">
-                        <p class="title"> THIRD POST TITLE </p>
-                        <div class="body">
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                          </p>
-                        </div>
-                      </div>
-                      <div class="date">
-                        2/13/18
-                      </div>
-                    </div>
-                  </div>
                 </div>
-
-                <div class="content-container">
-                  <div id="info">
-                    <p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> 3 </p>
-                    <p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> 5 </p>
-                    <p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> 6 </p>
-                    <p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> 234 </p>
-                  </div>
-                </div>
-              </div>
-
-
+              <br>
+            </div>
           </div>
+
           <div id="feed">
           </div>
         </div>
@@ -188,22 +123,47 @@
           <span class="close">&times;</span>
           <form>
             <div id="form-div">
-              <div id="plant-type-div">
-                <label>Plant Type:</label>
-                <input type="text" id="plant-type" placeholder="Search...">
+              <div id="left-form-div">
+                <div id="plant-type-div">
+                  <label>Plant Type:</label>
+                  <input type="text" id="plant-type" placeholder="Search...">
+                </div>
+
+                <div id="plant-date-acquired-div">
+                  <label>Owned Since:</label>
+                  <input id="date-acquired" type="date">
+                </div>
+
+                <div id="plant-picture-div">
+                  <label>Plant Photo:</label>
+                  <input type="file" name="pic" accept="image/*">
+                </div>
+
+                <button id="add-plant-submit"> Add Plant </button>
               </div>
 
-              <div id="plant-date-acquired-div">
-                <label>Owned Since:</label>
-                <input id="date-acquired" type="date">
-              </div>
+              <div id="right-form-div">
+                <div id="plant-type-div">
+                  <label>Water Amount:</label>
+                  <input type="text" id="water-amount" placeholder="Water Amount...">
+                </div>
 
-              <div id="plant-picture-div">
-                <label>Plant Photo:</label>
-                <input type="file" name="pic" accept="image/*">
-              </div>
+                <div id="sunlight-div">
+                  <label>Sunlight Amount:</label>
+                  <input type="text" id="sunlight-amount" placeholder="Water Amount...">
+                </div>
 
-              <button id="add-plant-submit"> Add Plant </button>
+                <div id="plantingseason-div">
+                  <label>Planting Season:</label>
+                  <input type="text" id="water-amount" placeholder="Plant During...">
+                </div>
+
+                <div id="blooming-div">
+                  <label>Blooming Season:</label>
+                  <input type="text" id="sunlight-amount" placeholder="Blooms During...">
+                </div>
+
+              </div>
             </div>
           </form>
         </div>
