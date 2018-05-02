@@ -8,32 +8,6 @@
 	display: inline;
 }
 
-.tutorial {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-    left: 0;
-    top: 64px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    display: none;
-}
-
-.tutorial-content {
-	width: 250px;
-	text-align: center;
-	position: fixed;
-	right: 80px;
-	top: 80px;
-	display: flex;
-	align-items: center;
-}
-
-.tutorial-content img {
-	width: 60px;
-}
-
 .modal {
     display: none;
     position: fixed;
@@ -43,10 +17,6 @@
     left: 0;
     top: 0;
     background-color: rgba(0,0,0,0.5);
-}
-
-.post img {
-  max-width: 150px;
 }
 
 .modal-content {
@@ -116,24 +86,27 @@
     cursor: pointer;
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 796px) {
 	#feed {
 		margin: 25px 10%;
 	}
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 796px) {
 	#feed {
 		margin: 25px calc(calc(100% - var(--max-width)) / 2);
 	}
 }
 
+#feed .show-all-comments {
+	display: none;
+}
 
 #feed .post {
-	/*border: 1px solid var(--border-grey, grey);*/
+	border: 1px solid var(--border-grey, grey);
 	border-radius: 5px;
 	background-color: var(--white, white);
-	padding: 30px;
+	padding: 10px 20px;
 	font-size: 15px;
 	margin-top: 30px;
 }
@@ -152,13 +125,23 @@
 	align-items: center;
 }
 
-#feed .profile-container p {
-	font-size: 20px;
+#feed .profile-container .author{
+	font-size: 14px;
+	color: var(--green, green);
 }
 
-#feed .profile-container img {
-	width: 75px;
+#feed .post .profile-container img {
+	width: 40px;
 	margin-right: 20px;
+}
+
+#feed .content-container .image {
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+#feed .content-container .content-text {
+	margin-top: 20px;
 }
 
 #feed .like-container {
@@ -178,30 +161,28 @@
 }
 
 #feed .content-container {
-	width: 75%;
-	padding: 0 10px;
+	margin: 10px 0;
+	padding: 10px 0;
+	border-top: 1px solid var(--border-grey, grey);
+	border-bottom: 1px solid var(--border-grey, grey);
 }
 
-#feed .content-container h1 {
+#feed .content-container .title {
 	font-size: 18px;
+	font-weight: 600;
+	width: 100%;
+	text-align: center;
+	display: block;
+	margin-top: 15px;
 }
 
 #feed .content-container .image {
-	padding-right: 20px;
-}
-
-#feed .bottom-container {
-	border-top: 1px solid var(--border-grey, grey);
-	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 #feed .bottom-container .comment-container {
 	width: 100%;
 	margin-top: 20px;
-}
-
-#feed .bottom-container .comment {
-
 }
 
 #feed .bottom-container .commenter {
@@ -211,7 +192,7 @@
 
 #feed .bottom-container .time-ago {
 	font-weight: 300;
-	color: var(--border-grey, grey);
+	color: #bfbfbf;
 	font-size: 12px;
 	float: right;
 }
@@ -234,7 +215,8 @@
 .see-more:hover {
 	color: var(--red-hover, red);
 }
-.author{
-	font-size:20px;
-	color:var(--green, green);
+
+#show-comments{
+	color:#999;
+	cursor: pointer;
 }

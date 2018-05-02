@@ -1,38 +1,12 @@
 @import url("global.css") element;
 
-.tutorial {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    z-index: 99999;
-    left: 0;
-    top: 64px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    display: none;
-}
-
-.tutorial-content {
-	width: 250px;
-	text-align: center;
-	position: fixed;
-	right: 80px;
-	top: 80px;
-	display: flex;
-	align-items: center;
-}
-
-.tutorial-content img {
-	width: 60px;
-}
-
-@media (max-width: 1250px) {
+@media (max-width: 796px) {
 	.create-post {
 		margin: 25px 10%;
 	}
 }
 
-@media (min-width: 1250px) {
+@media (min-width: 796px) {
 	.create-post {
 		margin: 25px calc(calc(100% - var(--max-width)) / 2);
 	}
@@ -87,6 +61,7 @@
 	margin-right: 30px;
 	cursor: pointer;
 	width: 150px;
+	margin-top:25px;
 }
 
 .create-post button:hover {
@@ -117,3 +92,10 @@
 #pic-upload-button:hover {
   cursor: pointer;
 }
+
+#photo-upload-container p{
+	color: var(--green, green);
+	height:5px;
+	margin-right:2px;
+}
+
