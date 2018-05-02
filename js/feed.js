@@ -103,10 +103,11 @@ function add_post(divID, globalID, post, container) {
 
 	// if there are too many comments, make the show all comments button visible
 	if (comments.length > max_comments) {
-		$("#p" + divID + " .show-all-comments").css("display", "block");
+		var showAllCommentsDiv = $("#p" + divID + " .show-all-comments");
+		showAllCommentsDiv.css("display", "block");
 
 		// add listener for showing all comments
-		$("#p" + divID + " .show-all-comments").click(function() {
+		showAllCommentsDiv.click(function() {
 			var feed = load('feed');
 			load_all_comments(divID, globalID, feed[globalID].comments);
 		});
@@ -173,11 +174,12 @@ function expandPost(divID, globalID, expand) {
 
 function likePost(divID, globalID, like, currentLikes) {
 	var name_to_liked_posts = load('name_to_liked_posts');
+	var likeContainer = $("#p" + divID + " .like-container");
 	if (!(globalID in name_to_liked_posts[username])) {
-		$("#p" + divID + " .like-container").html('<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (currentLikes + 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes + 1) + ' likes</p>');
+		likeContainer.html('<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (currentLikes + 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes + 1) + ' likes</p>');
 		name_to_liked_posts[username][globalID] = true;
 	} else {
-		$("#p" + divID + " .like-container").html('<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, ' + (currentLikes - 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes - 1) + ' likes</p>');
+		likeContainer.html('<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, ' + (currentLikes - 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes - 1) + ' likes</p>');
 		delete name_to_liked_posts[username][globalID];
 	};
 	save('name_to_liked_posts', name_to_liked_posts);
