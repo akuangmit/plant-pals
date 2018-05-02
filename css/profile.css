@@ -337,12 +337,17 @@
 }
 
 #left-form-div {
-  width: 70%;
-  margin-top: 50px;
+  width: 50%;
+  margin-top: 10px;
+}
+
+#right-form-div {
+  width: 50%;
+  margin-top: -35px;
 }
 
 #right-form-div div {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .mini-plant {
