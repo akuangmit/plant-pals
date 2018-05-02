@@ -88,7 +88,7 @@
 	padding: 30px;
 	font-size: 15px;
 	margin-top: 30px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   display: flex;
 }
 
@@ -120,11 +120,6 @@
 #plant-list .plant-profile-container #owned-by-date {
   margin-top: 5px;
   font-size: 14px;
-}
-
-#plant-list .plant-profile-container img {
-	width: 75px;
-	margin-right: 20px;
 }
 
 #plant-list .posts-container {
@@ -172,8 +167,8 @@
   font-size: 10px;
 }
 
-#plant-list .posts-container .body img {
-	width: 75px;
+#plant-list .plant-img {
+	width: 80px;
 	margin-right: 10px;
 }
 
@@ -192,7 +187,7 @@
 }
 
 #plant-list .content-container #info {
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 #plant-list .content-container #info p {
