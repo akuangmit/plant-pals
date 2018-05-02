@@ -5,7 +5,7 @@
 }
 
 .profile img {
-  width: 150px;
+  width: 90px;
 }
 
 @media (max-width: 1250px) {
@@ -42,32 +42,34 @@
   }
 }
 
-#top-bar #prof-picture {
-  margin-left: 30px;
+#top-bar {
+  padding: 0 40px;
 }
 
 #top-bar #prof-info {
-    margin-left: 60px;
+    margin-left: 30px;
 }
 
 #top-bar #name {
   color: var(--green, green);
-  font-size: 40px;
+  font-size: 25px;
+  margin: 0;
+}
+
+#top-bar #joined-since {
+  margin-top: 10px;
 }
 
 #top-bar #add-button-div{
 	color: var(--green, green);
   justify-content: center;
   margin-left: auto;
-  margin-right: 30px;
   border: none;
 }
 
 #add-button{
 	width: 100%;
-  height: 45px;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 15px;
 	background-color: var(--green, green);
 	color: var(--white, white);
 	border-radius: 3px;
@@ -75,6 +77,9 @@
   cursor: pointer;
 }
 
+#add-button:hover {
+  background-color: var(--green-hover, green);
+}
 
 #plant-list #plant-name {
   display: flex;
@@ -365,6 +370,11 @@
   display: flex;
   align-items: center;
   padding: 5px;
+  cursor: pointer;
+}
+
+.mini-plant:hover {
+  background-color: var(--background-grey, grey);
 }
 
 .mini-plant img {
