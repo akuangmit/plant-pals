@@ -2,22 +2,58 @@
 var max_post_length = 750;
 var max_comments = 3;
 
-function add_comment(divID, comment, animate) {
+function add_comment(divID, globalID, commentIndex, comment, animate) {
 	var author = comment.author;
 	var content = comment.content;
 	var time = comment.time;
 
 	// change the interface
-	$(".add-comment").val("");
-	var container = $("#" + divID + " .bottom-container .comment-container");
+	$("#p" + divID + " .add-comment").val("");
+	var container = $("#p" + divID + " .bottom-container .comment-container");
+	var deleteDiv = author == username ? "<span class='delete-comment'>\u2715</span>" : "";
+	var newComment = $("<p id='p" + divID + "c" + commentIndex + "' class='comment'><span class='commenter'>"+ author + "</span>" + content + deleteDiv + "</p>");
+
 	if (animate) {
-		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "</p>").hide();
+		newComment.hide();
 		//<span class='time-ago'>"+time+"</span>
 		container.append(newComment);
 		newComment.show('slow');
 	} else {
-		var newComment = $("<p class='comment'><span class='commenter'>"+ author + "</span>" + content + "</p>");
 		container.append(newComment);
+	}
+
+	// add listener for deleting comment
+	if (author == username) {
+		$("#p" + divID + "c" + commentIndex + " .delete-comment").click(function() {
+			var conf = confirm("Are you sure you want to delete this comment?");
+			if (conf) {
+				newComment.hide('fast', function() {
+					newComment.remove();
+				});
+
+				// remove the comment from the database
+				var feed = load('feed');
+				var index = -1;
+				for (var i = 0; i < feed[globalID].comments.length; i++) {
+					if (feed[globalID].comments[i].content == content && feed[globalID].comments[i].author == author && feed[globalID].comments[i].time == time) {
+						index = i;
+					}
+				}
+				feed[globalID].comments.splice(index, 1);
+				save('feed',feed);
+
+				// update the number in "View All __ Comments"
+				$("#p" + divID + " .show-all-comments").html("View All " + feed[globalID].comments.length + " Comments");
+			}
+		});
+	}
+}
+
+function load_all_comments(divID, globalID, comments) {
+	$("#p" + divID + " .bottom-container .comment-container").html("");
+	for(var i = 0; i < comments.length; i++) {
+		add_comment(divID, globalID, i, comments[i], false);
+		$("#p" + divID + " .show-all-comments").css("display", "none");
 	}
 }
 
@@ -35,7 +71,7 @@ function add_post(divID, globalID, post, container) {
 		var shortened = content.substring(0,max_post_length);
 		var remaining = content.substring(max_post_length, content.length);
 		var rest = content.substring(max_post_length,content.length);
-		content = shortened + '<span class="remaining-text">' + remaining + '</span>... <div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>';
+		content = shortened + '<span class="remaining-text">' + remaining + '</span><span class="ellipse">...</span> <div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>';
 	}
 
 	var image_div = ''
@@ -44,7 +80,7 @@ function add_post(divID, globalID, post, container) {
 		image_div = '<img src="../img/'+images[i]+'" align="left" class="image">';
 	}
 
-	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
+	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, '+likes+')"><p class="number-likes">' + likes + ' likes</p>';
 	// check to see if I already like this post
 	var name_to_liked_posts = load('name_to_liked_posts');
 	// initialize for new users
@@ -53,59 +89,40 @@ function add_post(divID, globalID, post, container) {
 		save('name_to_liked_posts',name_to_liked_posts);
 	}
 	if (globalID in name_to_liked_posts[username]) {
-		like_img_div = '<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (likes + 1) + ')"><p>Like</p><p class="number-likes">' + (likes + 1) + ' likes</p>';
+		like_img_div = '<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (likes + 1) + ')"><p class="number-likes">' + (likes + 1) + ' likes</p>';
 	}
 
 	// change the interface
 	var showAllMessage = "";
 	if (comments.length > max_comments){
-		showAllMessage = "View All "+comments.length + " Comments";
+		showAllMessage = "View All " + comments.length + " Comments";
 	}
 	// var showAllMessage = "View All "+comments.length + " Comments";
 	//container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
-	container.prepend('<div class="post" id="' + divID + '"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="content-container">' + image_div + '<span class="title">' + title + '</span><div class="content-text">' + content + '</div></div><div class="bottom-container"><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div></div>');
-	// <div class="profile-container">
-	// 	<img src="../img/profile-pictures/'+pfpfilename+'">
-	// 	<a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a>
-	// </div>
-	// <div class="content-container">
-	// 	<h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p>
-	// </div>
-	//<div class="like-container">' + like_img_div + '</div>
-	// <div class="bottom-container">
-	// 	<div class="show-all-comments'+divID+'" id="show-comments">'
-	// 		+showAllMessage+
-	// 	'</div>
-	// 	<div class="comment-container">
-	// 	</div>
-	// 	<input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'">
-	// 	</div>
-	// </div>
+	container.prepend('<div class="post" id=p' + divID + '><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="content-container">' + image_div + '<span class="title">' + title + '</span><div class="content-text">' + content + '</div></div><div class="bottom-container"><div class="like-container">' + like_img_div + '</div><div class="show-all-comments" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..."></div></div></div>');
 
 	// if there are too many comments, make the show all comments button visible
 	if (comments.length > max_comments) {
-		$(".show-all-comments"+divID).css("display", "block");
+		var showAllCommentsDiv = $("#p" + divID + " .show-all-comments");
+		showAllCommentsDiv.css("display", "block");
 
 		// add listener for showing all comments
-		$(".show-all-comments"+divID).click(function() {
-			$("#" + divID + " .bottom-container .comment-container").html("");
-			for(var i = 0; i < comments.length; i++) {
-				add_comment(divID, comments[i], false);
-				$(".show-all-comments"+divID).css("display", "none");
-			}
+		showAllCommentsDiv.click(function() {
+			var feed = load('feed');
+			load_all_comments(divID, globalID, feed[globalID].comments);
 		});
 	}
 
 	// load existing comments
 	for(var i = 0; i < Math.min(comments.length, max_comments); i++) {
 		var startIndex = comments.length-Math.min(comments.length, max_comments);
-		add_comment(divID, comments[startIndex+i], false);
+		add_comment(divID, globalID, startIndex+i, comments[startIndex+i], false);
 	}
 
 	// add listener for adding new comments
-	$(".add-comment").keypress(function(e) {
+	$("#p" + divID + " .add-comment").keypress(function(e) {
 		if (e.which == 13) {
-			var content = $("#" + divID + " .add-comment").val();
+			var content = $("#p" + divID + " .add-comment").val();
 
 			if (content != "") {
 				comment = {
@@ -118,7 +135,10 @@ function add_post(divID, globalID, post, container) {
 				feed[globalID].comments.push(comment);
 				save('feed',feed);
 
-				add_comment(divID, comment, true);
+				add_comment(divID, globalID, feed[globalID].comments.length - 1, comment, true);
+
+				// update the number in "View All __ Comments"
+				$("#p" + divID + " .show-all-comments").html("View All " + feed[globalID].comments.length + " Comments");
 			}
 		};
 	});
@@ -141,24 +161,33 @@ function expandPost(divID, globalID, expand) {
 	var content = post.content;
 	var shortened = content.substring(0,max_post_length);
 	var remaining = content.substring(max_post_length, content.length);
-	var container = $("#" + divID + " .content-text");
+	var contentContainer = $("#p" + divID + " .content-text");
+	var remainingText = $("#p" + divID + " .remaining-text");
+	var seeMore = $("#p" + divID + " .see-more");
+	var ellipse = $("#p" + divID + " .ellipse");
 	if(expand) {
-		$('.remaining-text').fadeIn('slow', function() {
-			$("#" + divID + " .content-text").html(shortened + '<span class="remaining-text-inline">' + remaining + '</span>' + '<div onclick="expandPost('+divID+', '+globalID+', false)" class="see-more"> See Less</div>');
+		seeMore.remove();
+		ellipse.css("display", "none");
+		remainingText.fadeIn('slow', function() {
+			contentContainer.append('<div onclick="expandPost('+divID+', '+globalID+', false)" class="see-more"> See Less</div>');
+			remainingText.css("display", "inline");
 		});
-		//$("#" + id + " .content-text").html(content + '<div onclick="expandPost('+id+', false)" class="see-more">See Less</div>');
 	} else {
-		$("#" + divID + " .content-text").html(shortened + '<span class="remaining-text">' + remaining + '</span>' + '... <div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>');
+		seeMore.remove();
+		ellipse.css("display", "inline");
+		contentContainer.append('<div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>');
+		remainingText.css("display", "none");
 	}
 }
 
 function likePost(divID, globalID, like, currentLikes) {
 	var name_to_liked_posts = load('name_to_liked_posts');
+	var likeContainer = $("#p" + divID + " .like-container");
 	if (!(globalID in name_to_liked_posts[username])) {
-		$("#" + divID + " .like-container").html('<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (currentLikes + 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes + 1) + ' likes</p>');
+		likeContainer.html('<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (currentLikes + 1) + ')"><p class="number-likes">' + (currentLikes + 1) + ' likes</p>');
 		name_to_liked_posts[username][globalID] = true;
 	} else {
-		$("#" + divID + " .like-container").html('<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, ' + (currentLikes - 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes - 1) + ' likes</p>');
+		likeContainer.html('<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, ' + (currentLikes - 1) + ')"><p class="number-likes">' + (currentLikes - 1) + ' likes</p>');
 		delete name_to_liked_posts[username][globalID];
 	};
 	save('name_to_liked_posts', name_to_liked_posts);
