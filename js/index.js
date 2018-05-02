@@ -117,7 +117,7 @@ var feed_base = [
 		author: "Sally Planter",
 		likes: 101,
 		title: "How to water plants",
-		content: "Watering your plants can be hard, but you can do it! Try holding the watering can like in this picture, and you should be all set. Specifically, tilt the watering can to about a 45 degree angle, and make sure that you stand up straight. Since you will likely be watering other plants in addition to this one, maintaining good posture is important to prevent back injuries and other problems that may arise due to bad posture. You do not want the process of plant-care to hinder your everyday activities!",
+		content: "Watering your plants can be hard, but you can do it! Tilt the watering can to about a 45 degree angle, and make sure that you stand up straight. Since you will likely be watering other plants in addition to this one, maintaining good posture is important to prevent back injuries and other problems that may arise due to bad posture. You do not want the process of plant-care to hinder your everyday activities!",
 		images: ["watering_can.jpeg"],
 		comments: [
 			{
@@ -176,7 +176,7 @@ var feed_base = [
 		images: [],
 		comments: [
 			{
-				author: "Jordan Wick",
+				author: "George Wick",
 				content: "Thanks for these helpful tips Sally! Love seeing pictures of your spider plants",
 				time: "2 days ago"
 			}
