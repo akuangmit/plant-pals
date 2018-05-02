@@ -102,6 +102,7 @@
 
 #feed .show-all-comments {
 	display: none;
+	margin-top: 20px;
 }
 
 #feed .post {
@@ -149,7 +150,7 @@
 #feed .like-container {
 	display: flex;
 	align-items: center;
-	margin: -10px 0 0 0;
+	margin: -10px 0 -20px 0;
 }
 
 #feed .like-container img {
