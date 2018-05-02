@@ -71,7 +71,7 @@ function add_post(divID, globalID, post, container) {
 		var shortened = content.substring(0,max_post_length);
 		var remaining = content.substring(max_post_length, content.length);
 		var rest = content.substring(max_post_length,content.length);
-		content = shortened + '<span class="remaining-text">' + remaining + '</span>... <div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>';
+		content = shortened + '<span class="remaining-text">' + remaining + '</span><span class="ellipse">...</span> <div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>';
 	}
 
 	var image_div = ''
@@ -161,14 +161,22 @@ function expandPost(divID, globalID, expand) {
 	var content = post.content;
 	var shortened = content.substring(0,max_post_length);
 	var remaining = content.substring(max_post_length, content.length);
-	var container = $("#p" + divID + " .content-text");
+	var contentContainer = $("#p" + divID + " .content-text");
+	var remainingText = $("#p" + divID + " .remaining-text");
+	var seeMore = $("#p" + divID + " .see-more");
+	var ellipse = $("#p" + divID + " .ellipse");
 	if(expand) {
-		$('.remaining-text').fadeIn('slow', function() {
-			$("#p" + divID + " .content-text").html(shortened + '<span class="remaining-text-inline">' + remaining + '</span>' + '<div onclick="expandPost('+divID+', '+globalID+', false)" class="see-more"> See Less</div>');
+		seeMore.remove();
+		ellipse.css("display", "none");
+		remainingText.fadeIn('slow', function() {
+			contentContainer.append('<div onclick="expandPost('+divID+', '+globalID+', false)" class="see-more"> See Less</div>');
+			remainingText.css("display", "inline");
 		});
-		//$("#" + id + " .content-text").html(content + '<div onclick="expandPost('+id+', false)" class="see-more">See Less</div>');
 	} else {
-		$("#p" + divID + " .content-text").html(shortened + '<span class="remaining-text">' + remaining + '</span>' + '... <div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>');
+		seeMore.remove();
+		ellipse.css("display", "inline");
+		contentContainer.append('<div onclick="expandPost('+divID+', '+globalID+', true)" class="see-more">See More</div>');
+		remainingText.css("display", "none");
 	}
 }
 

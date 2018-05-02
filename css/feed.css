@@ -4,10 +4,6 @@
 	display: none;
 }
 
-.remaining-text-inline {
-	display: inline;
-}
-
 .delete-comment {
 	float:right;
 	cursor: pointer;
