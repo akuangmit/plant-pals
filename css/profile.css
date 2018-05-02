@@ -257,6 +257,7 @@
 }
 
 #left-form-div {
+  text-align: left;
   margin-top: 30px;
 }
 
@@ -360,6 +361,7 @@
 #right-form-div {
   width: 50%;
   margin-top: -35px;
+  text-align: left;
 }
 
 #right-form-div div {
