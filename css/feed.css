@@ -8,6 +8,12 @@
 	display: inline;
 }
 
+.delete-comment {
+	float:right;
+	cursor: pointer;
+	color: var(--text);
+}
+
 .modal {
     display: none;
     position: fixed;
