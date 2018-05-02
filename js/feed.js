@@ -31,8 +31,15 @@ function add_comment(divID, globalID, commentIndex, comment, animate) {
 					newComment.remove();
 				});
 
+				// remove the comment from the database
 				var feed = load('feed');
-				feed[globalID].comments.splice(commentIndex, 1);
+				var index = -1;
+				for (var i = 0; i < feed[globalID].comments.length; i++) {
+					if (feed[globalID].comments[i].content == content && feed[globalID].comments[i].author == author && feed[globalID].comments[i].time == time) {
+						index = i;
+					}
+				}
+				feed[globalID].comments.splice(index, 1);
 				save('feed',feed);
 
 				// update the number in "View All __ Comments"
