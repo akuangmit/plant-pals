@@ -8,7 +8,9 @@ $("textarea").click(function() {
 	$(".create-post").animate({"padding-bottom":"50px"}, 100);
 });
 
-$(".up").click(function() {
+$(".up").click(hide_create_post)
+
+function hide_create_post() {
 	$("textarea").animate({"height":"100px"}, 100);
 	$(".create-post button").hide(100);
 	$(".create-post #file-upload").hide(100);
@@ -16,4 +18,4 @@ $(".up").click(function() {
 	$(".create-post input").hide(100);
 	$(".up").hide(100);
 	$(".create-post").animate({"padding-bottom":"20px"}, 100);
-})
+}
