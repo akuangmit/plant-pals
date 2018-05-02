@@ -44,7 +44,7 @@ function add_post(divID, globalID, post, container) {
 		image_div = '<img src="../img/'+images[i]+'" align="left" class="image">';
 	}
 
-	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, '+likes+')"><p>Like</p><p class="number-likes">' + likes + ' likes</p>';
+	var like_img_div = '<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, '+likes+')"><p class="number-likes">' + likes + ' likes</p>';
 	// check to see if I already like this post
 	var name_to_liked_posts = load('name_to_liked_posts');
 	// initialize for new users
@@ -53,7 +53,7 @@ function add_post(divID, globalID, post, container) {
 		save('name_to_liked_posts',name_to_liked_posts);
 	}
 	if (globalID in name_to_liked_posts[username]) {
-		like_img_div = '<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (likes + 1) + ')"><p>Like</p><p class="number-likes">' + (likes + 1) + ' likes</p>';
+		like_img_div = '<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (likes + 1) + ')"><p class="number-likes">' + (likes + 1) + ' likes</p>';
 	}
 
 	// change the interface
@@ -63,7 +63,7 @@ function add_post(divID, globalID, post, container) {
 	}
 	// var showAllMessage = "View All "+comments.length + " Comments";
 	//container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
-	container.prepend('<div class="post" id="' + divID + '"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="content-container">' + image_div + '<span class="title">' + title + '</span><div class="content-text">' + content + '</div></div><div class="bottom-container"><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div></div>');
+	container.prepend('<div class="post" id="' + divID + '"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="content-container">' + image_div + '<span class="title">' + title + '</span><div class="content-text">' + content + '</div></div><div class="bottom-container"><div class="like-container">' + like_img_div + '</div><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div></div>');
 	// <div class="profile-container">
 	// 	<img src="../img/profile-pictures/'+pfpfilename+'">
 	// 	<a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a>
@@ -155,10 +155,10 @@ function expandPost(divID, globalID, expand) {
 function likePost(divID, globalID, like, currentLikes) {
 	var name_to_liked_posts = load('name_to_liked_posts');
 	if (!(globalID in name_to_liked_posts[username])) {
-		$("#" + divID + " .like-container").html('<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (currentLikes + 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes + 1) + ' likes</p>');
+		$("#" + divID + " .like-container").html('<img src="../img/heart-red.svg" onclick="likePost('+divID+', '+globalID+', false, ' + (currentLikes + 1) + ')"><p class="number-likes">' + (currentLikes + 1) + ' likes</p>');
 		name_to_liked_posts[username][globalID] = true;
 	} else {
-		$("#" + divID + " .like-container").html('<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, ' + (currentLikes - 1) + ')"><p>Like</p><p class="number-likes">' + (currentLikes - 1) + ' likes</p>');
+		$("#" + divID + " .like-container").html('<img src="../img/heart-white.svg" onclick="likePost('+divID+', '+globalID+', true, ' + (currentLikes - 1) + ')"><p class="number-likes">' + (currentLikes - 1) + ' likes</p>');
 		delete name_to_liked_posts[username][globalID];
 	};
 	save('name_to_liked_posts', name_to_liked_posts);
