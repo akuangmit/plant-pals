@@ -27,6 +27,7 @@ function add_comment(divID, globalID, commentIndex, comment, animate) {
 		$("#p" + divID + "c" + commentIndex + " .delete-comment").click(function() {
 			var conf = confirm("Are you sure you want to delete this comment?");
 			if (conf) {
+				// animate deleting comment
 				newComment.hide('fast', function() {
 					newComment.remove();
 				});
@@ -65,6 +66,7 @@ function add_post(divID, globalID, post, container) {
 	var comments = post.comments;
 	var images = post.images;
 	var pfpfilename = load('name_to_profile')[author];
+	var deleteDiv = author == username ? '<div class="delete-post">\u2715</div>' : '';
 	
 	// make "See More" if the post is too long
 	if (content.length > max_post_length) {
@@ -99,7 +101,8 @@ function add_post(divID, globalID, post, container) {
 	}
 	// var showAllMessage = "View All "+comments.length + " Comments";
 	//container.prepend('<div class="post" id="'+divID+'"><div class="top-container"><div class="info-container"><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="like-container">' + like_img_div + '</div></div><div class="content-container"><h1>' + title + '</h1><p>' + image_div + '<div class="content-text">' + content + '</div></p></div></div><div class="bottom-container"><div class="show-all-comments'+divID+'" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..." id="post-'+divID+'"></div></div>');
-	container.prepend('<div class="post" id=p' + divID + '><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a></div><div class="content-container">' + image_div + '<span class="title">' + title + '</span><div class="content-text">' + content + '</div></div><div class="bottom-container"><div class="like-container">' + like_img_div + '</div><div class="show-all-comments" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..."></div></div></div>');
+	var newPost = $('<div class="post" id=p' + divID + '><div class="profile-container"><img src="../img/profile-pictures/'+pfpfilename+'"><a href="profile.html" class="author" onclick="set_profile(' + globalID + ')">' + author + '</a>' + deleteDiv +'</div><div class="content-container">' + image_div + '<span class="title">' + title + '</span><div class="content-text">' + content + '</div></div><div class="bottom-container"><div class="like-container">' + like_img_div + '</div><div class="show-all-comments" id="show-comments">'+showAllMessage+'</div><div class="comment-container"></div><input class="add-comment" type="text" placeholder="Add a comment..."></div></div></div>');
+	container.prepend(newPost);
 
 	// if there are too many comments, make the show all comments button visible
 	if (comments.length > max_comments) {
@@ -142,6 +145,30 @@ function add_post(divID, globalID, post, container) {
 			}
 		};
 	});
+
+	// add listener for deleting post
+	if (author == username) {
+		$("#p" + divID + " .delete-post").click(function() {
+			var conf = confirm("Are you sure you want to delete this post?");
+			if (conf) {
+				// animate deleting comment
+				newPost.hide('fast', function() {
+					newPost.remove();
+				});
+
+				// remove the comment from the database
+				var feed = load('feed');
+				var index = -1;
+				for (var i = 0; i < feed[globalID].length; i++) {
+					if (feed[globalID].content == content && feed[globalID].author == author && feed[globalID].title == title) {
+						index = i;
+					}
+				}
+				feed.splice(index, 1);
+				save('feed',feed);
+			}
+		});
+	}
 }
 
 function load_posts(option) {

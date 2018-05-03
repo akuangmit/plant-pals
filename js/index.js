@@ -24,7 +24,11 @@ $("#submit-post").click(function(e) {
 
 	if (title != "" && content != "") {
 
-		modal.css("display", "none");
+		// clear all content
+		$("#post-title").val("");
+		$("#post-content").val("");
+		$("#file-upload").val("");
+		hide_create_post();
 
 		if (imageName !== "") {
 			// User uploaded some sort of image

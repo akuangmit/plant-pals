@@ -56,8 +56,8 @@
           </div>
 
           <div id="prof-info">
-            <span id="name"></span> <br>
-            <span id="joined-since"></span>
+            <p id="name"></p>
+            <p id="joined-since"></p>
           </div>
 
           <div id="add-button-div">
@@ -74,39 +74,46 @@
         <br>
         <div id="plant-post-container">
           <div id="plant-list">
-
             <div class="plant-div">
+
               <div class="left-container">
+
                 <div class="plant-profile-container">
                   <img class="plant-img" src="../img/sprout.svg">
                     <div id="profile-top">
                       <div id="plant-name">
-                        <span class="plant-title"> Stella Plant </span>
-                        <button id="edit-button"> &#9998; </button>
+                        <span class="plant-title">Spider Plant</span>
+                        <button id="edit-button">&#9998;</button>
                       </div>
                       <div id="owned-by-date"> Owned since sdfasdf </div>
                     </div>
-                  </div>
+                </div>
 
                   <div class="content-container">
                     <div id="info">
-                      <p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> 3 </p>
-                      <p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> 5 </p>
-                      <p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> 6 </p>
-                      <p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> 234 </p>
+                      <div>
+                        <p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> 3 </p>
+                        <p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> 5 </p>
+                      </div>
+                      <div>
+                        <p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> 6 </p>
+                        <p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> 234 </p>
+                      </div>
                     </div>
                   </div>
 
-                </div>
-                <div class="right-container">
+              </div>
 
-                  <div class="mini-plant">
+                <div class="right-container">
+                  <div class="mini-plant active-plant">
                     <img src="../img/sprout.svg">
                     <span>Spider Plant</span>
                   </div>
-
+                  <div class="mini-plant">
+                    <img src="../img/sprout.svg">
+                    <span>Tree</span>
+                  </div>
                 </div>
-              <br>
             </div>
           </div>
 
@@ -143,8 +150,6 @@
                 <label>Description:</label>
                 <input type="text" id="description" placeholder="Add a description here...">
               </div>
-
-              <button id="add-plant-submit"> Add Plant </button>
             </div>
 
             <div id="right-form-div">
@@ -167,10 +172,10 @@
                 <label>Blooming Season:</label>
                 <input type="text" id="sunlight-amount" placeholder="Blooms During...">
               </div>
-
+              <button id="add-plant-submit"> Add Plant </button>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     </div>
 
@@ -202,8 +207,6 @@
               <label>Description:</label>
               <input type="text" id="description" placeholder="Add a description here...">
             </div>
-
-            <button id="add-plant-submit"> Add Plant </button>
           </div>
 
           <div id="right-form-div">
@@ -226,7 +229,6 @@
               <label>Blooming Season:</label>
               <input type="text" id="sunlight-amount" placeholder="Blooms During...">
             </div>
-
           </div>
         </div>
       </form>
