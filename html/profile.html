@@ -22,6 +22,10 @@
       <link rel="stylesheet" type="text/css" href="../css/profile.css">
       <link rel="stylesheet" type="text/css" href="../css/feed.css">
 
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
     	<title>Plant Pals</title>
     </head>
     <body>
@@ -131,7 +135,7 @@
         <form>
           <div id="form-div">
             <div id="left-form-div">
-              <div id="plant-type-div">
+              <div id="plant-type-div" class="autocomplete">
                 <label>Plant Type:</label>
                 <input type="text" id="plant-type" placeholder="Search...">
               </div>
@@ -160,7 +164,7 @@
 
               <div id="sunlight-div">
                 <label>Sunlight Amount:</label>
-                <input type="text" id="sunlight-amount" placeholder="Water Amount...">
+                <input type="text" id="sunlight-amount" placeholder="Sunlight Amount...">
               </div>
 
               <div id="plantingseason-div">
@@ -179,66 +183,10 @@
       </div>
     </div>
 
-    <!-- The Modal -->
-  <div class="modal" id="edit-plant">
-
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <form>
-        <div id="form-div">
-          <div id="left-form-div">
-            <div id="plant-type-div">
-              <label>Plant Type:</label>
-              <input type="text" id="plant-type" disabled placeholder="Search...">
-            </div>
-
-            <div id="plant-date-acquired-div">
-              <label>Owned Since:</label>
-              <input id="date-acquired" type="date">
-            </div>
-
-            <div id="plant-picture-div">
-              <label>Plant Photo:</label>
-              <input type="file" name="pic" accept="image/*">
-            </div>
-
-            <div id="plant-date-acquired-div">
-              <label>Description:</label>
-              <input type="text" id="description" placeholder="Add a description here...">
-            </div>
-          </div>
-
-          <div id="right-form-div">
-            <div id="plant-type-div">
-              <label>Water Amount:</label>
-              <input type="text" id="water-amount" placeholder="Water Amount...">
-            </div>
-
-            <div id="sunlight-div">
-              <label>Sunlight Amount:</label>
-              <input type="text" id="sunlight-amount" placeholder="Water Amount...">
-            </div>
-
-            <div id="plantingseason-div">
-              <label>Planting Season:</label>
-              <input type="text" id="water-amount" placeholder="Plant During...">
-            </div>
-
-            <div id="blooming-div">
-              <label>Blooming Season:</label>
-              <input type="text" id="sunlight-amount" placeholder="Blooms During...">
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-
 
     <script src="../js/feed.js" type="text/javascript"></script>
     <script src="../js/global.js" type="text/javascript"></script>
-    <!--<script src="../js/add-plant.js" type="text/javascript"></script> -->
+    <script src="../js/add-plant.js" type="text/javascript"></script>
     <script src="../js/profile.js" type="text/javascript"></script>
     <script src="../js/notifications.js" type="text/javascript"></script>
 </body>

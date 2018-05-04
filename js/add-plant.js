@@ -183,6 +183,12 @@ var plant_info_all = {
 	}
 }
 
+$("#plant-type").autocomplete({
+	source: Object.keys(plant_info_all),
+	appendTo: "#plant-type-div"
+});
+
+
 $( document ).ready(function() {
 	if(!localStorage.getItem('plant_info_all')) {
 	  save('plant_info_all', plant_info_all);
@@ -190,5 +196,5 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('user_plant_data')) {
 	  save('user_plant_data', user_plant_data);
 	}
-	load_plants();
+	//load_plants();
 });
