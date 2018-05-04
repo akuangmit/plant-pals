@@ -1,0 +1,98 @@
+#add-success-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+}
+
+#add-success {
+	position: absolute;
+	top: calc(50% - 250px);
+	left: calc(50% - 250px);
+	width: 500px;
+	padding: 50px 20px;
+	background-color: var(--white, white);
+	text-align: center;
+}
+
+#add-success img {
+	width: 40px;
+}
+
+#add-success p {
+	font-size: 16px;
+}
+
+#add-success #subtext {
+	font-size: 12px;
+	color: var(--green, green);
+}
+
+#plant-container {
+	display: flex;
+	text-align: center;
+}
+
+.plant-input-container input {
+	padding: 5px;
+}
+
+#plant-container-left {
+	width: 20%;
+	text-align: right;
+}
+
+#plant-container-left input {
+	display: none;
+}
+
+#plant-container-left img {
+	cursor: pointer;
+	height: 60px;
+}
+
+#plant-container-middle {
+	width: 30%;
+	text-align: left;
+}
+
+#plant-container-middle input[type=date] {
+	border: none;
+}
+
+#plant-container-right {
+	width: 50%;
+	padding: 0 20px;
+}
+
+#plant-container-right textarea {
+	height: 60px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+#care-container {
+	display: flex;
+	margin: 20px 0;
+	padding-top: 20px;
+	border-top: 1px solid var(--border-grey, grey);
+}
+
+#care-container > div {
+	width: 50%;
+}
+
+.care-input-container {
+	padding: 5px 0;
+}
+
+.care-input-container input {
+	padding: 5px;
+}
+
+.care-input-container label {
+	margin-right: 5px;
+}
+

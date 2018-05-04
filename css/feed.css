@@ -39,9 +39,6 @@
 	border: none;
 	border-bottom: 1px solid var(--border-grey, grey);
 	padding: 5px 10px;
-	width: 700px;
-	font-size: 18px;
-	display: block;
 }
 
 .modal-content textarea {

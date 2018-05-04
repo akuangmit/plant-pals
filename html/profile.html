@@ -21,6 +21,7 @@
       <link rel="stylesheet" type="text/css" href="../css/notifications.css">
       <link rel="stylesheet" type="text/css" href="../css/profile.css">
       <link rel="stylesheet" type="text/css" href="../css/feed.css">
+      <link rel="stylesheet" type="text/css" href="../css/add-plant.css">
 
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -50,6 +51,14 @@
               <div class="arrow-up"></div>
               <div id="notifications">No new notifications!</div>
           </div>
+
+      <div id="add-success-container">
+        <div id="add-success">
+          <img src="../img/leaf.svg">
+          <p>You've successfully added a plant!</p>
+          <p id="subtext">Redirecting...</p>
+        </div>
+      </div>
 
       <div class="profile">
         <div id="top-bar">
@@ -125,7 +134,7 @@
           </div>
         </div>
       </div>
-
+      
       <!-- The Modal -->
     <div class="modal" id="add-plant">
 
@@ -133,7 +142,59 @@
       <div class="modal-content">
         <span class="close">&times;</span>
         <form>
-          <div id="form-div">
+          <div id="plant-container">
+            <div id="plant-container-left">
+              <div id="plant-input-container">
+                <label for="image-upload">
+                  <img src="../img/picture.svg"/>
+                </label>
+                <input type="file" id="image-upload" name="pic" accept="image/*">
+              </div>
+            </div>
+
+            <div id="plant-container-middle">
+              <div class="plant-input-container">
+                <input type="text" id="plant-type" placeholder="Plant Type">
+              </div>
+              <div class="plant-input-container">
+                <input id="date-acquired" type="date">
+              </div>
+            </div>
+
+            <div id="plant-container-right">
+              <div id="plant-input-container">
+                <textarea id="description" placeholder="Add a description here..."></textarea>
+              </div>
+            </div>
+          </div>
+
+
+          <div id="care-container">
+            <div id="care-container-left">
+              <div class="care-input-container">
+                <label>Water Amount:</label>
+                <input type="text" id="water-amount" placeholder="Water Amount...">
+              </div>
+              <div class="care-input-container">
+                <label>Sunlight Amount:</label>
+                <input type="text" id="sunlight-amount" placeholder="Sunlight Amount...">
+              </div>
+            </div>
+            <div id="care-container-right">
+              <div class="care-input-container">
+                <label>Planting Season:</label>
+                <input type="text" id="water-amount" placeholder="Plant During...">
+              </div>
+              <div class="care-input-container">
+                <label>Blooming Season:</label>
+                <input type="text" id="sunlight-amount" placeholder="Blooms During...">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- <div id="form-div-container">
+            <div id="form-div">
             <div id="left-form-div">
               <div id="plant-type-div" class="autocomplete">
                 <label>Plant Type:</label>
@@ -159,8 +220,7 @@
             <div id="right-form-div">
               <div id="plant-type-div">
                 <label>Water Amount:</label>
-                <input type="text" id="water-amount" placeholder="Water Amount...">
-              </div>
+             </div>
 
               <div id="sunlight-div">
                 <label>Sunlight Amount:</label>
@@ -176,8 +236,10 @@
                 <label>Blooming Season:</label>
                 <input type="text" id="sunlight-amount" placeholder="Blooms During...">
               </div>
-              <button id="add-plant-submit"> Add Plant </button>
             </div>
+          </div> -->
+
+            <button id="add-plant-submit"> Add Plant </button>
           </form>
         </div>
       </div>
