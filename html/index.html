@@ -75,20 +75,27 @@
             <div id="notifications">No new notifications!</div>
         </div>
 
-        <div class="create-post">
-            <h3>Create a post</h3>
+        <div class="create-post" id="create-post">
             <div id="create-post-container">
                 <input type="text" placeholder="Title" id="post-title">
-                <textarea placeholder="Start typing here!" id="post-content"></textarea>
+                <textarea placeholder="What's happening?" id="post-content"></textarea>
                 <div id="create-post-bottom">
-                    <button id="submit-post">Create Post</button>
                     <div id="photo-upload-container">
-                        <p>Post Photo:</p>
+                        <label for="file-upload">
+                            <img src="../img/picture.svg" id="file-icon"/>
+                        </label>
+                        <div id="upload-hint-container">
+                            <div id="upload-hint">
+                                Add photos
+                            </div>
+                        </div>
                         <input type="file" id="file-upload" accept="image/*" onchange="saveImage(this);">
+                    </div>
+                    <div id="submit-post-div">
+                        <button id="submit-post">Create Post</button>
                     </div>
                 </div>
             </div>
-            <i class="arrow up"></i>
         </div>
 
         <div id="feed">

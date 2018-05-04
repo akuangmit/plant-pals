@@ -22,18 +22,20 @@
 	position: relative;
 }
 
-.create-post h3 {
-	margin: 0 0 20px 0;
-	font-weight: 600;
-	font-size: 18px;
-	color: var(--green, green);
+.create-post .close {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	display: none;
+	width: 100%;
+	text-align: center;
 }
 
 #create-post-container {
 	width: 100%;
 }
 
-.create-post input {
+.create-post #post-title {
 	border: none;
 	border-bottom: 1px solid var(--border-grey, grey);
 	padding: 2px 5px;
@@ -47,12 +49,11 @@
 .create-post textarea {
 	border: 1px solid var(--border-grey, grey);
 	border-radius: 3px;
-	margin: 20px 0 0 0;
 	display: block;
 	width: 100%;
 	padding: 5px 10px;
 	box-sizing: border-box;
-	height: 100px;
+	height: 60px;
 }
 
 .create-post button {
@@ -61,27 +62,55 @@
 	color: white;
 	border-radius: 3px;
 	padding: 5px 10px;
-	margin-right: 30px;
 	cursor: pointer;
-	width: 150px;
-	margin-top:25px;
 	display: none;
+	align-self: flex-end;
 }
 
 .create-post button:hover {
 	background-color: var(--green-hover, green);
 }
 
-.create-post #file-upload {
-	border: none;
-	font-size: 14px;
+#create-post-bottom div {
+	width: 50%;
+}
+
+#submit-post-div {
+	text-align: right;
+}
+
+#photo-upload-container {
+	display: flex;
+}
+
+#photo-upload-container > #file-upload {
 	display: none;
+}
+
+#photo-upload-container label {
+	display: none;
+}
+
+#photo-upload-container #upload-hint-container {
+	display:none;
+}
+
+#photo-upload-container #upload-hint {
+	color: var(--green, green);
+	width: 70px;
+	height: 18px;
+	font-size: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	border-radius: 5px;
 }
 
 .create-post img {
 	height: 20px;
 	cursor: pointer;
-	margin-right: 10px;
+	margin-right: 5px;
 }
 
 .create-post p {
@@ -93,15 +122,10 @@
 #create-post-bottom {
   display: flex;
   align-items: center;
+  flex-direction: row;
 }
 
 #pic-upload-button:hover {
   cursor: pointer;
-}
-
-#photo-upload-container p{
-	color: var(--green, green);
-	height:5px;
-	margin-right:2px;
 }
 

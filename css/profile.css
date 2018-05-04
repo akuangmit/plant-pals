@@ -256,11 +256,6 @@
   display:flex;
 }
 
-#left-form-div {
-  text-align: left;
-  margin-top: 30px;
-}
-
 #add-plant .modal-content #left-form-div input {
   border: none;
   border-bottom: 1px solid var(--border-grey, grey);
@@ -283,8 +278,11 @@
   margin: 20px 0;
 }
 
-.modal-content #plant-date-acquired-div input {
-  border: none;
+.modal-content #plant-date-acquired-div textarea {
+  border: 1px solid var(--border-grey, grey);
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .modal-content #plant-picture-div input {
@@ -355,12 +353,11 @@
 
 #left-form-div {
   width: 50%;
-  margin-top: 10px;
+  text-align: left;
 }
 
 #right-form-div {
   width: 50%;
-  margin-top: -35px;
   text-align: left;
 }
 
