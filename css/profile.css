@@ -358,11 +358,12 @@
 
 #right-form-div {
   width: 50%;
+  margin-top: 30px;
   text-align: left;
 }
 
 #right-form-div div {
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
 .mini-plant {
@@ -379,4 +380,8 @@
 .mini-plant img {
   width: 30px;
   margin-right: 5px;
+}
+
+#add-plant-submit {
+  float: right;
 }

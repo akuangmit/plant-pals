@@ -102,13 +102,13 @@ form {
     cursor: pointer;
 }
 
-@media (max-width: 796px) {
+@media (max-width: 840px) {
 	#feed {
 		margin: 25px 10%;
 	}
 }
 
-@media (min-width: 796px) {
+@media (min-width: 840px) {
 	#feed {
 		margin: 25px calc(calc(100% - var(--max-width)) / 2);
 	}
