@@ -237,7 +237,6 @@
     margin: 100px auto;
     padding: 20px;
     width: 800px;
-    height: 350px;
     border-radius: 5px;
 }
 
@@ -252,26 +251,26 @@
   margin-top: 20px;
 }
 
+#form-div-container {
+  padding-bottom: -100px;
+}
+
 #form-div {
   display:flex;
+  margin: 0;
+  padding: 0;
 }
 
 #add-plant .modal-content #left-form-div input {
   border: none;
   border-bottom: 1px solid var(--border-grey, grey);
-  border-radius: 3px;
-  padding: 5px 10px;
-  margin-left: 10px;
-  width: 90%;
+  padding: 5px;
 }
 
 #add-plant .modal-content #right-form-div input {
   border: none;
   border-bottom: 1px solid var(--border-grey, grey);
-  border-radius: 3px;
-  padding: 5px 10px;
-  margin-left: 10px;
-  width: 90%;
+  padding: 5px;
 }
 
 .modal-content #plant-date-acquired-div {
@@ -358,7 +357,6 @@
 
 #right-form-div {
   width: 50%;
-  margin-top: 30px;
   text-align: left;
 }
 
@@ -383,5 +381,5 @@
 }
 
 #add-plant-submit {
-  float: right;
+  margin: 0;
 }
