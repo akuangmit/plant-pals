@@ -52,7 +52,7 @@ $("#add-plant .close")[0].onclick = function() {
 
 // load posts, after the user clicks on My Posts.
 function load_my_posts() {
-	$("#plant-list").empty();
+	$("#plant-infobox").empty();
 	$("#feed").empty();
 	var feed = load('feed');
 	var count = 0;
@@ -67,15 +67,15 @@ function load_my_posts() {
     $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
   }
 
-  $("#post-tab").addClass("tablinks", "active");
-  $("#plant-tab").addClass("tablinks");
+  $("#post-tab").addClass("active");
+  $("#plant-tab").removeClass("active");
 }
 
 function load_plant() {
-	$("#plant-info").empty();
+	$("#plant-infobox").empty();
     $("#feed").empty();
 
-	// initialize for new members
+    // initialize for new members
 	var user_plant_data = load('user_plant_data');
 	if (!(profileToLoad in user_plant_data)){
 		user_plant_data[profileToLoad] = []
@@ -84,21 +84,53 @@ function load_plant() {
 
 	var plants = user_plant_data[profileToLoad];
 
-	if(plants.length === 0) {
+    // load infobox container on the left
+    var plant_infobox_left = 
+        '<div id="plant-info" class="left-container"></div>';
+
+    // load infobox on right
+    var plant_infobox_right = 
+        '<div id="plant-list" class="right-container"></div>';
+
+    $("#plant-infobox").html(plant_infobox_left + plant_infobox_right);
+
+    // load default plant
+    if(plants.length === 0) {
 		$("#plant-profile-container").html("<div class='no-plants'> " + hasnotString + " added any plants yet. </div>");
 	} else {
-		show_plant(plants[0]);
+		var selected_plant_ind = 0;
+		
+		for (var i = 0; i < plants.length; i++) {
+	    	var plant_item = '<div id="plant' + i + '" class="mini-plant" onclick="show_plant('+ i +')">'+
+	                '<img src="../img/sprout.svg">'+
+	                '<span>' + plants[i].name + '</span>'+
+	              '</div>';
+	        $("#plant-list").append(plant_item);
+	    }
+
+	    show_plant(selected_plant_ind);
 	}
 
-	$("#post-tab").addClass("tablinks");
-	$("#plant-tab").addClass("tablinks", "active");
+	$("#post-tab").removeClass("active");
+	$("#plant-tab").addClass("active");
 
 }
 
 // Adds a plant onto our profile page.
 // This function only deals with the interface and does not modify the database.
-function show_plant(plant) {
-	var name = plant.name.toLowerCase();
+function show_plant(plantnum) {
+	var user_plant_data = load('user_plant_data');
+	var plants = user_plant_data[profileToLoad]
+	var plant = plants[plantnum];
+
+	// remove active plant for everyone else
+	for (var i = 0; i < plants.length; i++) {
+    	$("#plant"+i).removeClass("active-plant");
+    }
+
+	$("#plant"+plantnum).addClass("active-plant");
+
+	var name = plant.name;
 	var image = plant.image;
 	var owned_since = plant.owned_since;
 	var related_posts = plant.related_posts;
@@ -214,7 +246,7 @@ var user_plant_data = {
 	"Jane Doe" : []
 }
 
-// this is our internal database of information for plants
+// this is our internal database of default information for plants
 var plant_info_all = {
 	"spider plant" : {
 		water: "2x / week",
