@@ -127,12 +127,22 @@ var feed_base = [
 			{
 				author: "Jake Smith",
 				content: "Thanks so much Sally! That really helped me with taking care of my flowers.",
+				time: "3 hours ago"
+			},
+			{
+				author: "Catherine Chen",
+				content: "Yeah, this was super informative. Thanks so much!",
 				time: "2 hours ago"
 			},
 			{
 				author: "John Doe",
 				content: "Oh man Sally, I shoulda read your post earlier, I strained my back watering my plants :(",
 				time: "1 hour ago"
+			},
+			{
+				author: "Sally Planter",
+				content: "Thanks for reading my article guys! I hope you find it helpful.",
+				time: "30 minutes ago"
 			}
 		],
 		search_only: false
