@@ -201,20 +201,18 @@ $("#add-plant-submit").click(function(e) {
 			name: plantType,
 			image: picture,
 			owned_since: dateString,
-			related_posts: []
+			related_posts: [],
+			water: $("#water-amount").val(),
+			sunlight: $("#sunlight-amount").val(),
+			plant_during: $("#plant-season").val(),
+			blooming_season: $("#bloom-season").val(),
 		};
 
 		// save into local storage
 		var user_plant_data = load('user_plant_data');
 		user_plant_data[username].push(plant_data);
-		//console.log('type: ' + plantType);
 		save('user_plant_data', user_plant_data);
-
-		// change interface
-		// TODO change this
-		//add_plant(user_plant_data[username].length, plant_data);
-	}
-	else {
+	} else {
 		alert("To add a plant, you must specify the plant's species name.");
 	}
 });
