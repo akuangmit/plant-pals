@@ -86,7 +86,7 @@
   align-items: center;
 }
 
-#plant-list .plant-div {
+#plant-list.plant-div {
 	/*border: 1px solid var(--border-grey, grey);*/
 	border-radius: 5px;
 	background-color: var(--white, white);

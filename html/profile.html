@@ -81,53 +81,51 @@
 
       <div id="bottom-content">
         <div class="tab">
-          <button class="tablinks active" onclick="load_plants()" id="plant-tab">My Plants</button>
+          <button class="tablinks active" onclick="load_plant()" id="plant-tab">My Plants</button>
           <button class="tablinks" onclick="load_my_posts()" id="post-tab">My Posts</button>
         </div>
         <br>
         <div id="plant-post-container">
-          <div id="plant-list">
-            <div class="plant-div">
+          <div id="plant-list" class="plant-div">
+            <div id="plant-info" class="left-container">
 
-              <div class="left-container">
-
-                <div class="plant-profile-container">
-                  <img class="plant-img" src="../img/sprout.svg">
-                    <div id="profile-top">
-                      <div id="plant-name">
-                        <span class="plant-title">Spider Plant</span>
-                        <button id="edit-button">&#9998;</button>
-                      </div>
-                      <div id="owned-by-date"> Owned since sdfasdf </div>
+              <div id="plant-profile-container" class="plant-profile-container">
+                <img class="plant-img" src="../img/sprout.svg">
+                  <div id="profile-top">
+                    <div id="plant-name">
+                      <span class="plant-title">Spider Plant</span>
+                      <button id="edit-button">&#9998;</button>
                     </div>
-                </div>
-
-                  <div class="content-container">
-                    <div id="info">
-                      <div>
-                        <p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> 3 </p>
-                        <p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> 5 </p>
-                      </div>
-                      <div>
-                        <p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> 6 </p>
-                        <p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> 234 </p>
-                      </div>
-                    </div>
+                    <div id="owned-by-date"> Owned since sdfasdf </div>
                   </div>
-
               </div>
 
-                <div class="right-container">
-                  <div class="mini-plant active-plant">
-                    <img src="../img/sprout.svg">
-                    <span>Spider Plant</span>
-                  </div>
-                  <div class="mini-plant">
-                    <img src="../img/sprout.svg">
-                    <span>Tree</span>
+                <div class="content-container">
+                  <div id="info">
+                    <div>
+                      <p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> 3 </p>
+                      <p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> 5 </p>
+                    </div>
+                    <div>
+                      <p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> 6 </p>
+                      <p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> 234 </p>
+                    </div>
                   </div>
                 </div>
+
             </div>
+
+            <div class="right-container">
+              <div class="mini-plant active-plant">
+                <img src="../img/sprout.svg">
+                <span>Spider Plant</span>
+              </div>
+              <div class="mini-plant">
+                <img src="../img/sprout.svg">
+                <span>Tree</span>
+              </div>
+            </div>
+
           </div>
 
           <div id="feed">
@@ -201,7 +199,6 @@
 
     <script src="../js/feed.js" type="text/javascript"></script>
     <script src="../js/global.js" type="text/javascript"></script>
-    <script src="../js/add-plant.js" type="text/javascript"></script>
     <script src="../js/profile.js" type="text/javascript"></script>
     <script src="../js/notifications.js" type="text/javascript"></script>
 </body>

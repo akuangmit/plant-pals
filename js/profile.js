@@ -17,6 +17,7 @@ if(profileToLoad != username) {
 	hasnotString = firstname + " hasn't";
 }
 
+// set name on top of profile
 $("#name").html(profileToLoad);
 
 // set profile picture
@@ -36,11 +37,8 @@ $("#add-button").click(function(e) {
 	modal.css("display", "block");
 });
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+$("#add-plant .close")[0].onclick = function() {
     modal.css("display", "none");
 }
 
@@ -52,6 +50,7 @@ span.onclick = function() {
 //     console.log("ok")
 // }
 
+// load posts, after the user clicks on My Posts.
 function load_my_posts() {
 	$("#plant-list").empty();
 	$("#feed").empty();
@@ -68,15 +67,12 @@ function load_my_posts() {
     $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
   }
 
-  var postTab = document.getElementById("post-tab");
-  postTab.className = "tablinks active";
-
-  var plantTab = document.getElementById("plant-tab");
-  plantTab.className = "tabLinks";
+  $("#post-tab").addClass("tablinks", "active");
+  $("#plant-tab").addClass("tablinks");
 }
 
-function load_plants() {
-	$("#plant-list").empty();
+function load_plant() {
+	$("#plant-info").empty();
     $("#feed").empty();
 
 	// initialize for new members
@@ -87,18 +83,172 @@ function load_plants() {
 	}
 
 	var plants = user_plant_data[profileToLoad];
-	for(var i=0; i<plants.length; i++) {
-		add_plant(i, plants[i]);
-	}
 
 	if(plants.length === 0) {
-		$("#plant-list").html("<div class='no-plants'> " + hasnotString + " added any plants yet. </div>");
+		$("#plant-profile-container").html("<div class='no-plants'> " + hasnotString + " added any plants yet. </div>");
+	} else {
+		show_plant(plants[0]);
 	}
 
-	var postTab = document.getElementById("post-tab");
-	postTab.className = "tablinks";
-
-	var plantTab = document.getElementById("plant-tab");
-	plantTab.className = "tabLinks active";
+	$("#post-tab").addClass("tablinks");
+	$("#plant-tab").addClass("tablinks", "active");
 
 }
+
+// Adds a plant onto our profile page.
+// This function only deals with the interface and does not modify the database.
+function show_plant(plant) {
+	var name = plant.name.toLowerCase();
+	var image = plant.image;
+	var owned_since = plant.owned_since;
+	var related_posts = plant.related_posts;
+	var water = plant.water;
+	var sunlight = plant.sunlight;
+	var plant_during = plant.plant_during;
+	var blooming_season = plant.blooming_season;
+
+	// set up default
+	var img_div = '<img src="../img/sprout.svg">';
+	// change to what user uploaded if it is valid
+	if (image !== undefined) { img_div = '<img class="plant-img" src="../img/'+ image + '">'};
+
+	// change to unknown if undefined
+	if (owned_since === "") { owned_since = "unknown"; }
+
+	var plant_div ='<div class="plant-profile-container">'+
+                  img_div +
+                    '<div id="profile-top">'+
+                      '<div id="plant-name">'+
+                        '<span class="plant-title">' + name + '</span>'+
+                        '<button id="edit-button">&#9998;</button>'+
+                      '</div>'+
+                      '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>'+
+                    '</div>'+
+                '</div>'+
+                  '<div class="content-container">'+
+                    '<div id="info">'+
+                      '<div>'+
+                        '<p><img src="../img/drop.svg" align="left" class="image"> <span style="font-weight:bold"> Water: </span> ' + water + ' </p>'+
+                        '<p><img src="../img/sun.svg" align="left" class="image"> <span style="font-weight:bold"> Sunlight: </span> ' + sunlight + ' </p>'+
+                      '</div>'+
+                      '<div>'+
+                        '<p><img src="../img/plant.svg" align="left" class="image"> <span style="font-weight:bold"> Plant During: </span> ' + plant_during + ' </p>'+
+                        '<p><img src="../img/flower.svg" align="left" class="image"> <span style="font-weight:bold"> Blooming Season: </span> ' + blooming_season + ' </p>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>';
+
+	$("#plant-info").html(plant_div);
+}
+
+// Add listener for adding a plant to our database
+$("#add-plant-submit").click(function(e) {
+	var plantType = $("#plant-type").val();
+	var picture = $("#pic").val();
+	var dateAcquired = $("#date-acquired").val();
+
+	if (plantType !== "") {
+		modal.css("display", "none");
+		var dateString = "";
+
+		if (dateAcquired != "") {
+			var date = new Date(dateAcquired);
+		    var dd = date.getDate()+1;
+		    var mm = date.getMonth()+1; //January is 0!
+		    var yyyy = date.getFullYear();
+		    if(dd<10) {
+		        dd = '0'+dd
+		    }
+		    if(mm<10) {
+		        mm = '0'+mm
+		    }
+		    dateString = mm + '/' + dd + '/' + yyyy;
+		}
+
+		plant_data = {
+			name: plantType,
+			image: picture,
+			owned_since: dateString,
+			related_posts: []
+		};
+
+		// save into local storage
+		var user_plant_data = load('user_plant_data');
+		user_plant_data[username].push(plant_data);
+		//console.log('type: ' + plantType);
+		save('user_plant_data', user_plant_data);
+
+		// change interface
+		// TODO change this
+		//add_plant(user_plant_data[username].length, plant_data);
+	}
+	else {
+		alert("To add a plant, you must specify the plant's species name.");
+	}
+});
+
+// this is the database that maps from user -> plants owned
+var user_plant_data = {
+	"Sally Planter" : [
+		{
+			name: "Spider Plant",
+			image: "sample-image.jpeg",
+			owned_since: "4/10/18",
+			related_posts: [],
+			water: "2x / week",
+			sunlight: "Medium",
+			plant_during: "February",
+			blooming_season: "April - June"
+		},
+		{
+			name: "Rose Bush",
+			image: "sample-image.jpeg",
+			owned_since: "3/12/17",
+			related_posts: [],
+			water: "4x / week",
+			sunlight: "Low",
+			plant_during: "June",
+			blooming_season: "May - August"
+		},
+	],
+	"Jane Doe" : []
+}
+
+// this is our internal database of information for plants
+var plant_info_all = {
+	"spider plant" : {
+		water: "2x / week",
+		sunlight: "Medium",
+		plant_during: "February",
+		blooming_season: "April - June"
+	},
+	"rose bush" : {
+		water: "4x / week",
+		sunlight: "Low",
+		plant_during: "June",
+		blooming_season: "May - August"
+	},
+	//TODO remove default!!!
+	"default" : {
+		water: "unknown",
+		sunlight: "unknown",
+		plant_during: "unknown",
+		blooming_season: "unknown"
+	}
+}
+
+// autocomplete for adding plants
+$("#plant-type").autocomplete({
+	source: Object.keys(plant_info_all),
+	appendTo: "#plant-type-div"
+});
+
+$( document ).ready(function() {
+	if(!localStorage.getItem('plant_info_all')) {
+	  save('plant_info_all', plant_info_all);
+	}
+	if(!localStorage.getItem('user_plant_data')) {
+	  save('user_plant_data', user_plant_data);
+	}
+	load_plant();
+});
