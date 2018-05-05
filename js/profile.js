@@ -173,6 +173,39 @@ function show_plant(plantnum) {
 	$("#plant-info").html(plant_div);
 }
 
+var saved = {}
+
+// based on plant name, fill out rest of form
+function fill_default() {
+	var plantType = $("#plant-type").val();
+
+	var checked = $("#default-checkbox").is(":checked");
+	if(checked) {
+		var plant_info_all = load('plant_info_all');
+		var plant = plant_info_all[plantType];
+		saved = {
+			water: $("#water-amount").val(),
+			sunlight: $("#sunlight-amount").val(),
+			plant_during: $("#plant-season").val(),
+			blooming_season: $("#bloom-season").val()
+		}
+
+		if(plant !== undefined) {
+			fill_default_show(plant);
+		}
+	} else {
+		fill_default_show(saved);
+	}
+}
+
+// given plant information, we fill in the defaults.
+function fill_default_show(plant) {
+	$("#water-amount").val(plant.water);
+	$("#sunlight-amount").val(plant.sunlight);
+	$("#plant-season").val(plant.plant_during);
+	$("#bloom-season").val(plant.blooming_season);
+}
+
 // Add listener for adding a plant to our database
 $("#add-plant-submit").click(function(e) {
 	var plantType = $("#plant-type").val();
