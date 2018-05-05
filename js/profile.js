@@ -27,24 +27,25 @@ $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
 // set date joined
 $("#joined-since").html("Member since " + load('member_since')[profileToLoad])
 
-// adding plant modal
-// Get the modal
-var modal = $("#add-plant");
+// if true, open modal; if false, close modal
+function open_add_plant_modal(open) {
+	$("#add-plant").css("display", open ? "block" : "none");
+}
 
 // Define the button that opens the modal
 $("#add-button").click(function(e) {
-	modal.css("display", "block");
+	open_add_plant_modal(true);
 });
 
 // When the user clicks on <span> (x), close the modal
 $("#add-plant .close")[0].onclick = function() {
-    modal.css("display", "none");
+    open_add_plant_modal(false);
 }
 
 // When the user clicks anywhere outside of the modal, close it
  window.onclick = function(event) {
      if (event.target.className === "modal") {
-         modal.css("display", "none");
+         open_add_plant_modal(false);
      }
  }
 
@@ -131,7 +132,7 @@ function show_plant(plantnum) {
 	var name = plant.name;
 	var image = plant.image;
 	var owned_since = plant.owned_since;
-  var description = plant.description;
+	var description = plant.description;
 	var related_posts = plant.related_posts;
 	var water = plant.water;
 	var sunlight = plant.sunlight;
@@ -154,7 +155,7 @@ function show_plant(plantnum) {
                         '<button id="edit-button">&#9998;</button>'+
                       '</div>'+
                       '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>'+
-                      '<div id="plant-description"> Description: ' + description + ' </div>'+
+                      '<div id="plant-description">' + description + ' </div>'+
                     '</div>'+
                 '</div>'+
                   '<div class="content-container">'+
@@ -171,13 +172,40 @@ function show_plant(plantnum) {
                   '</div>';
 
 	$("#plant-info").html(plant_div);
+
+	// remove edit button if someone else's profile
+	if (profileToLoad != username) {
+		$("#edit-button").css("display", "none");
+	} else {
+		// prefill for edit button
+		$("#edit-button").click(function() {
+			open_add_plant_modal(true);
+			$("#add-plant-submit").html("Save Plant");
+
+			$("#plant-type").val(name);
+			var date = owned_since.split("/");
+			$("#date-acquired").val(date[2] + '-' + date[0] + '-' + date[1]);
+			$("#description").val(description);
+			$("#water-amount").val(water);
+			$("#sunlight-amount").val(sunlight);
+			$("#plant-season").val(plant_during);
+			$("#bloom-season").val(blooming_season);
+
+			// delete previously existing plant
+			// when we click "save plant", this will add a new plant
+			// so we delete the old one
+			var user_plant_data = load('user_plant_data');
+			user_plant_data[username].splice(plantnum, 1);
+			save('user_plant_data', user_plant_data);
+		});
+	}
 }
 
 var saved = {}
 
 // based on plant name, fill out rest of form
 function fill_default() {
-	var plantType = $("#plant-type").val();
+	var plantType = $("#plant-type").val().toLowerCase();
 
 	var checked = $("#default-checkbox").is(":checked");
 	if(checked) {
@@ -211,10 +239,10 @@ $("#add-plant-submit").click(function(e) {
 	var plantType = $("#plant-type").val();
 	var picture = $("#pic").val();
 	var dateAcquired = $("#date-acquired").val();
-  var description = $("#description").val();
+	var description = $("#description").val();
 
 	if (plantType !== "") {
-		modal.css("display", "none");
+		open_add_plant_modal(false);
 		var dateString = "";
 
 		if (dateAcquired != "") {
@@ -235,7 +263,7 @@ $("#add-plant-submit").click(function(e) {
 			name: plantType,
 			image: picture,
 			owned_since: dateString,
-      description: description,
+			description: description,
 			related_posts: [],
 			water: $("#water-amount").val(),
 			sunlight: $("#sunlight-amount").val(),
@@ -258,8 +286,8 @@ var user_plant_data = {
 		{
 			name: "Spider Plant",
 			image: "sample-image.jpeg",
-			owned_since: "4/10/18",
-      description: "This is my most recent spider plant.",
+			owned_since: "04/10/2018",
+			description: "This is my most recent spider plant.",
 			related_posts: [],
 			water: "2x / week",
 			sunlight: "Medium",
@@ -269,8 +297,8 @@ var user_plant_data = {
 		{
 			name: "Rose Bush",
 			image: "sample-image.jpeg",
-			owned_since: "3/12/17",
-      description: "Hard to care for, but super rewarding!",
+			owned_since: "03/12/2017",
+			description: "Hard to care for, but super rewarding!",
 			related_posts: [],
 			water: "4x / week",
 			sunlight: "Low",
