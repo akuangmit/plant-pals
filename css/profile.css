@@ -199,7 +199,7 @@
 }
 
 #plant-infobox .plant-img {
-	width: 80px;
+	width: 120px;
   margin-right: 15px;
 }
 
@@ -219,6 +219,10 @@
 
 #plant-infobox .empty {
   padding-top: 25px;
+}
+
+#profile-top #owned-by-date {
+  margin-bottom: 5px;
 }
 
 .modal {
@@ -271,6 +275,10 @@
   border: none;
   border-bottom: 1px solid var(--border-grey, grey);
   padding: 5px;
+}
+
+#profile-top {
+  align-self: flex-start;
 }
 
 .modal-content #plant-date-acquired-div {

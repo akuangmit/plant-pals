@@ -4,7 +4,6 @@ function postClicked(postID) {
 
 // set name to be loaded
 var profileToLoad = localStorage.getItem('profileToLoad');
-
 var hasnotString = "You haven't";
 
 // if profileToLoad is not me, remove the add plant button
@@ -84,11 +83,11 @@ function load_plant() {
 	var plants = user_plant_data[profileToLoad];
 
     // load infobox container on the left
-    var plant_infobox_left = 
+    var plant_infobox_left =
         '<div id="plant-info" class="left-container"></div>';
 
     // load infobox on right
-    var plant_infobox_right = 
+    var plant_infobox_right =
         '<div id="plant-list" class="right-container"></div>';
 
     $("#plant-infobox").html(plant_infobox_left + plant_infobox_right);
@@ -98,7 +97,7 @@ function load_plant() {
 		$("#plant-profile-container").html("<div class='no-plants'> " + hasnotString + " added any plants yet. </div>");
 	} else {
 		var selected_plant_ind = 0;
-		
+
 		for (var i = 0; i < plants.length; i++) {
 	    	var plant_item = '<div id="plant' + i + '" class="mini-plant" onclick="show_plant('+ i +')">'+
 	                '<img src="../img/sprout.svg">'+
@@ -132,6 +131,7 @@ function show_plant(plantnum) {
 	var name = plant.name;
 	var image = plant.image;
 	var owned_since = plant.owned_since;
+  var description = plant.description;
 	var related_posts = plant.related_posts;
 	var water = plant.water;
 	var sunlight = plant.sunlight;
@@ -139,7 +139,7 @@ function show_plant(plantnum) {
 	var blooming_season = plant.blooming_season;
 
 	// set up default
-	var img_div = '<img src="../img/sprout.svg">';
+	var img_div = '<img class="plant-img" src="../img/sprout.svg">';
 	// change to what user uploaded if it is valid
 	if (image !== undefined) { img_div = '<img class="plant-img" src="../img/'+ image + '">'};
 
@@ -154,6 +154,7 @@ function show_plant(plantnum) {
                         '<button id="edit-button">&#9998;</button>'+
                       '</div>'+
                       '<div id="owned-by-date"> Owned since ' + owned_since + ' </div>'+
+                      '<div id="plant-description"> Description: ' + description + ' </div>'+
                     '</div>'+
                 '</div>'+
                   '<div class="content-container">'+
@@ -177,6 +178,7 @@ $("#add-plant-submit").click(function(e) {
 	var plantType = $("#plant-type").val();
 	var picture = $("#pic").val();
 	var dateAcquired = $("#date-acquired").val();
+  var description = $("#description").val();
 
 	if (plantType !== "") {
 		modal.css("display", "none");
@@ -200,6 +202,7 @@ $("#add-plant-submit").click(function(e) {
 			name: plantType,
 			image: picture,
 			owned_since: dateString,
+      description: description,
 			related_posts: [],
 			water: $("#water-amount").val(),
 			sunlight: $("#sunlight-amount").val(),
@@ -223,6 +226,7 @@ var user_plant_data = {
 			name: "Spider Plant",
 			image: "sample-image.jpeg",
 			owned_since: "4/10/18",
+      description: "This is my most recent spider plant.",
 			related_posts: [],
 			water: "2x / week",
 			sunlight: "Medium",
@@ -233,6 +237,7 @@ var user_plant_data = {
 			name: "Rose Bush",
 			image: "sample-image.jpeg",
 			owned_since: "3/12/17",
+      description: "Hard to care for, but super rewarding!",
 			related_posts: [],
 			water: "4x / week",
 			sunlight: "Low",
