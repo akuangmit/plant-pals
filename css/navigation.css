@@ -17,6 +17,9 @@ nav {
 #information {
 	display: flex;
 	align-items: center;
+	flex-grow: 2;
+	justify-content: flex-end;
+	padding-right: 10%;
 }
 
 #information img {
@@ -31,7 +34,8 @@ nav {
 }
 
 #information input {
-	width: 500px;
+	width: 50%;
+	min-width: 80px;
 	margin: 0 40px;
 	padding: 5px 10px;
 	border: none;
