@@ -12,11 +12,11 @@ $("textarea").click(function() {
 
 // $(".create-post .close").click(hide_create_post)
 $("body").click(function(e) {
-	console.log(e.target.id);
 	if (e.target.id != "create-post" && e.target.id != "create-post-container" && e.target.id != "file-icon" && e.target.id != "photo-upload-container" && e.target.id != "upload-hint-container" && e.target.id != "submit-post-div" && e.target.id != "submit-post" && e.target.id != "create-post-bottom" && e.target.id != "upload-hint" && e.target.id != "file-upload" && e.target.id != "post-content" && e.target.id != "post-title") {
 		hide_create_post();
 	};
-})
+});
+
 
 function hide_create_post() {
 	$("textarea").animate({"height":"60px", "margin-top": "0px"}, 100);
