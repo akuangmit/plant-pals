@@ -6,6 +6,11 @@ function postClicked(postID) {
 var profileToLoad = localStorage.getItem('profileToLoad');
 var hasnotString = "You haven't";
 
+// set default plant to be first plant
+if (localStorage.getItem("setting_plant") === null) {
+	localStorage.setItem("setting_plant", 0);
+}
+
 // if profileToLoad is not me, remove the add plant button
 // also say "their plants" and "their posts" instead of "my"
 if(profileToLoad != username) {
@@ -102,12 +107,11 @@ function load_content() {
 
     // load default plant
   if(plants.length === 0) {
-    console.log("HI");
 		$("#plant-infobox").html("<div class='no-plants' style='margin-top: 0px;'> " + hasnotString + " added any plants yet. </div>");
 	}
 
   else {
-		var selected_plant_ind = 0;
+		var selected_plant_ind = localStorage.getItem("setting_plant");
 		for (var i = 0; i < plants.length; i++) {
 	    	var plant_item = '<div id="plant' + i + '" class="mini-plant" onclick="show_plant('+ i +')">'+
 	                '<img src="../img/sprout.svg">'+
@@ -195,15 +199,9 @@ function show_plant(plantnum) {
 			$("#sunlight-amount").val(sunlight);
 			$("#plant-season").val(plant_during);
 			$("#bloom-season").val(blooming_season);
-
-			// delete previously existing plant
-			// when we click "save plant", this will add a new plant
-			// so we delete the old one
-			var user_plant_data = load('user_plant_data');
-			user_plant_data[username].splice(plantnum, 1);
-			save('user_plant_data', user_plant_data);
 		});
 	}
+	localStorage.setItem("setting_plant", plantnum);
 }
 
 var saved = {}
@@ -276,10 +274,20 @@ $("#add-plant-submit").click(function(e) {
 			blooming_season: $("#bloom-season").val(),
 		};
 
-		// save into local storage
-		var user_plant_data = load('user_plant_data');
-		user_plant_data[username].push(plant_data);
-		save('user_plant_data', user_plant_data);
+		if($("#add-plant-submit").text().includes("Save")) {
+			// replace previously existing plant
+			// when we click "save plant", this will add a new plant
+			// so we delete the old one
+			var user_plant_data = load('user_plant_data');
+			var plantnum = localStorage.getItem("setting_plant");
+			user_plant_data[username][plantnum] = plant_data;
+			save('user_plant_data', user_plant_data);
+		} else {
+			// save new plant into local storage
+			var user_plant_data = load('user_plant_data');
+			user_plant_data[username].push(plant_data);
+			save('user_plant_data', user_plant_data);
+		}
 	} else {
 		alert("To add a plant, you must specify the plant's species name.");
 	}
