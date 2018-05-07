@@ -20,6 +20,10 @@
 	font-size: 15px;
 	margin-top: 30px;
 	position: relative;
+<<<<<<< HEAD
+=======
+	display: block !important;
+>>>>>>> d9a4903f709f070101c4ba2074c2c980702d43dd
 }
 
 #create-post-container {
