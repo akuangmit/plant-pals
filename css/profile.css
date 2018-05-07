@@ -8,8 +8,8 @@
   width: 90px;
 }
 
-.image {
-  width: 20px;
+.prof-image:hover {
+  cursor: pointer;
 }
 
 #prof-image-upload {
@@ -247,13 +247,9 @@
 	font-size: 18px;
 }
 
-#plant-infobox .content-container .prof-image {
+#plant-infobox .content-container .image {
 	padding-right: 20px;
   width: 25px;
-}
-
-.prof-image:hover {
-	cursor: pointer;
 }
 
 #plant-infobox .empty {

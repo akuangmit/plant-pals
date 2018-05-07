@@ -6,6 +6,11 @@ function postClicked(postID) {
 var profileToLoad = localStorage.getItem('profileToLoad');
 var hasnotString = "You haven't";
 
+// set default plant to be first plant
+if (localStorage.getItem("setting_plant") === null) {
+	localStorage.setItem("setting_plant", 0);
+}
+
 // if profileToLoad is not me, remove the add plant button
 // also say "their plants" and "their posts" instead of "my"
 if(profileToLoad != username) {
@@ -26,9 +31,9 @@ if (profileToLoad != username) {
   	+'" align="center" class="image"></p>');
 }
 else {
-  $("#prof-picture").html('<p><label for="prof-image-upload"> <div class="tooltip"> <img src="../img/profile-pictures/'+
+  $("#prof-picture").html('<p><div class="tooltip"><label for="prof-image-upload"> <img src="../img/profile-pictures/'+
   	load('name_to_profile')[profileToLoad]
-  	+'" align="center" class="prof-image"><span class="tooltiptext"> Click me to change your profile picture </span></div></label><input type="file" id="prof-image-upload" name="prof-pic" accept="image/*"></p>');
+  	+'" align="center" class="prof-image tooltip"><span class="tooltiptext"> Click me to change your profile picture </span></label></div><input type="file" id="prof-image-upload" name="prof-pic" accept="image/*"></p>');
 }
 
 
@@ -51,16 +56,30 @@ $("#add-plant .close")[0].onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
- window.onclick = function(event) {
-     if (event.target.className === "modal") {
-         open_add_plant_modal(false);
-     }
+window.onclick = function(event) {
+ if (event.target.className === "modal") {
+     open_add_plant_modal(false);
  }
+}
 
-// load posts, after the user clicks on My Posts.
-function load_my_posts() {
-	$("#plant-infobox").empty();
-	$("#feed").empty();
+function show_plants() {
+	$("#plant-infobox").css("display","");
+	$("#feed").css("display","none");
+
+	$("#post-tab").removeClass("active");
+	$("#plant-tab").addClass("active");
+}
+
+function show_posts() {
+	$("#plant-infobox").css("display","none");
+	$("#feed").css("display","block");
+	$("#post-tab").addClass("active");
+  	$("#plant-tab").removeClass("active");
+}
+
+// load everything
+function load_content() {
+	// feed stuff
 	var feed = load('feed');
 	var count = 0;
 	for(var i=0; i<feed.length; i++) {
@@ -74,15 +93,8 @@ function load_my_posts() {
     $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
   }
 
-  $("#post-tab").addClass("active");
-  $("#plant-tab").removeClass("active");
-}
-
-function load_plant() {
-	$("#plant-infobox").empty();
-    $("#feed").empty();
-
-    // initialize for new members
+  //plant stuff
+// initialize for new members
 	var user_plant_data = load('user_plant_data');
 	if (!(profileToLoad in user_plant_data)){
 		user_plant_data[profileToLoad] = []
@@ -107,7 +119,7 @@ function load_plant() {
 	}
 
   else {
-		var selected_plant_ind = 0;
+		var selected_plant_ind = localStorage.getItem("setting_plant");
 		for (var i = 0; i < plants.length; i++) {
 	    	var plant_item = '<div id="plant' + i + '" class="mini-plant" onclick="show_plant('+ i +')">'+
 	                '<img src="../img/sprout.svg">'+
@@ -118,8 +130,6 @@ function load_plant() {
 	  show_plant(selected_plant_ind);
 	}
 
-	$("#post-tab").removeClass("active");
-	$("#plant-tab").addClass("active");
 }
 
 // Adds a plant onto our profile page.
@@ -197,15 +207,9 @@ function show_plant(plantnum) {
 			$("#sunlight-amount").val(sunlight);
 			$("#plant-season").val(plant_during);
 			$("#bloom-season").val(blooming_season);
-
-			// delete previously existing plant
-			// when we click "save plant", this will add a new plant
-			// so we delete the old one
-			var user_plant_data = load('user_plant_data');
-			user_plant_data[username].splice(plantnum, 1);
-			save('user_plant_data', user_plant_data);
 		});
 	}
+	localStorage.setItem("setting_plant", plantnum);
 }
 
 var saved = {}
@@ -278,10 +282,20 @@ $("#add-plant-submit").click(function(e) {
 			blooming_season: $("#bloom-season").val(),
 		};
 
-		// save into local storage
-		var user_plant_data = load('user_plant_data');
-		user_plant_data[username].push(plant_data);
-		save('user_plant_data', user_plant_data);
+		if($("#add-plant-submit").text().includes("Save")) {
+			// replace previously existing plant
+			// when we click "save plant", this will add a new plant
+			// so we delete the old one
+			var user_plant_data = load('user_plant_data');
+			var plantnum = localStorage.getItem("setting_plant");
+			user_plant_data[username][plantnum] = plant_data;
+			save('user_plant_data', user_plant_data);
+		} else {
+			// save new plant into local storage
+			var user_plant_data = load('user_plant_data');
+			user_plant_data[username].push(plant_data);
+			save('user_plant_data', user_plant_data);
+		}
 	} else {
 		alert("To add a plant, you must specify the plant's species name.");
 	}
@@ -318,25 +332,84 @@ var user_plant_data = {
 
 // this is our internal database of default information for plants
 var plant_info_all = {
-	"spider plant" : {
+	"Spider Plant" : {
 		water: "2x / week",
 		sunlight: "Medium",
 		plant_during: "February",
 		blooming_season: "April - June"
 	},
-	"rose bush" : {
+	"Rose Bush" : {
 		water: "4x / week",
 		sunlight: "Low",
 		plant_during: "June",
 		blooming_season: "May - August"
 	},
-	//TODO remove default!!!
-	"default" : {
-		water: "unknown",
-		sunlight: "unknown",
-		plant_during: "unknown",
-		blooming_season: "unknown"
-	}
+  "Aster" : {
+    water: "4x / week",
+    sunlight: "Full sun",
+    plant_during: "Early Spring",
+    blooming_season: "Late Spring - Early Fall"
+  },
+  "Buttercup" : {
+    water: "5x / week",
+    sunlight: "Partial Shade",
+    plant_during: "Early Spring",
+    blooming_season: "Late Spring - Early Summer"
+  },
+  "Carnation" : {
+    water: "Daily",
+    sunlight: "Full Sun",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer - Late Summer"
+  },
+  "Cosmos" : {
+    water: "3x / Week",
+    sunlight: "Partial Shade",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer - Mid Fall"
+  },
+  "Daisy" : {
+    water: "Daily",
+    sunlight: "Partial Shade",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer - Early Fall"
+  },
+  "Glory of the Snow" : {
+    water: "2x / Week",
+    sunlight: "All Sun Types",
+    plant_during: "Fall",
+    blooming_season: "Early Spring"
+  },
+  "Hyacinth" : {
+    water: "4x / Week",
+    sunlight: "Full Sun",
+    plant_during: "Spring",
+    blooming_season: "Mid Summer"
+  },
+  "Jacob's Ladder" : {
+    water: "6x / Week",
+    sunlight: "All Sun Types",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer"
+  },
+  "Spring Snowflake" : {
+    water: "3x / Week",
+    sunlight: "Full Sun / Partial Shade",
+    plant_during: "Fall",
+    blooming_season: "Early Spring"
+  },
+  "Violet" : {
+    water: "6x / Week",
+    sunlight: "Full Sun / Partial Shade",
+    plant_during: "Any Time",
+    blooming_season: "All Seasons"
+  },
+  "Zinnia" : {
+    water: "6x / Week",
+    sunlight: "Full Sun ",
+    plant_during: "Spring",
+    blooming_season: "Mid Summer - Fall"
+  },
 }
 
 function checkPlantType(val) {
@@ -372,5 +445,6 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('user_plant_data')) {
 	  save('user_plant_data', user_plant_data);
 	}
-	load_plant();
+	load_content();
+	show_plants();
 });
