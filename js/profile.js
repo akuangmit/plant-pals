@@ -43,16 +43,30 @@ $("#add-plant .close")[0].onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
- window.onclick = function(event) {
-     if (event.target.className === "modal") {
-         open_add_plant_modal(false);
-     }
+window.onclick = function(event) {
+ if (event.target.className === "modal") {
+     open_add_plant_modal(false);
  }
+}
 
-// load posts, after the user clicks on My Posts.
-function load_my_posts() {
-	$("#plant-infobox").empty();
-	$("#feed").empty();
+function show_plants() {
+	$("#plant-infobox").css("display","");
+	$("#feed").css("display","none");
+
+	$("#post-tab").removeClass("active");
+	$("#plant-tab").addClass("active");
+}
+
+function show_posts() {
+	$("#plant-infobox").css("display","none");
+	$("#feed").css("display","block");
+	$("#post-tab").addClass("active");
+  	$("#plant-tab").removeClass("active");
+}
+
+// load everything
+function load_content() {
+	// feed stuff
 	var feed = load('feed');
 	var count = 0;
 	for(var i=0; i<feed.length; i++) {
@@ -64,17 +78,10 @@ function load_my_posts() {
 
   if (count === 0) {
     $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
-  }
+  }  
 
-  $("#post-tab").addClass("active");
-  $("#plant-tab").removeClass("active");
-}
-
-function load_plant() {
-	$("#plant-infobox").empty();
-    $("#feed").empty();
-
-    // initialize for new members
+  //plant stuff
+// initialize for new members
 	var user_plant_data = load('user_plant_data');
 	if (!(profileToLoad in user_plant_data)){
 		user_plant_data[profileToLoad] = []
@@ -111,8 +118,6 @@ function load_plant() {
 	  show_plant(selected_plant_ind);
 	}
 
-	$("#post-tab").removeClass("active");
-	$("#plant-tab").addClass("active");
 }
 
 // Adds a plant onto our profile page.
@@ -345,5 +350,6 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('user_plant_data')) {
 	  save('user_plant_data', user_plant_data);
 	}
-	load_plant();
+	load_content();
+	show_plants();
 });

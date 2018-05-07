@@ -22,15 +22,6 @@
 	position: relative;
 }
 
-.create-post .close {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	display: none;
-	width: 100%;
-	text-align: center;
-}
-
 #create-post-container {
 	width: 100%;
 }
