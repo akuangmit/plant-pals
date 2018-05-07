@@ -420,7 +420,6 @@ $("#default-checkbox-container").click(function() {
 		} else {
 			alert("Sorry, but we don't have information about plant type " + $("#plant-type").val() + " yet.")
 		}
-		
 	}
 });
 
