@@ -94,25 +94,25 @@ function load_plant() {
     $("#plant-infobox").html(plant_infobox_left + plant_infobox_right);
 
     // load default plant
-    if(plants.length === 0) {
-		$("#plant-profile-container").html("<div class='no-plants'> " + hasnotString + " added any plants yet. </div>");
-	} else {
-		var selected_plant_ind = 0;
+  if(plants.length === 0) {
+    console.log("HI");
+		$("#plant-infobox").html("<div class='no-plants' style='margin-top: 0px;'> " + hasnotString + " added any plants yet. </div>");
+	}
 
+  else {
+		var selected_plant_ind = 0;
 		for (var i = 0; i < plants.length; i++) {
 	    	var plant_item = '<div id="plant' + i + '" class="mini-plant" onclick="show_plant('+ i +')">'+
 	                '<img src="../img/sprout.svg">'+
 	                '<span>' + plants[i].name + '</span>'+
 	              '</div>';
-	        $("#plant-list").append(plant_item);
+	       $("#plant-list").append(plant_item);
 	    }
-
-	    show_plant(selected_plant_ind);
+	  show_plant(selected_plant_ind);
 	}
 
 	$("#post-tab").removeClass("active");
 	$("#plant-tab").addClass("active");
-
 }
 
 // Adds a plant onto our profile page.
