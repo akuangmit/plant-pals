@@ -25,9 +25,17 @@ if(profileToLoad != username) {
 $("#name").html(profileToLoad);
 
 // set profile picture
-$("#prof-picture").html('<p><img src="../img/profile-pictures/'+
-	load('name_to_profile')[profileToLoad]
-	+'" align="center" class="image"></p>');
+if (profileToLoad != username) {
+  $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
+  	load('name_to_profile')[profileToLoad]
+  	+'" align="center" class="image"></p>');
+}
+else {
+  $("#prof-picture").html('<p><div class="tooltip"><label for="prof-image-upload"> <img src="../img/profile-pictures/'+
+  	load('name_to_profile')[profileToLoad]
+  	+'" align="center" class="prof-image tooltip"><span class="tooltiptext"> Click me to change your profile picture </span></label></div><input type="file" id="prof-image-upload" name="prof-pic" accept="image/*"></p>');
+}
+
 
 // set date joined
 $("#joined-since").html("Member since " + load('member_since')[profileToLoad])
@@ -83,7 +91,7 @@ function load_content() {
 
   if (count === 0) {
     $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
-  }  
+  }
 
   //plant stuff
 // initialize for new members
@@ -324,25 +332,84 @@ var user_plant_data = {
 
 // this is our internal database of default information for plants
 var plant_info_all = {
-	"spider plant" : {
+	"Spider Plant" : {
 		water: "2x / week",
 		sunlight: "Medium",
 		plant_during: "February",
 		blooming_season: "April - June"
 	},
-	"rose bush" : {
+	"Rose Bush" : {
 		water: "4x / week",
 		sunlight: "Low",
 		plant_during: "June",
 		blooming_season: "May - August"
 	},
-	//TODO remove default!!!
-	"default" : {
-		water: "unknown",
-		sunlight: "unknown",
-		plant_during: "unknown",
-		blooming_season: "unknown"
-	}
+  "Aster" : {
+    water: "4x / week",
+    sunlight: "Full sun",
+    plant_during: "Early Spring",
+    blooming_season: "Late Spring - Early Fall"
+  },
+  "Buttercup" : {
+    water: "5x / week",
+    sunlight: "Partial Shade",
+    plant_during: "Early Spring",
+    blooming_season: "Late Spring - Early Summer"
+  },
+  "Carnation" : {
+    water: "Daily",
+    sunlight: "Full Sun",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer - Late Summer"
+  },
+  "Cosmos" : {
+    water: "3x / Week",
+    sunlight: "Partial Shade",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer - Mid Fall"
+  },
+  "Daisy" : {
+    water: "Daily",
+    sunlight: "Partial Shade",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer - Early Fall"
+  },
+  "Glory of the Snow" : {
+    water: "2x / Week",
+    sunlight: "All Sun Types",
+    plant_during: "Fall",
+    blooming_season: "Early Spring"
+  },
+  "Hyacinth" : {
+    water: "4x / Week",
+    sunlight: "Full Sun",
+    plant_during: "Spring",
+    blooming_season: "Mid Summer"
+  },
+  "Jacob's Ladder" : {
+    water: "6x / Week",
+    sunlight: "All Sun Types",
+    plant_during: "Late Spring",
+    blooming_season: "Mid Summer"
+  },
+  "Spring Snowflake" : {
+    water: "3x / Week",
+    sunlight: "Full Sun / Partial Shade",
+    plant_during: "Fall",
+    blooming_season: "Early Spring"
+  },
+  "Violet" : {
+    water: "6x / Week",
+    sunlight: "Full Sun / Partial Shade",
+    plant_during: "Any Time",
+    blooming_season: "All Seasons"
+  },
+  "Zinnia" : {
+    water: "6x / Week",
+    sunlight: "Full Sun ",
+    plant_during: "Spring",
+    blooming_season: "Mid Summer - Fall"
+  },
 }
 
 // if disabled, show why
