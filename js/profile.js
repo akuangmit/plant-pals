@@ -197,6 +197,7 @@ function show_plant(plantnum) {
 		// prefill for edit button
 		$("#edit-button").click(function() {
 			open_add_plant_modal(true);
+			check_plant_type(name);
 			$("#add-plant-submit").html("Save Plant");
 
 			$("#plant-type").val(name);
@@ -327,7 +328,31 @@ var user_plant_data = {
 			blooming_season: "May - August"
 		},
 	],
-	"Jane Doe" : []
+	"Jane Doe" : [],
+	"John Doe" : [
+		{
+			name: "Daisy",
+			image: "sample-image.jpeg",
+			owned_since: "05/08/2018",
+			description: "Hoping to give it to Mom on mother's day.",
+			related_posts: [],
+			water: "4x / week??",
+			sunlight: "Shady",
+			plant_during: "Late Spring",
+			blooming_season: "Mid Summer - Early Fall"
+		},
+		{
+			name: "Glory of the Snow",
+			image: "sample-image.jpeg",
+			owned_since: "01/04/2018",
+			description: "Got this plant because of its cool name!",
+			related_posts: [],
+			water: "2x / Week",
+		    sunlight: "All Sun Types",
+		    plant_during: "Fall",
+		    blooming_season: "Early Spring"
+		}
+	]
 }
 
 // this is our internal database of default information for plants
@@ -423,7 +448,7 @@ $("#default-checkbox-container").click(function() {
 	}
 });
 
-function checkPlantType(val) {
+function check_plant_type(val) {
 	if(Object.keys(plant_info_all).includes(val)) {
   		$("#default-checkbox").prop("disabled", false);
   		$("#default-checkbox-container").removeClass("disabled");
@@ -438,12 +463,12 @@ $("#plant-type").autocomplete({
 	source: Object.keys(plant_info_all),
 	appendTo: "#plant-type-div",
 	select: function(event, ui) {
-		checkPlantType(ui.item.label);
+		check_plant_type(ui.item.label);
 	}
 });
 
 $("#plant-type").keyup(function(e) {
-	checkPlantType($("#plant-type").val());
+	check_plant_type($("#plant-type").val());
 });
 
 $( document ).ready(function() {
