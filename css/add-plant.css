@@ -42,6 +42,7 @@
 
 #plant-container-left {
 	width: 20%;
+	padding-top: 2%;
 	text-align: right;
 }
 
@@ -56,6 +57,7 @@
 
 #plant-container-middle {
 	width: 30%;
+	padding-top: 2%;
 	text-align: left;
 }
 
@@ -74,15 +76,25 @@
 	box-sizing: border-box;
 }
 
-#care-container {
+#care-container-wrapper {
 	display: flex;
+	flex-direction: column;
 	margin: 20px 30px;
 	padding-top: 20px;
 	border: 1px solid var(--border-grey, grey);
 }
 
+#care-container {
+	display: flex;
+	padding-bottom: 2%;
+}
+
 #care-container > div {
 	width: 50%;
+}
+
+#care-container div {
+	align-items: baseline;
 }
 
 .care-input-container {
@@ -96,4 +108,3 @@
 .care-input-container label {
 	margin-right: 5px;
 }
-
