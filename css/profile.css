@@ -8,6 +8,10 @@
   width: 90px;
 }
 
+.image {
+  width: 20px;
+}
+
 #prof-image-upload {
   display: none;
 }
