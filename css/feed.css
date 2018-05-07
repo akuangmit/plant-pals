@@ -100,13 +100,13 @@ form {
 
 @media (max-width: 840px) {
 	#feed {
-		margin: 25px 10%;
+		margin: 0px 10%;
 	}
 }
 
 @media (min-width: 840px) {
 	#feed {
-		margin: 25px calc(calc(100% - var(--max-width)) / 2);
+		margin: 0px calc(calc(100% - var(--max-width)) / 2);
 	}
 }
 
@@ -121,7 +121,7 @@ form {
 	background-color: var(--white, white);
 	padding: 10px 20px;
 	font-size: 15px;
-	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 #feed .top-container {

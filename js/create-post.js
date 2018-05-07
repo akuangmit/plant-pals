@@ -17,7 +17,6 @@ $("body").click(function(e) {
 	};
 });
 
-
 function hide_create_post() {
 	$("textarea").animate({"height":"60px", "margin-top": "0px"}, 100);
 	$(".create-post button").hide(100);

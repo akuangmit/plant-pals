@@ -21,11 +21,12 @@
     justify-content: flex-start;
   }
   #plant-infobox {
-    margin: 25px 10%;
+    margin: 0px 10% 25px 10%;
   }
   .tab {
     margin-left: 10%;
     border-radius: 5px 5px 0px 0px;
+    display: flex;
   }
 }
 
@@ -38,11 +39,12 @@
     justify-content: flex-start;
   }
   #plant-infobox {
-    margin: 25px calc(calc(100% - var(--max-width)) / 2);
+    margin: 0px calc(calc(100% - var(--max-width)) / 2) 25px calc(calc(100% - var(--max-width)) / 2);
   }
   .tab {
     margin-left: calc(calc(100% - var(--max-width)) / 2);
     border-radius: 5px 5px 0px 0px;
+    display: flex;
   }
 }
 
@@ -95,7 +97,6 @@
 	border-radius: 5px;
 	background-color: var(--white, white);
 	font-size: 15px;
-	margin-top: 30px;
   display: flex;
 }
 
@@ -123,7 +124,6 @@
   padding: 10px;
   margin: 0;
   width: 30%;
-  overflow-y: scroll;
 }
 
 #plant-infobox .active-plant {
@@ -150,6 +150,7 @@
 	color: var(--white, white);
 	border-radius: 50%;
   border: none;
+  cursor: pointer;
 }
 
 #plant-infobox .plant-profile-container #owned-by-date {

@@ -39,7 +39,7 @@
           </div>
           <div id="links">
             <a href="index.html" class="linkContainer">Home</a>
-            <a class="linkContainer" style="background-color:rgba(51, 204, 51, 0.5)" href="profile.html" onclick="set_profile_to_load()">
+            <a class="linkContainer" style="font-weight: 1000" href="profile.html" onclick="set_profile_to_load()">
               Profile
             </a>
             <a href="#" class="linkContainer" id="notifications-link"> Notifications </a>
@@ -81,10 +81,9 @@
 
       <div id="bottom-content">
         <div class="tab">
-          <button class="tablinks active" onclick="load_plant()" id="plant-tab">My Plants</button>
-          <button class="tablinks" onclick="load_my_posts()" id="post-tab">My Posts</button>
+          <button class="tablinks active" onclick="show_plants()" id="plant-tab">My Plants</button>
+          <button class="tablinks" onclick="show_posts()" id="post-tab">My Posts</button>
         </div>
-        <br>
         <div id="plant-post-container">
           <div id="plant-infobox" class="plant-div">
           </div>
