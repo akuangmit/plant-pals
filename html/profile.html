@@ -126,12 +126,12 @@
             </div>
           </div>
 
-          <div id="select-default">
-          </div>
-
           <div id="care-container-wrapper">
-            <div>
-              <input id="default-checkbox" type="checkbox" onclick="fill_default()"> Autofill care info from our database
+            <div id="default-checkbox-container" class="disabled">
+              <input id="default-checkbox" type="checkbox" onclick="fill_default()" disabled="true"> 
+              <span id="default-checkbox-message">Autofill care info</span>
+              <span id="default-checkbox-plant">Fill in plant type</span>
+              
             </div>
 
             <div id="care-container">

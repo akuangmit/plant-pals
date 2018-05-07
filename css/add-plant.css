@@ -84,6 +84,25 @@
 	border: 1px solid var(--border-grey, grey);
 }
 
+#default-checkbox-container {
+	margin: 0px 100px;
+}
+
+
+#default-checkbox-container .disabled {
+	cursor:not-allowed;
+}
+
+#default-checkbox-message .disabled {
+	color:gray;
+}
+
+#default-checkbox-plant .disabled {
+	color:red;
+}
+
+
+
 #care-container {
 	display: flex;
 	padding-bottom: 2%;

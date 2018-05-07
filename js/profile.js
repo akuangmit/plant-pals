@@ -345,10 +345,30 @@ var plant_info_all = {
 	}
 }
 
+function checkPlantType(val) {
+
+	if(Object.keys(plant_info_all).includes(val)) {
+		$("#default-checkbox-plant").html("using data for " + val)
+  		$("#default-checkbox").prop("disabled", false);
+  		$("#default-checkbox-container").removeClass("disabled");
+	} else {
+		$("#default-checkbox-plant").html("no data exists for " + val)
+		$("#default-checkbox").prop("disabled", true);
+		$("#default-checkbox-container").addClass("disabled");
+	}
+}
+
 // autocomplete for adding plants
 $("#plant-type").autocomplete({
 	source: Object.keys(plant_info_all),
-	appendTo: "#plant-type-div"
+	appendTo: "#plant-type-div",
+	select: function(event, ui) {
+		checkPlantType(ui.item.label);
+	}
+});
+
+$("#plant-type").keyup(function(e) {
+	checkPlantType($("#plant-type").val());
 });
 
 $( document ).ready(function() {
