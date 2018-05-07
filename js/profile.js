@@ -216,7 +216,7 @@ var saved = {}
 
 // based on plant name, fill out rest of form
 function fill_default() {
-	var plantType = $("#plant-type").val().toLowerCase();
+	var plantType = $("#plant-type").val();
 
 	var checked = $("#default-checkbox").is(":checked");
 	if(checked) {
