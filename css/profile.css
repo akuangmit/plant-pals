@@ -8,6 +8,10 @@
   width: 90px;
 }
 
+#prof-image-upload {
+  display: none;
+}
+
 @media (max-width: 1250px) {
   #top-bar {
     display: flex;
@@ -212,9 +216,13 @@
 	font-size: 18px;
 }
 
-#plant-infobox .content-container .image {
+#plant-infobox .content-container .prof-image {
 	padding-right: 20px;
   width: 25px;
+}
+
+.prof-image:hover {
+	cursor: pointer;
 }
 
 #plant-infobox .empty {

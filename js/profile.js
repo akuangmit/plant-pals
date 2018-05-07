@@ -20,9 +20,18 @@ if(profileToLoad != username) {
 $("#name").html(profileToLoad);
 
 // set profile picture
-$("#prof-picture").html('<p><img src="../img/profile-pictures/'+
-	load('name_to_profile')[profileToLoad]
-	+'" align="center" class="image"></p>');
+
+if (profileToLoad != username) {
+  $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
+  	load('name_to_profile')[profileToLoad]
+  	+'" align="center" class="image"></p>');
+}
+else {
+  $("#prof-picture").html('<p><label for="prof-image-upload"><img src="../img/profile-pictures/'+
+  	load('name_to_profile')[profileToLoad]
+  	+'" align="center" class="prof-image"></label><input type="file" id="prof-image-upload" name="prof-pic" accept="image/*"></p>');
+}
+
 
 // set date joined
 $("#joined-since").html("Member since " + load('member_since')[profileToLoad])
