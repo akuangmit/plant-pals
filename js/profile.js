@@ -9,6 +9,12 @@ var hasnotString = "You haven't";
 // set default plant to be first plant
 if (localStorage.getItem("setting_plant") === null) {
 	localStorage.setItem("setting_plant", 0);
+} else {
+	var last = localStorage.getItem("setting_plant");
+	var num_plants = load('user_plant_data')[profileToLoad].length;
+	if(num_plants <= last) {
+		localStorage.setItem("setting_plant", 0);
+	}
 }
 
 // if profileToLoad is not me, remove the add plant button
