@@ -20,15 +20,7 @@
 	font-size: 15px;
 	margin-top: 30px;
 	position: relative;
-}
-
-.create-post .close {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	display: none;
-	width: 100%;
-	text-align: center;
+	display: block !important;
 }
 
 #create-post-container {
