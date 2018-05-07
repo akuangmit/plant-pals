@@ -6,11 +6,6 @@ function postClicked(postID) {
 var profileToLoad = localStorage.getItem('profileToLoad');
 var hasnotString = "You haven't";
 
-// set default plant to be first plant
-if (localStorage.getItem("setting_plant") === null) {
-	localStorage.setItem("setting_plant", 0);
-}
-
 // if profileToLoad is not me, remove the add plant button
 // also say "their plants" and "their posts" instead of "my"
 if(profileToLoad != username) {
@@ -25,9 +20,17 @@ if(profileToLoad != username) {
 $("#name").html(profileToLoad);
 
 // set profile picture
-$("#prof-picture").html('<p><img src="../img/profile-pictures/'+
-	load('name_to_profile')[profileToLoad]
-	+'" align="center" class="image"></p>');
+if (profileToLoad != username) {
+  $("#prof-picture").html('<p><img src="../img/profile-pictures/'+
+  	load('name_to_profile')[profileToLoad]
+  	+'" align="center" class="image"></p>');
+}
+else {
+  $("#prof-picture").html('<p><label for="prof-image-upload"> <div class="tooltip"> <img src="../img/profile-pictures/'+
+  	load('name_to_profile')[profileToLoad]
+  	+'" align="center" class="prof-image"><span class="tooltiptext"> Click me to change your profile picture </span></div></label><input type="file" id="prof-image-upload" name="prof-pic" accept="image/*"></p>');
+}
+
 
 // set date joined
 $("#joined-since").html("Member since " + load('member_since')[profileToLoad])
@@ -48,30 +51,16 @@ $("#add-plant .close")[0].onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
- if (event.target.className === "modal") {
-     open_add_plant_modal(false);
+ window.onclick = function(event) {
+     if (event.target.className === "modal") {
+         open_add_plant_modal(false);
+     }
  }
-}
 
-function show_plants() {
-	$("#plant-infobox").css("display","");
-	$("#feed").css("display","none");
-
-	$("#post-tab").removeClass("active");
-	$("#plant-tab").addClass("active");
-}
-
-function show_posts() {
-	$("#plant-infobox").css("display","none");
-	$("#feed").css("display","block");
-	$("#post-tab").addClass("active");
-  	$("#plant-tab").removeClass("active");
-}
-
-// load everything
-function load_content() {
-	// feed stuff
+// load posts, after the user clicks on My Posts.
+function load_my_posts() {
+	$("#plant-infobox").empty();
+	$("#feed").empty();
 	var feed = load('feed');
 	var count = 0;
 	for(var i=0; i<feed.length; i++) {
@@ -83,10 +72,17 @@ function load_content() {
 
   if (count === 0) {
     $("#feed").html("<div class='no-posts'> " + hasnotString + " written any posts yet. </div>");
-  }  
+  }
 
-  //plant stuff
-// initialize for new members
+  $("#post-tab").addClass("active");
+  $("#plant-tab").removeClass("active");
+}
+
+function load_plant() {
+	$("#plant-infobox").empty();
+    $("#feed").empty();
+
+    // initialize for new members
 	var user_plant_data = load('user_plant_data');
 	if (!(profileToLoad in user_plant_data)){
 		user_plant_data[profileToLoad] = []
@@ -111,7 +107,7 @@ function load_content() {
 	}
 
   else {
-		var selected_plant_ind = localStorage.getItem("setting_plant");
+		var selected_plant_ind = 0;
 		for (var i = 0; i < plants.length; i++) {
 	    	var plant_item = '<div id="plant' + i + '" class="mini-plant" onclick="show_plant('+ i +')">'+
 	                '<img src="../img/sprout.svg">'+
@@ -122,6 +118,8 @@ function load_content() {
 	  show_plant(selected_plant_ind);
 	}
 
+	$("#post-tab").removeClass("active");
+	$("#plant-tab").addClass("active");
 }
 
 // Adds a plant onto our profile page.
@@ -199,9 +197,15 @@ function show_plant(plantnum) {
 			$("#sunlight-amount").val(sunlight);
 			$("#plant-season").val(plant_during);
 			$("#bloom-season").val(blooming_season);
+
+			// delete previously existing plant
+			// when we click "save plant", this will add a new plant
+			// so we delete the old one
+			var user_plant_data = load('user_plant_data');
+			user_plant_data[username].splice(plantnum, 1);
+			save('user_plant_data', user_plant_data);
 		});
 	}
-	localStorage.setItem("setting_plant", plantnum);
 }
 
 var saved = {}
@@ -274,20 +278,10 @@ $("#add-plant-submit").click(function(e) {
 			blooming_season: $("#bloom-season").val(),
 		};
 
-		if($("#add-plant-submit").text().includes("Save")) {
-			// replace previously existing plant
-			// when we click "save plant", this will add a new plant
-			// so we delete the old one
-			var user_plant_data = load('user_plant_data');
-			var plantnum = localStorage.getItem("setting_plant");
-			user_plant_data[username][plantnum] = plant_data;
-			save('user_plant_data', user_plant_data);
-		} else {
-			// save new plant into local storage
-			var user_plant_data = load('user_plant_data');
-			user_plant_data[username].push(plant_data);
-			save('user_plant_data', user_plant_data);
-		}
+		// save into local storage
+		var user_plant_data = load('user_plant_data');
+		user_plant_data[username].push(plant_data);
+		save('user_plant_data', user_plant_data);
 	} else {
 		alert("To add a plant, you must specify the plant's species name.");
 	}
@@ -378,6 +372,5 @@ $( document ).ready(function() {
 	if(!localStorage.getItem('user_plant_data')) {
 	  save('user_plant_data', user_plant_data);
 	}
-	load_content();
-	show_plants();
+	load_plant();
 });
