@@ -216,7 +216,7 @@ var saved = {}
 
 // based on plant name, fill out rest of form
 function fill_default() {
-	var plantType = $("#plant-type").val().toLowerCase();
+	var plantType = $("#plant-type").val();
 
 	var checked = $("#default-checkbox").is(":checked");
 	if(checked) {
@@ -412,14 +412,22 @@ var plant_info_all = {
   },
 }
 
-function checkPlantType(val) {
+// if disabled, show why
+$("#default-checkbox-container").click(function() {
+	if($("#default-checkbox").prop("disabled")) {
+		if($("#plant-type").val() == "") {
+			alert("Fill in a plant type to autofill care information.");
+		} else {
+			alert("Sorry, but we don't have information about plant type " + $("#plant-type").val() + " yet.")
+		}
+	}
+});
 
+function checkPlantType(val) {
 	if(Object.keys(plant_info_all).includes(val)) {
-		$("#default-checkbox-plant").html("using data for " + val)
   		$("#default-checkbox").prop("disabled", false);
   		$("#default-checkbox-container").removeClass("disabled");
 	} else {
-		$("#default-checkbox-plant").html("no data exists for " + val)
 		$("#default-checkbox").prop("disabled", true);
 		$("#default-checkbox-container").addClass("disabled");
 	}
