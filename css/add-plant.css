@@ -89,18 +89,10 @@
 }
 
 
-#default-checkbox-container .disabled {
+#default-checkbox-container.disabled {
 	cursor:not-allowed;
-}
-
-#default-checkbox-message .disabled {
 	color:gray;
 }
-
-#default-checkbox-plant .disabled {
-	color:red;
-}
-
 
 
 #care-container {
