@@ -1,6 +1,6 @@
 // how long a post can be before there's a "See More" button.
-var max_post_length = 750;
-var max_comments = 3;
+var max_post_length = 250;
+var max_comments = 2;
 
 function add_comment(divID, globalID, commentIndex, comment, animate) {
 	var author = comment.author;
