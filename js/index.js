@@ -105,13 +105,13 @@ var feed_base = [
 	{
 		author: "Jane Doe",
 		likes: 0,
-		title: "Anyone Interested In a Community Day Meetup?",
-		content: "I am a novice plant owner and am wondering if there are others who are interested in a casual meetup this Saturday April 21st at 11am, with lunch at Golden Gate Park's Strawberry Hill location in San Francisco. Please comment if you are interested!",
+		title: "Advice Regarding What Other Plants to Take Care Of?",
+		content: "I am a novice plant owner and have been taking care of spider plants. I am wondering if any expert has advice regarding what plants I should take care of next!",
 		images: [],
 		comments: [
 			{
 				author: "Angela Leung",
-				content: "Yes, I'm interested! I can also help organize the meetup :)",
+				content: "I am also in the same boat, and am interested!",
 				time: "1 minute ago"
 			}
 		],
